@@ -29,7 +29,7 @@ const addUserForm = function() {
     formSubmitButton.type = "submit"
     formSubmitButton.value = "Register"
     formSubmitButton.id = "user_submitForm"
-    formSubmitButton.addEventListener("click", createUser())
+    formSubmitButton.addEventListener("click", createUser)
 
     formDiv.appendChild(formSubmitButton) //appends register button to the div
 

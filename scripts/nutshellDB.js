@@ -8,6 +8,7 @@ const userEvent = require("./userEvent")
 const userFriend = require("./userFriend")
 const userNews = require("./userNews")
 
+
 const mainDB = {
     "users": users,
     "tasks": tasks,
@@ -19,9 +20,6 @@ const mainDB = {
     "userFriend": userFriend,
     "userNews": userNews
 }
-
-let mainDBString = JSON.stringify(mainDB)
-localStorage.setItem("nutshellDB", mainDBString)
 
 
 module.exports = mainDB
