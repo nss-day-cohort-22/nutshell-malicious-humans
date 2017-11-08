@@ -11,16 +11,15 @@ const addUserForm = function() {
 
     //creates content for the form
     let userFormString = `
-        <form>
             <label for="user_firstName">First Name</label>    
-                <input type="text" id="user_firstName" name="user_firstName" required>
+                <input type="text" id="user_firstName" name="user_firstName" required="required">
             <label for="user_lastName">Last Name</label>    
-                <input type="text" id="user_lastName" name="user_lastName" required>
+                <input type="text" id="user_lastName" name="user_lastName" required="required">
             <label for="user_userName">Username</label>    
-                <input type="text" id="user_userName" name="user_userName" required>
+                <input type="text" id="user_userName" name="user_userName" required="required">
             <label for="user_email">Email Address</label>    
-                <input type="email" id="user_email" name="user_email" required>
-        </form>
+                <input type="email" id="user_email" name="user_email" required="required">
+    
     ` 
     formDiv.innerHTML = userFormString //adds the form content to the div
     
