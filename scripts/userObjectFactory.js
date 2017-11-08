@@ -48,9 +48,13 @@ let createUser = () => {
     let userName = document.getElementById("user_userName").value
     let userEmail = document.getElementById("user_email").value
 
-    userObjectFactory(userFN, userLN, userName, userEmail)
+    if(userFN === "" || userLN === "" || userName === "" || userEmail === "") {
+        alert("Please complete all fields")
+    } else {
+        userObjectFactory(userFN, userLN, userName, userEmail)
 
-    setLocalStorage(storedMainDB)
+        setLocalStorage(storedMainDB)
+    }
     
 }
 
