@@ -5,7 +5,9 @@
 const idGenerator = require("./idGenerator")
 const setLocalStorage = require("./setLocalStorage")
 const getLocalStorage = require("./getLocalStorage")
+const copyUser = require("./copyUser")
 const buildDashboard = require("./buildDashboard")
+
 
 const storedMainDB = getLocalStorage()
 
@@ -14,33 +16,34 @@ const storedMainDB = getLocalStorage()
 let userObjectFactory = function (firstName, lastName, userName, email) {
     let lastId = storedMainDB.users[storedMainDB.users.length- 1] ||  {userId: 0}
     let userIdFactory = idGenerator(lastId.userId)
-    storedMainDB.users.push(
-        Object.create(null, {
-            "userId": {
-                "value": userIdFactory.next().value,
-                "enumerable": true
-            },
-            "firstName": {
-                "value": firstName,
-                "enumerable": true,
-                "writable": true
-            },
-            "lastName": {
-                "value": lastName,
-                "enumerbale": true,
-                "writable": true
-            },
-            "userName": {
-                "value": userName,
-                "enumerable": true,
-            },
-            "email": {
-                "value": email,
-                "enumerable": true,
-                "writable": true
-            }
-        })
-    )
+    let newUser = Object.create(null, {
+        "userId": {
+            "value": userIdFactory.next().value,
+            "enumerable": true
+        },
+        "firstName": {
+            "value": firstName,
+            "enumerable": true,
+            "writable": true
+        },
+        "lastName": {
+            "value": lastName,
+            "enumerbale": true,
+            "writable": true
+        },
+        "userName": {
+            "value": userName,
+            "enumerable": true,
+        },
+        "email": {
+            "value": email,
+            "enumerable": true,
+            "writable": true
+        }
+    })
+    storedMainDB.users.push(newUser)
+    copyUser(newUser)
+    
 }
 
 let createUser = () => {
