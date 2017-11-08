@@ -1,4 +1,4 @@
-
+const displayActiveUser = require("./displayActiveUser")
 
 const buildDashboard = function () {
     //hide landing page and sign up form sections
@@ -6,6 +6,7 @@ const buildDashboard = function () {
     landingSection.classList.add("hideIt")
     let formSection = document.getElementById("userFormSection")
     formSection.classList.add("hideIt")
+    displayActiveUser()
 
     // declare a variable to store the html injection location for the dashboard using an id
     let dashBoardMarker = document.getElementById("Dashboard")
