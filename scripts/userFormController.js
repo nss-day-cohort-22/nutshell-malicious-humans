@@ -5,6 +5,8 @@ const createUser = require("./userObjectFactory")
 const userFormEl = document.getElementById("userFormSection")
 
 const addUserForm = function() {
+    
+    document.getElementById("showUserForm").classList.add("hideIt") //hides sign-up button
 
     const formDiv = document.createElement("div") //creates a div to hold the form
     formDiv.id = "user_form"
