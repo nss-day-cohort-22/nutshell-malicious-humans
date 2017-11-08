@@ -7,7 +7,7 @@
 // Then searches each object in array for key "email"
 // If value of key "email" in object matches parameter email function returns true 
 
-function userNameInDb(email, dbObj) {
+function userEmailInDb(email, dbObj) {
 
     let emailInDb = false
 
@@ -20,4 +20,4 @@ function userNameInDb(email, dbObj) {
     return emailInDb
 }
 
-module.exports = userNameInDb
+module.exports = userEmailInDb

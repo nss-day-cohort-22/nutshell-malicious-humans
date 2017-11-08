@@ -7,6 +7,8 @@ const setLocalStorage = require("./setLocalStorage")
 const getLocalStorage = require("./getLocalStorage")
 const copyUser = require("./copyUser")
 const buildDashboard = require("./buildDashboard")
+const userNameInDb = require("./userNameInDb")
+const userEmailInDb = require("./userEmailInDb")
 
 
 const storedMainDB = getLocalStorage()
@@ -54,10 +56,25 @@ let createUser = () => {
 
     if(userFN === "" || userLN === "" || userName === "" || userEmail === "") {
         alert("Please complete all fields")
+    } else if(userNameInDb(userName, storedMainDB) === true && userEmailInDb(userEmail, storedMainDB) === true)  {
+        //get user from local storage
+        const currentUser = storedMainDB.users
+        const userArray = currentUser.filter( user => {
+            user.userName === userName && user.email === userEmail
+        }
+        )
+        alert(userArray[0])
+        //set user as active in session storage
+        // copyUser()
+        //launch dashboard
+        // buildDashboard()
     } else {
+        //create new user and set user as active in session storage 
         userObjectFactory(userFN, userLN, userName, userEmail)
 
+        //add user to local storage
         setLocalStorage(storedMainDB)
+        //launch dashboard
         buildDashboard()
     }
     
