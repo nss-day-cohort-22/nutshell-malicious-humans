@@ -1,3 +1,5 @@
+// Garrett Ward, This is a function to make our basic landing page
+// that prompts the user to create a profile
 
 let buildLandingPage = function () {
     let landingPageMarker = document.getElementById("landingPage")
