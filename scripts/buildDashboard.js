@@ -18,6 +18,7 @@ const buildDashboard = function () {
     let tasksButton = document.createElement("button")
     tasksButton.appendChild(document.createTextNode("Click"))
     tasksButton.id = "tasks_Button"
+    tasksButton.addEventListener("click", function(){})
     //append the button to the tasks div
     tasksDiv.appendChild(tasksButton)
 
@@ -29,6 +30,7 @@ const buildDashboard = function () {
     let messagesButton = document.createElement("button")
     messagesButton.appendChild(document.createTextNode("Click"))
     messagesButton.id = "messages_Button"
+    messagesButton.addEventListener("click", function(){})
     //append the button to the tasks div
     messagesDiv.appendChild(messagesButton) 
 
@@ -40,6 +42,7 @@ const buildDashboard = function () {
     let eventsButton = document.createElement("button")
     eventsButton.appendChild(document.createTextNode("Click"))
     eventsButton.id = "events_Button"
+    eventsButton.addEventListener("click", function(){})
     //append the button to the tasks div
     eventsDiv.appendChild(eventsButton)
 
@@ -51,6 +54,7 @@ const buildDashboard = function () {
     let newsButton = document.createElement("button")
     newsButton.appendChild(document.createTextNode("Click"))
     newsButton.id = "news_Button"
+    newsButton.addEventListener("click", function(){})
     //append the button to the tasks div
     newsDiv.appendChild(newsButton)
 
@@ -62,6 +66,7 @@ const buildDashboard = function () {
     let friendsButton = document.createElement("button")
     friendsButton.appendChild(document.createTextNode("Click"))
     friendsButton.id = "friends_Button"
+    friendsButton.addEventListener("click", function(){})
     //append the button to the tasks div
     friendsDiv.appendChild(friendsButton)
 

@@ -1,6 +1,14 @@
 let buildLandingPage = require("./landingPage")
 let mainDB = require("./nutshellDB")
 let setLocalStorage = require("./setLocalStorage")
+let getSessionStorage = require("./getSessionStorage")
+let buildDashboard = require("./buildDashboard")
 
 setLocalStorage(mainDB)
-buildLandingPage()
+
+let sessionStorage = getSessionStorage()
+if(sessionStorage === null){
+    buildLandingPage()
+} else {
+    buildDashboard()
+}
