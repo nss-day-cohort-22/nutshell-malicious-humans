@@ -5,3 +5,8 @@
 .hideIt {
     display: none;
 }
+
+.partyTime {
+    background-color: lightgreen;
+    text-align: center;
+}
