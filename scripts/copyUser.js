@@ -7,3 +7,5 @@ let copyUser = function(user){
     activeUser.user = copiedUser
     setSessionStorage(activeUser)
 }
+
+module.exports = copyUser 
