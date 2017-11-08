@@ -1,5 +1,6 @@
 let buildLandingPage = require("./landingPage")
-const userForm = require("./userFormController")
+let mainDB = require("./nutshellDB")
+let setLocalStorage = require("./setLocalStorage")
 
+setLocalStorage(mainDB)
 buildLandingPage()
-userForm()

@@ -3,12 +3,17 @@
 // user database array
 
 const idGenerator = require("./idGenerator")
-const userDb = require("./users")
+const setLocalStorage = require("./setLocalStorage")
+const getLocalStorage = require("./getLocalStorage")
 
-let userIdFactory = idGenerator()
+const storedMainDB = getLocalStorage()
+
+
 
 let userObjectFactory = function (firstName, lastName, userName, email) {
-    userDb.push(
+    let lastId = storedMainDB.users[storedMainDB.users.length- 1] ||  {userId: 0}
+    let userIdFactory = idGenerator(lastId.userId)
+    storedMainDB.users.push(
         Object.create(null, {
             "userId": {
                 "value": userIdFactory.next().value,
@@ -44,6 +49,9 @@ let createUser = () => {
     let userEmail = document.getElementById("user_email").value
 
     userObjectFactory(userFN, userLN, userName, userEmail)
+
+    setLocalStorage(storedMainDB)
+    
 }
 
 module.exports = createUser

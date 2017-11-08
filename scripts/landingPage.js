@@ -9,10 +9,11 @@ let buildLandingPage = function () {
     <h1>
     Welcome to Get a life!
     </h1>
-    <button id="showUserForm> Sign Up!</button>
+    <button id="showUserForm"> Sign Up!</button>
     </div>
     `
-    document.getElementById("showUserForm").addEventListener("click", addUserForm)
+    let showFormButton = document.getElementById("showUserForm")
+    showFormButton.addEventListener("click", addUserForm)
 }
 
 
