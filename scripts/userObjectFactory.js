@@ -5,6 +5,7 @@
 const idGenerator = require("./idGenerator")
 const setLocalStorage = require("./setLocalStorage")
 const getLocalStorage = require("./getLocalStorage")
+const buildDashboard = require("./buildDashboard")
 
 const storedMainDB = getLocalStorage()
 
@@ -54,6 +55,7 @@ let createUser = () => {
         userObjectFactory(userFN, userLN, userName, userEmail)
 
         setLocalStorage(storedMainDB)
+        buildDashboard()
     }
     
 }
