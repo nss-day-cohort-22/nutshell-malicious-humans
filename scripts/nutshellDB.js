@@ -7,9 +7,11 @@ const events = require("./events")
 const userEvent = require("./userEvent")
 const userFriend = require("./userFriend")
 const userNews = require("./userNews")
+let getLocalStorage = require("./getLocalStorage")
 
 
-const mainDB = {
+const mainDB = getLocalStorage() || 
+{
     "users": users,
     "tasks": tasks,
     "news": news,
