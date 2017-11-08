@@ -1,3 +1,7 @@
 #userFormSection input {
     display: block;
 }
+
+.hideIt {
+    display: none;
+}
