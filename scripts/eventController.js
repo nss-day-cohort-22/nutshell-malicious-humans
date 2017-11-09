@@ -1,4 +1,5 @@
 const eventInfo = require("./eventFactory")
+const createEvent = require("./eventFormController")
 
 const domEl = document.getElementById("Dashboard")
 
@@ -15,10 +16,15 @@ const eventDash = function () {
     const addEventButton = document.createElement("button")
     addEventButton.id = "add_event_button"
     addEventButton.appendChild(document.createTextNode("Add New Event"))
+    addEventButton.addEventListener("click", createEvent)
+
+    const eventFormEl = document.createElement("div")
+    eventFormEl.id = "event_form"
     
 
     eventDiv.appendChild(eventListEl)
     eventDiv.appendChild(addEventButton)
+    eventDiv.appendChild(eventFormEl)
     domEl.appendChild(eventDiv)
 }
 

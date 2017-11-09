@@ -1,4 +1,4 @@
-#userFormSection input {
+#userFormSection input, #event_formContent label {
     display: block;
 }
 
@@ -10,3 +10,4 @@
     background-color: lightgreen;
     text-align: center;
 }
+
