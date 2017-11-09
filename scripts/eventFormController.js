@@ -1,6 +1,7 @@
 //Kristen
 //generates a form for a user to create/edit an event
 const eventController = require("./eventController")
+const createEvent = require("./eventFactory")
 
 
 
@@ -34,6 +35,7 @@ const createEventForm = function () {
     const createEventButton = document.createElement("button")
     createEventButton.id = "create_event_button"
     createEventButton.appendChild(document.createTextNode("Create Event"))
+    createEventButton.addEventListener("click", createEvent)
     
     // const closeButton = document.createElement("button")
     // closeButton.id = "close_event_form"
