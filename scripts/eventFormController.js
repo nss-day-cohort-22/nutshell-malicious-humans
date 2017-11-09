@@ -7,8 +7,7 @@ const createEvent = require("./eventFactory")
 
 const createEventForm = function () {
     const formEl = document.getElementById("event_form")
-
-    document.getElementById("add_event_button").classList.add("hideIt")
+    formEl.innerHTML = " "
     
     const formDiv = document.createElement("div")
     formDiv.id = "event_formContent"

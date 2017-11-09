@@ -1,7 +1,12 @@
+//Kristen
+// displays event section
+
 const eventInfo = require("./eventFactory")
 const createEvent = require("./eventFormController")
+const displayEvents = require("./eventListDisplay")
 
 const domEl = document.getElementById("Dashboard")
+
 
 const eventDash = function () {
     domEl.innerHTML = " "
@@ -12,7 +17,8 @@ const eventDash = function () {
 
     const eventListEl = document.createElement("section")
     eventListEl.id = "event_list"
-    eventListEl.innerHTML = "<p>You have no upcoming events</p>"
+    // displayEvents()
+     
 
     const addEventButton = document.createElement("button")
     addEventButton.id = "add_event_button"

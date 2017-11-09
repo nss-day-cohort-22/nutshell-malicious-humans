@@ -5,6 +5,7 @@ const eventId = require("./idGenerator")
 const setLocalStorage = require("./setLocalStorage")
 const getLocalStorage = require("./getLocalStorage")
 const getSessionStorage = require("./getSessionStorage")
+const addEventList = require("./eventListController")
 
 const storedDb = getLocalStorage()
 
@@ -50,6 +51,7 @@ let eventFactory = function(eventName, date, location, time, description) {
     })
 
     storedDb.events.push(newEvent)
+    addEventList(newEvent)
 }
 
 const createEvent = () => {
@@ -65,6 +67,7 @@ const createEvent = () => {
         eventFactory(eName, eDate, eLocation, eTime, eDescription)
 
         setLocalStorage(storedDb)
+
     }
 }
 
