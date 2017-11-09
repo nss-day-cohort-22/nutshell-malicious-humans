@@ -11,14 +11,19 @@ const displayEventList = function () {
         const currentUserId = getSessionStorage().user.userId
         currentEvents.forEach( event => {
             if(event.userId === currentUserId) {
-                eventListEl.innerHTML = " "
                 addEventList(event)
+                console.log(event)
             } else {
                 eventListEl.innerHTML = "<p>You have no upcoming events</p>"
             }
         })
     } 
-    // 
+
 }
 
 module.exports = displayEventList
+
+// thoughts on how to organize events by date
+// .sort( function(a, b) {
+//     return b.eventDate - a.eventDate
+// }) 
