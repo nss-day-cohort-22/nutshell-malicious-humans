@@ -11,12 +11,14 @@ const displayEventList = function () {
         const currentUserId = getSessionStorage().user.userId
         currentEvents.forEach( event => {
             if(event.userId === currentUserId) {
+                eventListEl.innerHTML = " "
                 addEventList(event)
+            } else {
+                eventListEl.innerHTML = "<p>You have no upcoming events</p>"
             }
         })
-    } else {
-        eventListEl.innerHTML = "<p>You have no upcoming events</p>"
-    }
+    } 
+    // 
 }
 
 module.exports = displayEventList
