@@ -64,7 +64,7 @@ let createUser = () => {
             return user.userName === userName && user.email === userEmail
         }
         )
-        copyUser(currentUser)
+        copyUser(currentUser[0])
         buildDashboard()
     } else {
         //create new user and set user as active in session storage 
