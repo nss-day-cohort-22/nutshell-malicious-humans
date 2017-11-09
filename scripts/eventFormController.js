@@ -7,12 +7,12 @@ const createEvent = require("./eventFactory")
 
 const createEventForm = function () {
     const formEl = document.getElementById("event_form")
-    formEl.innerHTML = " "
+    formEl.innerHTML = " " //resets the innerHTML for the event_form element so that only one form will show even if the user presses the "Add New Event" button multiple times
     
     const formDiv = document.createElement("div")
     formDiv.id = "event_formContent"
 
-    
+    //content for form
     let formContentString = `
         <h3>Create New Event</h3>
         <p>
@@ -31,18 +31,22 @@ const createEventForm = function () {
     
     formDiv.innerHTML += formContentString
     
+    //create button will add the event to local storage and add it to the DOM
     const createEventButton = document.createElement("button")
     createEventButton.id = "create_event_button"
     createEventButton.appendChild(document.createTextNode("Create Event"))
     createEventButton.addEventListener("click", createEvent)
     
-    // const closeButton = document.createElement("button")
-    // closeButton.id = "close_event_form"
-    // closeButton.appendChild(document.createTextNode("Close"))
-    // closeButton.addEventListener("click", eventController)
+    //close button, closes out of the form
+    const closeButton = document.createElement("button")
+    closeButton.id = "close_event_form"
+    closeButton.appendChild(document.createTextNode("Close"))
+    closeButton.addEventListener("click", () => {
+        formEl.innerHTML = " "
+    })
     
     formDiv.appendChild(createEventButton)
-    // formDiv.appendChild(closeButton)
+    formDiv.appendChild(closeButton)
 
     formEl.appendChild(formDiv)
 

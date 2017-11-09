@@ -3,10 +3,10 @@ const getSessionStorage = require("./getSessionStorage")
 const addEventList = require("./eventListController")
 
 const currentEvents = getLocalStorage().events
-const eventListEl = document.getElementById("event_list")
-
 
 const displayEventList = function () {
+    const eventListEl = document.getElementById("event_list")
+    
     if (currentEvents.length > 0) {
         const currentUserId = getSessionStorage().user.userId
         currentEvents.forEach( event => {
@@ -18,3 +18,5 @@ const displayEventList = function () {
         eventListEl.innerHTML = "<p>You have no upcoming events</p>"
     }
 }
+
+module.exports = displayEventList

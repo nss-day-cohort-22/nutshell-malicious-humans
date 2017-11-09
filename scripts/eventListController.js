@@ -20,7 +20,7 @@ const addEventList = function (event) {
     const editEventButton = document.createElement("button")
     editEventButton.classList.add = "edit_event_button"
     editEventButton.appendChild(document.createTextNode("Edit Event"))
-    // editEventButton.addEventListener("click", createEvent)
+    // editEventButton.addEventListener("click", editEvent)
     eventEl.appendChild(editEventButton)
 
     eventListEl.appendChild(eventEl)

@@ -17,22 +17,22 @@ const eventDash = function () {
 
     const eventListEl = document.createElement("section")
     eventListEl.id = "event_list"
-    // displayEvents()
-     
-
+    
+    
     const addEventButton = document.createElement("button")
     addEventButton.id = "add_event_button"
     addEventButton.appendChild(document.createTextNode("Add New Event"))
     addEventButton.addEventListener("click", createEvent)
-
+    
     const eventFormEl = document.createElement("div")
     eventFormEl.id = "event_form"
     
-
+    
     eventDiv.appendChild(eventListEl)
     eventDiv.appendChild(addEventButton)
     eventDiv.appendChild(eventFormEl)
     domEl.appendChild(eventDiv)
+    displayEvents()
 }
 
 module.exports = eventDash
