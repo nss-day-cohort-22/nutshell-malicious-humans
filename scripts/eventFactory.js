@@ -69,6 +69,7 @@ const createEvent = () => {
         setLocalStorage(storedDb)
 
     }
+    document.getElementById("event_formContent").innerHTML = " "
 }
 
 module.exports = createEvent
