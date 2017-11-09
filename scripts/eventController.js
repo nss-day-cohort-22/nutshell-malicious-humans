@@ -12,6 +12,7 @@ const eventDash = function () {
 
     const eventListEl = document.createElement("section")
     eventListEl.id = "event_list"
+    eventListEl.innerHTML = "<p>You have no upcoming events</p>"
 
     const addEventButton = document.createElement("button")
     addEventButton.id = "add_event_button"

@@ -44,3 +44,7 @@ let eventFactory = function(eventName, date, location, time, description) {
 
     storedEvents.push(newEvent)
 }
+
+const createEvent = () => {
+    let eventName = document.getElementById("")
+}
