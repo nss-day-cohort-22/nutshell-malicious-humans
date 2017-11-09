@@ -58,16 +58,13 @@ let createUser = () => {
         alert("Please complete all fields")
     } else if(userNameInDb(userName, storedMainDB) === true && userEmailInDb(userEmail, storedMainDB) === true)  {
         //get user from local storage
-        const currentUser = storedMainDB.users
-        const userArray = currentUser.filter( user => {
-            user.userName === userName && user.email === userEmail
+        const userArray = storedMainDB.users
+        const currentUser = userArray.filter( user => {
+            return user.userName === userName && user.email === userEmail
         }
         )
-        alert(userArray[0])
-        //set user as active in session storage
-        // copyUser()
-        //launch dashboard
-        // buildDashboard()
+        copyUser(currentUser)
+        buildDashboard()
     } else {
         //create new user and set user as active in session storage 
         userObjectFactory(userFN, userLN, userName, userEmail)
