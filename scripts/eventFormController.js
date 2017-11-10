@@ -42,7 +42,7 @@ const createEventForm = function () {
     closeButton.id = "event_closeForm"
     closeButton.appendChild(document.createTextNode("Close"))
     closeButton.addEventListener("click", () => {
-        formEl.innerHTML = " "
+        formEl.removeChild(formDiv)
     })
     
     formDiv.appendChild(createEventButton)

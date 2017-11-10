@@ -68,7 +68,7 @@ const editEventForm = function (event) {
     closeButton.id = "close_event_form"
     closeButton.appendChild(document.createTextNode("Close"))
     closeButton.addEventListener("click", () => {
-        eventEditEl.innerHTML = " "
+        eventEditEl.removeChild(editFormDiv)
     })
     
     editFormDiv.appendChild(updateEventButton)
