@@ -23,8 +23,6 @@ const createEvent = () => {
     } else {
         eventFactory(eId, eName, eDate, eLocation, eTime, eDescription)
 
-        setLocalStorage(storedDb)
-
     }
     // document.getElementById("event_formContent").innerHTML = " "
     document.getElementById("event_form").removeChild(document.getElementById("event_formContent"))

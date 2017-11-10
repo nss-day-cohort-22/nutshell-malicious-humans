@@ -1,6 +1,8 @@
 //Kristen
 //generates a form to allow user to edit an existing event
 const getLocalStorage = require("./getLocalStorage")
+const updateEvent = require("./eventUpdateController")
+const eventFactory = require("./eventFactory")
 
 
 const editEventForm = function (event) {
@@ -36,22 +38,20 @@ const editEventForm = function (event) {
     editFormDiv.id = "event_editContent"
 
 
-
-
     //content for edit form
     let editFormString = `
         <h3>Edit Event</h3>
         <p>
-            <label for="event_name">Edit Event Name</label>    
-                <input type="text" id="event_name" name="event_name" value="${editEName}">
-            <label for="event_date">Edit Date</label>    
-                <input type="date" id="event_date" name="event_date" value="${editEDate}">
-            <label for="event_location">Edit Location</label>    
-                <input type="text" id="event_location" name="event_location" value="${editELocation}">
-            <label for="event_time">Edit Start Time</label>    
-                <input type="time" id="event_time" name="event_time" value="${editETime}">
-            <label for="event_description">Edit Description</label>    
-                <textarea id="event_description" rows="4" cols="50">${editEDescription}</textarea>
+            <label for="event_nameEdit">Edit Event Name</label>    
+                <input type="text" id="event_nameEdit" name="event_name" value="${editEName}">
+            <label for="event_dateEdit">Edit Date</label>    
+                <input type="date" id="event_dateEdit" name="event_date" value="${editEDate}">
+            <label for="event_locationEdit">Edit Location</label>    
+                <input type="text" id="event_locationEdit" name="event_location" value="${editELocation}">
+            <label for="event_timeEdit">Edit Start Time</label>    
+                <input type="time" id="event_timeEdit" name="event_time" value="${editETime}">
+            <label for="event_descriptionEdit">Edit Description</label>    
+                <textarea id="event_descriptionEdit" rows="4" cols="50">${editEDescription}</textarea>
         </p>
     `
     
@@ -59,9 +59,9 @@ const editEventForm = function (event) {
     
     //create button will add the event to local storage and add it to the DOM
     const updateEventButton = document.createElement("button")
-    updateEventButton.id = "event_updateButton"
+    updateEventButton.className = `update_${idEventEdit}`
     updateEventButton.appendChild(document.createTextNode("Update Event"))
-    // updateEventButton.addEventListener("click", createEvent)
+    updateEventButton.addEventListener("click", updateEvent)
     
     //close button, removes the form
     const closeButton = document.createElement("button")
