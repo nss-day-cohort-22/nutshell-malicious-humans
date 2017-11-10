@@ -49,14 +49,16 @@ function taskFactory() {
         //     }
         // },
         markTaskAsComplete: {
-            value: function(e) {
-                const taskId = this.id
+            value: function(taskId) {
+                // let taskId = this.id.toString()
+                // console.log(typeof taskId)
+                // taskId = taskId.slice(this.id.length - 1)
                 // console.log(taskId)
                 // getTaskWithId(this, taskId)
                 const db = getLocalStorage()
                 
                 db.tasks.forEach(task => { // slice the end of taskId 
-                    if(task.taskId === taskId) {
+                    if(task.taskId == taskId.slice(taskId.length - 1)) {
                         task.taskComplete = true
                     }
                 })

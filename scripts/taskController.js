@@ -27,6 +27,7 @@ function taskController() {
         /* Test Area */
         const form = document.createElement("form")
         const ul = document.createElement("ul")
+        ul.id = "unorderedTaskList"
         const sessionUserId = tFactory.getSessionUserId()
         const tasksForUser = tFactory.getTasksForUserId(sessionUserId)
         for(let i = 0; i < tasksForUser.length; i++) {
@@ -41,7 +42,7 @@ function taskController() {
                 const input = document.createElement("input")
                 input.id = `task_${elementId}`
                 input.type = "checkbox"
-                input.addEventListener("change", tFactory.markTaskAsComplete)
+                input.addEventListener("change", markTaskAsComplete)
                 li.appendChild(input)
                 const label = document.createElement("label")
                 label.setAttribute("for", `task_${elementId}`)
@@ -65,10 +66,14 @@ function taskController() {
         taskSection.appendChild(createInput("submit", "New Task", "newTaskBtn", displayNewTaskForm))
     }
 
-    // function markTaskAsComplete(e) {
-    //     const tFactory = taskFactory()
-    //     console.log(this.id)
-    // }
+    function markTaskAsComplete(e) {
+        const taskId = e.target.id
+        const tFactory = taskFactory()
+        tFactory.markTaskAsComplete(taskId)
+        // console.log(this.id)
+        document.getElementById("unorderedTaskList").removeChild(document.getElementById(taskId).parentNode)
+        // removeElement("unorderedTaskList", taskId)
+    }
 
     function createInput(type, value, id, fn) {
         const newInput = document.createElement("input")
@@ -79,6 +84,7 @@ function taskController() {
         return newInput
     }
 
+    // convert all of this html to created and appended elements
     function displayNewTaskForm() {
         removeElement("taskListForm", "newTaskBtn")
         const newTaskForm = document.createElement("section")
@@ -102,6 +108,8 @@ function taskController() {
 
     function cancelNewTask() {
         removeElement("Dashboard", "newTaskForm")
+        const taskListForm = document.getElementById("taskListForm")
+        taskListForm.appendChild(createInput("submit", "New Task", "newTaskBtn", displayNewTaskForm))
     }
 
     function submitNewTask() {
