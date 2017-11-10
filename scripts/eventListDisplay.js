@@ -18,11 +18,7 @@ const displayEventList = function () {
             return dateA - dateB
         }).forEach( event => {
             if(event.userId === currentUserId) {
-                const dateToday = Date.now()
-                const eventDate = Date.parse(event.eventDate)
-                if(eventDate > dateToday) {
-                    addEventList(event)
-                }
+                addEventList(event)                
             } else {
                 eventListEl.innerHTML = "<p>You have no upcoming events</p>"
             }
@@ -33,3 +29,10 @@ const displayEventList = function () {
 }
 
 module.exports = displayEventList
+
+// doesn't work yet:
+// const dateToday = Date.now()
+// const eventDate = Date.parse(event.eventDate)
+// if(eventDate > dateToday) { //doesn't display events that happened before today's date
+//     addEventList(event)
+// }
