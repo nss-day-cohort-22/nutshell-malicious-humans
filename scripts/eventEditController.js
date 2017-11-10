@@ -1,5 +1,5 @@
 //Kristen
-//allow user to edit an existing event
+//generates a form to allow user to edit an existing event
 const getLocalStorage = require("./getLocalStorage")
 
 

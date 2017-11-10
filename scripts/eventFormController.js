@@ -1,7 +1,7 @@
 //Kristen
 //generates a form for a user to create/edit an event
 const eventController = require("./eventController")
-const createEvent = require("./eventFactory")
+const createEvent = require("./eventCreateController")
 
 
 

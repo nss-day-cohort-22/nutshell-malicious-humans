@@ -1,5 +1,5 @@
 //Kristen
-// displays event section
+// displays event dashboard
 
 const eventInfo = require("./eventFactory")
 const createEvent = require("./eventFormController")
@@ -27,15 +27,8 @@ const eventDash = function () {
     const eventFormEl = document.createElement("div")
     eventFormEl.id = "event_form"
 
-    // const editEventButton = document.createElement("button")
-    // editEventButton.id = "edit_event_button"
-    // editEventButton.appendChild(document.createTextNode("Edit An Event"))
-    // editEventButton.style.visibility = "hidden"
-    // editEventButton.addEventListener("click", editEvent)
-    
     
     eventDiv.appendChild(addEventButton)
-    // eventDiv.appendChild(editEventButton)
     eventDiv.appendChild(eventFormEl)
     eventDiv.appendChild(eventListEl)
     domEl.appendChild(eventDiv)

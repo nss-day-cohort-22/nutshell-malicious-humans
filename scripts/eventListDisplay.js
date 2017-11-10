@@ -1,3 +1,6 @@
+//Kristen
+//displays events in DOM if they already exist in the database for that use
+
 const getLocalStorage = require("./getLocalStorage")
 const getSessionStorage = require("./getSessionStorage")
 const addEventList = require("./eventListController")
