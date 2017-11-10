@@ -23,29 +23,16 @@ const updateEvent = function (event) {
     let eTimeEdit = document.getElementById("event_timeEdit").value
     let eDescriptionEdit = document.getElementById("event_descriptionEdit").value
 
-    console.log(eNameEdit, eDateEdit, eLocationEdit, eTimeEdit, eDescriptionEdit)
+    console.log(eId, eNameEdit, eDateEdit, eLocationEdit, eTimeEdit, eDescriptionEdit)
 
     if (eNameEdit === "" || eDateEdit === "" || eLocationEdit === "" || eTimeEdit === "" || eDescriptionEdit === "") {
         alert("Please fill out all fields")
     } else {
-        eventFactory(eId, eNameEdit, eDateEdit, eLocationEdit, eTimeEdit, eDescriptionEdit)
+        // eventFactory(eId, eNameEdit, eDateEdit, eLocationEdit, eTimeEdit, eDescriptionEdit)
         console.log("qq")
+        document.getElementById("event_" + `${eId}`).removeChild(document.getElementById("event_editContent"))
     }
+
 }
-
-// const createEvent = () => {
-
-
-//     if (eName === "" || eDate === "" || eLocation === "" || eTime === "" || eDescription === "") {
-//         alert("Please fill out all fields")
-//     } else {
-//         eventFactory(eIdEdit, eName, eDate, eLocation, eTime, eDescription)
-
-//         setLocalStorage(storedDb)
-
-//     }
-//     // document.getElementById("event_formContent").innerHTML = " "
-//     document.getElementById("event_form").removeChild(document.getElementById("event_formContent"))
-// }
 
 module.exports = updateEvent
