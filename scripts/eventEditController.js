@@ -12,44 +12,50 @@ const editEventForm = function (event) {
             .split("_")[1]
     ) //gets the class of button clicked and identifies the eventId
 
-    console.log(idEventEdit)
-
-    
+    //gets array of events from local storage
     const storedEvents = getLocalStorage().events
 
-    const eventToEdit = storedEvents.forEach( e => {
-        if(e.eventId === idEventEdit) {
-            return e
-        } 
-    })
+    //gets the event that corresponds with the eventId of the button clicked
+    const eventToEdit = storedEvents.filter( e => {
+        return e.eventId === idEventEdit
+    })[0]
 
-    console.log(eventToEdit)
+    //stored content of event
+    let editEName = eventToEdit.eventName
+    let editEDate = eventToEdit.eventDate
+    let editELocation = eventToEdit.eventLocation
+    let editETime = eventToEdit.eventTime
+    let editEDescription = eventToEdit.eventDescription
 
+
+    //gets the section of the event clicked
     const eventEditEl = document.getElementById("event_" + idEventEdit)
-    // formEl.innerHTML = " " //resets the innerHTML for the event_form element so that only one form will show even if the user presses the "Add New Event" button multiple times
     
-    const formDiv = document.createElement("div")
-    formDiv.id = "event_editContent"
+    //creates a div for the edit form
+    const editFormDiv = document.createElement("div")
+    editFormDiv.id = "event_editContent"
 
 
-    //content for form
+
+
+    //content for edit form
     let editFormString = `
         <h3>Edit Event</h3>
         <p>
             <label for="event_name">Edit Event Name</label>    
-                <input type="text" id="event_name" name="event_name">
+                <input type="text" id="event_name" name="event_name" value="${editEName}">
             <label for="event_date">Edit Date</label>    
-                <input type="date" id="event_date" name="event_date">
+                <input type="date" id="event_date" name="event_date" value="${editEDate}">
             <label for="event_location">Edit Location</label>    
-                <input type="text" id="event_location" name="event_location">
+                <input type="text" id="event_location" name="event_location" value="${editELocation}">
             <label for="event_time">Edit Start Time</label>    
-                <input type="time" id="event_time" name="event_time">
+                <input type="time" id="event_time" name="event_time" value="${editETime}">
             <label for="event_description">Edit Description</label>    
-                <textarea id="event_description" rows="4" cols="50"></textarea>
+                <textarea id="event_description" rows="4" cols="50">${editEDescription}</textarea>
         </p>
     `
     
-    formDiv.innerHTML += editFormString
+    editFormDiv.innerHTML += editFormString
     
     //create button will add the event to local storage and add it to the DOM
     const updateEventButton = document.createElement("button")
@@ -65,10 +71,10 @@ const editEventForm = function (event) {
         eventEditEl.innerHTML = " "
     })
     
-    formDiv.appendChild(updateEventButton)
-    formDiv.appendChild(closeButton)
+    editFormDiv.appendChild(updateEventButton)
+    editFormDiv.appendChild(closeButton)
 
-    eventEditEl.appendChild(formDiv)
+    eventEditEl.appendChild(editFormDiv)
 
 }
 
