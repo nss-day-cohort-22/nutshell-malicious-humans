@@ -33,13 +33,13 @@ const createEventForm = function () {
     
     //create button will add the event to local storage and add it to the DOM
     const createEventButton = document.createElement("button")
-    createEventButton.id = "create_event_button"
+    createEventButton.id = "event_createButton"
     createEventButton.appendChild(document.createTextNode("Create Event"))
     createEventButton.addEventListener("click", createEvent)
     
     //close button, closes out of the form
     const closeButton = document.createElement("button")
-    closeButton.id = "close_event_form"
+    closeButton.id = "event_closeForm"
     closeButton.appendChild(document.createTextNode("Close"))
     closeButton.addEventListener("click", () => {
         formEl.innerHTML = " "

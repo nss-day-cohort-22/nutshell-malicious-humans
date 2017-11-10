@@ -12,7 +12,6 @@ const displayEventList = function () {
         currentEvents.forEach( event => {
             if(event.userId === currentUserId) {
                 addEventList(event)
-                console.log(event)
             } else {
                 eventListEl.innerHTML = "<p>You have no upcoming events</p>"
             }

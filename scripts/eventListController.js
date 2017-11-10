@@ -1,5 +1,6 @@
 //Kristen, after a user creates an event it is added to the Event List
 
+const editEvent = require("./eventEditController")
 
 const addEventList = function (event) {
     const eventListEl = document.getElementById("event_list")
@@ -20,7 +21,7 @@ const addEventList = function (event) {
     const editEventButton = document.createElement("button")
     editEventButton.className = `edit_${event.eventId}`
     editEventButton.appendChild(document.createTextNode("Edit Event"))
-    // editEventButton.addEventListener("click", editEvent)
+    editEventButton.addEventListener("click", editEvent)
 
     eventEl.appendChild(editEventButton)
 

@@ -20,7 +20,7 @@ const eventDash = function () {
     
     
     const addEventButton = document.createElement("button")
-    addEventButton.id = "add_event_button"
+    addEventButton.id = "event_addButton"
     addEventButton.appendChild(document.createTextNode("Add New Event"))
     addEventButton.addEventListener("click", createEvent)
     
