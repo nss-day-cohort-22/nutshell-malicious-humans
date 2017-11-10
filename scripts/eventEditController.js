@@ -63,7 +63,7 @@ const editEventForm = function (event) {
     updateEventButton.appendChild(document.createTextNode("Update Event"))
     // updateEventButton.addEventListener("click", createEvent)
     
-    //close button, closes out of the form
+    //close button, removes the form
     const closeButton = document.createElement("button")
     closeButton.id = "close_event_form"
     closeButton.appendChild(document.createTextNode("Close"))

@@ -9,7 +9,7 @@ const addEventList = require("./eventListController")
 
 const storedDb = getLocalStorage()
 
-let eventFactory = function(eventName, date, location, time, description) {
+let eventFactory = function(eventName, date, location, time, description, eventId) {
     let lastEventId = storedDb.events[storedDb.events.length- 1] ||  {eventId: 0}
     let eventIdFactory = eventId(lastEventId.eventId)
     
@@ -20,7 +20,7 @@ let eventFactory = function(eventName, date, location, time, description) {
             "enumerable": true
         },
         "eventId": {
-            "value": eventIdFactory.next().value,
+            "value": (eventId === null) ? eventIdFactory.next().value : eventId,
             "enumerable": true
         },
         "eventName": {
