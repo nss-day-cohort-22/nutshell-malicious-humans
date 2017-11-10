@@ -16,7 +16,6 @@ const updateEvent = function (event) {
             .split("_")[1]
     ) //gets the class of button clicked and identifies the eventId
 
-    // let eId = eventIdFactory.next().value
     let eNameEdit = document.getElementById("event_nameEdit").value
     let eDateEdit = document.getElementById("event_dateEdit").value
     let eLocationEdit = document.getElementById("event_locationEdit").value
