@@ -45,8 +45,9 @@ function taskController() {
                 input.addEventListener("change", markTaskAsComplete)
                 li.appendChild(input)
                 const label = document.createElement("label")
-                label.setAttribute("for", `task_${elementId}`)
+                // label.setAttribute("for", `task_${elementId}`)
                 label.innerHTML = `${task.taskCompletionDate} ${task.taskTitle}`
+                label.addEventListener("click", editTaskTitle)
                 li.appendChild(label)
                 ul.appendChild(li)
             }
@@ -64,6 +65,32 @@ function taskController() {
         // taskSection.innerHTML = html
         dashboardSection.appendChild(taskSection)
         taskSection.appendChild(createInput("submit", "New Task", "newTaskBtn", displayNewTaskForm))
+    }
+
+    function editTaskTitle(e) {
+        // e.cancelBubble = true
+        // e.stopPropagation()
+        console.log(e)
+        const parentLi = e.target.parentNode
+        const editForm = document.createElement("form")
+        editForm.addEventListener("submit", function(e){e.preventDefault()}, false) // add this magical line to all forms to avoid a page refresh on enter
+        const newTaskTitleInput = document.createElement("input")
+        newTaskTitleInput.type = "text"
+        newTaskTitleInput.addEventListener("keyup", saveNewTitle)
+        const newTaskTitleLabel = document.createElement("label")
+        newTaskTitleInput.innerHTML = "Press Enter to Save"
+        parentLi.appendChild(editForm)
+        editForm.appendChild(newTaskTitleInput)
+        editForm.appendChild(newTaskTitleLabel)
+    }
+
+    function saveNewTitle(e) {
+        e.preventDefault()
+        // e.cancelBubble = true
+        // e.stopPropagation()
+        if(e.keyCode === 13) {
+            console.log(e.target.value)
+        }
     }
 
     function markTaskAsComplete(e) {
@@ -84,7 +111,6 @@ function taskController() {
         return newInput
     }
 
-    // convert all of this html to created and appended elements
     function displayNewTaskForm() {
         removeElement("taskListForm", "newTaskBtn")
         const newTaskForm = document.createElement("section")
