@@ -18,11 +18,9 @@ const displayEventList = function () {
             return dateA - dateB
         }).forEach( event => {
             if(event.userId === currentUserId) {
-                addEventList(event)                
-            } else {
-                eventListEl.innerHTML = "<p id='event_None'>You have no upcoming events</p>"
-            }
-
+                addEventList(event)
+                document.getElementById("event_None").className = "hideIt"                
+            }   
         })
     }
 

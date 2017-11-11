@@ -15,6 +15,6 @@
     border: 2px solid black;
 }
 
-#event_list section:first-child {
+#event_list section:nth-child(2) {
     background-color: lightblue
 }
