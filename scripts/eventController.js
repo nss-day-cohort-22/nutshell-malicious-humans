@@ -1,5 +1,5 @@
 //Kristen
-// displays event dashboard
+//this module displays event dashboard when user first clicks the event link on the main Dashboard
 
 const eventInfo = require("./eventFactory")
 const createEvent = require("./eventFormController")

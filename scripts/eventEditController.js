@@ -1,5 +1,5 @@
 //Kristen
-//generates a form to allow user to edit an existing event
+//this module generates a form to allow user to edit an existing event
 const getLocalStorage = require("./getLocalStorage")
 const updateEvent = require("./eventUpdateController")
 const eventFactory = require("./eventFactory")
@@ -43,13 +43,13 @@ const editEventForm = function (event) {
         <h3>Edit Event</h3>
         <p>
             <label for="event_nameEdit">Edit Event Name</label>    
-                <input type="text" id="event_nameEdit" name="event_name" value="${editEName}">
+                <input type="text" id="event_nameEdit" name="event_nameEdit" value="${editEName}">
             <label for="event_dateEdit">Edit Date</label>    
-                <input type="date" id="event_dateEdit" name="event_date" value="${editEDate}">
+                <input type="date" id="event_dateEdit" name="event_dateEdit" value="${editEDate}">
             <label for="event_locationEdit">Edit Location</label>    
-                <input type="text" id="event_locationEdit" name="event_location" value="${editELocation}">
+                <input type="text" id="event_locationEdit" name="event_locationEdit" value="${editELocation}">
             <label for="event_timeEdit">Edit Start Time</label>    
-                <input type="time" id="event_timeEdit" name="event_time" value="${editETime}">
+                <input type="time" id="event_timeEdit" name="event_timeEdit" value="${editETime}">
             <label for="event_descriptionEdit">Edit Description</label>    
                 <textarea id="event_descriptionEdit" rows="4" cols="50">${editEDescription}</textarea>
         </p>
@@ -63,7 +63,7 @@ const editEventForm = function (event) {
     updateEventButton.appendChild(document.createTextNode("Update Event"))
     updateEventButton.addEventListener("click", updateEvent)
     
-    //close button, removes the form
+    //close button, removes the form without making any changes
     const closeButton = document.createElement("button")
     closeButton.id = "close_event_form"
     closeButton.appendChild(document.createTextNode("Close"))

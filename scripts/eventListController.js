@@ -1,4 +1,5 @@
-//Kristen, after a user creates an event it is added to the Event List
+//Kristen
+// this module adds the new event to the DOM after a user fills out the New Event form
 
 const editEvent = require("./eventEditController")
 

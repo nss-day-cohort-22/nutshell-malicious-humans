@@ -1,5 +1,5 @@
 //Kristen
-//purpose create an event object
+//this module create an event object, adds it to the DOM and to local storage
 const setLocalStorage = require("./setLocalStorage")
 const getLocalStorage = require("./getLocalStorage")
 const getSessionStorage = require("./getSessionStorage")
@@ -45,9 +45,9 @@ let eventFactory = function(eventId, eventName, date, location, time, descriptio
         }
     })
 
-    storedDb.events.push(newEvent)
-    addEventList(newEvent)
-    setLocalStorage(storedDb)
+    storedDb.events.push(newEvent) //add newEvent to events array
+    addEventList(newEvent) //add the newEvent to the DOM
+    setLocalStorage(storedDb) //set local storage
     
 }
 
