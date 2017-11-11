@@ -13,7 +13,6 @@ const addEventList = function (event) {
         <h3>${event.eventName}</h3>
         <p>Date: ${event.eventDate}</p>
         <p>Location: ${event.eventLocation}</p>
-        <p>Start Time: ${event.eventTime}</p>
         <p>Description: ${event.eventDescription}</p>
     `
 

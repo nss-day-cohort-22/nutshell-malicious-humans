@@ -22,8 +22,6 @@ const createEventForm = function () {
                 <input type="date" id="event_date" name="event_date" required="required">
             <label for="event_location">Location</label>    
                 <input type="text" id="event_location" name="event_location" required="required">
-            <label for="event_time">Start Time</label>    
-                <input type="time" id="event_time" name="event_time">
             <label for="event_description">Description</label>    
                 <textarea id="event_description" rows="4" cols="50"></textarea>
         </p>

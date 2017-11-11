@@ -16,5 +16,6 @@
 }
 
 #event_list section:nth-child(2) {
-    background-color: lightblue
+    background-color: lightblue;
+    font-size: 1.1em
 }

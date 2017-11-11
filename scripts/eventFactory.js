@@ -7,7 +7,7 @@ const addEventList = require("./eventListController")
 
 const storedDb = getLocalStorage()
 
-let eventFactory = function(eventId, eventName, date, location, time, description) {
+let eventFactory = function(eventId, eventName, date, location, description) {
 
     const newEvent = Object.create(null, {
         "userId": {
@@ -30,11 +30,6 @@ let eventFactory = function(eventId, eventName, date, location, time, descriptio
         },
         "eventLocation": {
             "value": location,
-            "enumerable": true,
-            "writable": true,
-        },
-        "eventTime": {
-            "value": time,
             "enumerable": true,
             "writable": true,
         },

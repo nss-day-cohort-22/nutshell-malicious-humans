@@ -26,7 +26,6 @@ const editEventForm = function (event) {
     let editEName = eventToEdit.eventName
     let editEDate = eventToEdit.eventDate
     let editELocation = eventToEdit.eventLocation
-    let editETime = eventToEdit.eventTime
     let editEDescription = eventToEdit.eventDescription
 
 
@@ -48,8 +47,6 @@ const editEventForm = function (event) {
                 <input type="date" id="event_dateEdit" name="event_dateEdit" value="${editEDate}">
             <label for="event_locationEdit">Edit Location</label>    
                 <input type="text" id="event_locationEdit" name="event_locationEdit" value="${editELocation}">
-            <label for="event_timeEdit">Edit Start Time</label>    
-                <input type="time" id="event_timeEdit" name="event_timeEdit" value="${editETime}">
             <label for="event_descriptionEdit">Edit Description</label>    
                 <textarea id="event_descriptionEdit" rows="4" cols="50">${editEDescription}</textarea>
         </p>

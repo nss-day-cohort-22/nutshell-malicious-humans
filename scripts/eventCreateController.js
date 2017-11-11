@@ -16,13 +16,12 @@ const createEvent = () => {
     let eName = document.getElementById("event_name").value
     let eDate = document.getElementById("event_date").value
     let eLocation = document.getElementById("event_location").value
-    let eTime = document.getElementById("event_time").value
     let eDescription = document.getElementById("event_description").value
 
-    if (eName === "" || eDate === "" || eLocation === "" || eTime === "" || eDescription === "") {
+    if (eName === "" || eDate === "" || eLocation === "" || eDescription === "") {
         alert("Please fill out all fields") //if any fields are blank show this alert
     } else {
-        eventFactory(eId, eName, eDate, eLocation, eTime, eDescription) //if all fields are filled in then pass values into the eventFactory to create the new event
+        eventFactory(eId, eName, eDate, eLocation, eDescription) //if all fields are filled in then pass values into the eventFactory to create the new event
 
         document.getElementById("event_None").className = "hideIt" //give default message a class of hide it
         document.getElementById("event_form").removeChild(document.getElementById("event_formContent")) //remove form

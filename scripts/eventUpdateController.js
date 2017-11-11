@@ -20,12 +20,11 @@ const updateEvent = function (event) {
     let eNameEdit = document.getElementById("event_nameEdit").value
     let eDateEdit = document.getElementById("event_dateEdit").value
     let eLocationEdit = document.getElementById("event_locationEdit").value
-    let eTimeEdit = document.getElementById("event_timeEdit").value
     let eDescriptionEdit = document.getElementById("event_descriptionEdit").value
 
-    // console.log(eId, eNameEdit, eDateEdit, eLocationEdit, eTimeEdit, eDescriptionEdit)
+    // console.log(eId, eNameEdit, eDateEdit, eLocationEdit, eDescriptionEdit)
 
-    if (eNameEdit === "" || eDateEdit === "" || eLocationEdit === "" || eTimeEdit === "" || eDescriptionEdit === "") {
+    if (eNameEdit === "" || eDateEdit === "" || eLocationEdit === "" || eDescriptionEdit === "") {
         alert("Please fill out all fields")
     } else {
         storedDb.events.filter( (e) => {
@@ -35,7 +34,6 @@ const updateEvent = function (event) {
                 e.eventName = eNameEdit
                 e.eventDate = eDateEdit
                 e.eventLocation = eLocationEdit
-                e.eventTime = eTimeEdit
                 e.eventDescription = eDescriptionEdit
                 
                 console.log(e)
