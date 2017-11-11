@@ -20,7 +20,7 @@ const displayEventList = function () {
             if(event.userId === currentUserId) {
                 addEventList(event)                
             } else {
-                eventListEl.innerHTML = "<p>You have no upcoming events</p>"
+                eventListEl.innerHTML = "<p id='event_None'>You have no upcoming events</p>"
             }
 
         })

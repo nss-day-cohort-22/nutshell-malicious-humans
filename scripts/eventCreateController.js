@@ -23,6 +23,7 @@ const createEvent = () => {
     } else {
         eventFactory(eId, eName, eDate, eLocation, eTime, eDescription)
 
+        document.getElementById("event_None").className = "hideIt"
         document.getElementById("event_form").removeChild(document.getElementById("event_formContent"))
     }
 }
