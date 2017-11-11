@@ -7,6 +7,7 @@ const addEventList = require("./eventListController")
 
 const currentEvents = getLocalStorage().events
 
+
 const displayEventList = function () {
     const eventListEl = document.getElementById("event_list")
 
@@ -19,7 +20,7 @@ const displayEventList = function () {
         }).forEach( event => {
             if(event.userId === currentUserId) {
                 addEventList(event)
-                document.getElementById("event_None").className = "hideIt"                
+                document.getElementById("event_None").className = "hideIt"
             }   
         })
     }

@@ -5,7 +5,7 @@ const getLocalStorage = require("./getLocalStorage")
 const setLocalStorage = require("./setLocalStorage")
 const eventFactory = require("./eventFactory")
 
-const storedEvents = getLocalStorage().events
+const storedDb = getLocalStorage()
 
 const updateEvent = function (event) {
 
@@ -28,7 +28,7 @@ const updateEvent = function (event) {
     if (eNameEdit === "" || eDateEdit === "" || eLocationEdit === "" || eTimeEdit === "" || eDescriptionEdit === "") {
         alert("Please fill out all fields")
     } else {
-        storedEvents.filter( (e) => {
+        storedDb.events.filter( (e) => {
             if(e.eventId === eId) {
                 e.eventName = eNameEdit
                 e.eventDate = eDateEdit
@@ -36,7 +36,6 @@ const updateEvent = function (event) {
                 e.eventTime = eTimeEdit
                 e.eventDescription = eDescriptionEdit
 
-                setLocalStorage(storedEvents)
             }
         })
 
