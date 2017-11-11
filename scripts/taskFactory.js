@@ -48,24 +48,42 @@ function taskFactory() {
         //         console.log(taskObj)
         //     }
         // },
-        markTaskAsComplete: {
-            value: function(taskId) {
-                // let taskId = this.id.toString()
-                // console.log(typeof taskId)
-                // taskId = taskId.slice(this.id.length - 1)
-                // console.log(taskId)
-                // getTaskWithId(this, taskId)
+        // markTaskAsComplete: {
+        //     value: function(taskId) {
+        //         // let taskId = this.id.toString()
+        //         // console.log(typeof taskId)
+        //         // taskId = taskId.slice(this.id.length - 1)
+        //         // console.log(taskId)
+        //         // getTaskWithId(this, taskId)
+        //         const db = getLocalStorage()
+                
+        //         db.tasks.forEach(task => { // slice the end of taskId 
+        //             if(task.taskId == taskId.slice(taskId.length - 1)) {
+        //                 task.taskComplete = true
+        //             }
+        //         })
+
+        //         setLocalStorage(db)
+        //     }
+        // },
+        // updateTitle: {
+        //     value: function(taskId) {
+
+        //     } 
+        // },
+        editTask: {
+            value: function(taskId, key, value) {
                 const db = getLocalStorage()
                 
-                db.tasks.forEach(task => { // slice the end of taskId 
-                    if(task.taskId == taskId.slice(taskId.length - 1)) {
-                        task.taskComplete = true
+                db.tasks.forEach(task => {
+                    if(task.taskId == taskId) {
+                        task[key] = value
                     }
                 })
 
                 setLocalStorage(db)
             }
-        } 
+        }
     })
 }
 

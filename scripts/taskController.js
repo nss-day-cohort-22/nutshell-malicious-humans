@@ -70,7 +70,7 @@ function taskController() {
     function editTaskTitle(e) {
         // e.cancelBubble = true
         // e.stopPropagation()
-        console.log(e)
+        // console.log(e)
         const parentLi = e.target.parentNode
         const editForm = document.createElement("form")
         editForm.addEventListener("submit", function(e){e.preventDefault()}, false) // add this magical line to all forms to avoid a page refresh on enter
@@ -78,27 +78,32 @@ function taskController() {
         newTaskTitleInput.type = "text"
         newTaskTitleInput.addEventListener("keyup", saveNewTitle)
         const newTaskTitleLabel = document.createElement("label")
-        newTaskTitleInput.innerHTML = "Press Enter to Save"
+        newTaskTitleLabel.innerHTML = "Press Enter to Save"
         parentLi.appendChild(editForm)
         editForm.appendChild(newTaskTitleInput)
         editForm.appendChild(newTaskTitleLabel)
     }
 
     function saveNewTitle(e) {
+        const tFactory = taskFactory()
+        const taskId = e.target.id.slice(e.target.id.length - 1)
         e.preventDefault()
         // e.cancelBubble = true
         // e.stopPropagation()
         if(e.keyCode === 13) {
             console.log(e.target.value)
+            // save edit to database
+            tFactory.editTask(taskId, "taskTitle", e.target.value) // TODO 11/10/2017 issue here
+            // update dom
         }
     }
 
     function markTaskAsComplete(e) {
-        const taskId = e.target.id
+        const taskId = e.target.id.slice(e.target.id.length - 1)
         const tFactory = taskFactory()
-        tFactory.markTaskAsComplete(taskId)
+        tFactory.editTask(taskId, "taskComplete", true)
         // console.log(this.id)
-        document.getElementById("unorderedTaskList").removeChild(document.getElementById(taskId).parentNode)
+        document.getElementById("unorderedTaskList").removeChild(document.getElementById(taskId).parentNode) // TODO 11/10/2017 verify this works
         // removeElement("unorderedTaskList", taskId)
     }
 
@@ -111,6 +116,8 @@ function taskController() {
         return newInput
     }
 
+    // TODO 11/10/2017
+    // need to convert this html string to created dom elements to add eventlistener to form to avoid refresh
     function displayNewTaskForm() {
         removeElement("taskListForm", "newTaskBtn")
         const newTaskForm = document.createElement("section")
