@@ -3,11 +3,10 @@
 
 const getLocalStorage = require("./getLocalStorage")
 const setLocalStorage = require("./setLocalStorage")
-// const addEventList = require("./eventListController")
 
-const storedDb = getLocalStorage()
 
 const updateEvent = function (event) {
+    const storedDb = getLocalStorage()
 
     const eId = parseInt(
         Array.from(event.target.classList)
@@ -22,27 +21,27 @@ const updateEvent = function (event) {
     let eLocationEdit = document.getElementById("event_locationEdit").value
     let eDescriptionEdit = document.getElementById("event_descriptionEdit").value
 
-    // console.log(eId, eNameEdit, eDateEdit, eLocationEdit, eDescriptionEdit)
-
     if (eNameEdit === "" || eDateEdit === "" || eLocationEdit === "" || eDescriptionEdit === "") {
         alert("Please fill out all fields")
     } else {
-        storedDb.events.filter( (e) => {
+        const updateE = storedDb.events.filter( (e) => {
             if(e.eventId === eId) {
-                storedDb.events.pop(e) //removes old info from database
-                //updates the info
-                e.eventName = eNameEdit
-                e.eventDate = eDateEdit
-                e.eventLocation = eLocationEdit
-                e.eventDescription = eDescriptionEdit
-                
-                console.log(e)
-                storedDb.events.push(e) //adds updated info to database
-                setLocalStorage(storedDb) //saves to local storage
-                // addEventList(e)
-                
+                return e
             }
-        })
+        })[0]
+
+        const indexOfEvent = storedDb.events.indexOf(updateE) //gets position of event in the array
+
+        const removeE = storedDb.events.splice(indexOfEvent, 1) //removes old info from database
+        //updates the event info
+        console.log(storedDb)
+        updateE.eventName = eNameEdit
+        updateE.eventDate = eDateEdit
+        updateE.eventLocation = eLocationEdit
+        updateE.eventDescription = eDescriptionEdit
+        
+        const addE = storedDb.events.push(updateE) //adds updated info to database
+        setLocalStorage(storedDb) //saves to local storage
 
         document.getElementById("event_" + `${eId}`).removeChild(document.getElementById("event_editContent"))
     }
