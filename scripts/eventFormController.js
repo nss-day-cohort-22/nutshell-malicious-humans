@@ -12,6 +12,7 @@ const createEventForm = function () {
     const formDiv = document.createElement("div")
     formDiv.id = "event_formContent"
 
+
     //content for form
     let formContentString = `
         <h3>Create New Event</h3>

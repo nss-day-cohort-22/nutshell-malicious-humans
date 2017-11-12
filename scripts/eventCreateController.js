@@ -14,8 +14,28 @@ const createEvent = () => {
     let eLocation = document.getElementById("event_location").value
     let eDescription = document.getElementById("event_description").value
 
+    //calculates today's date so that only future events can be added
+
+
+    // } else if (pToday < pEvent){
+    //     console.log(Date.parse(eDate))
+
+    const today = new Date()
+    const year = today.getFullYear().toString()
+    const month = (today.getMonth()+1).toString()
+    const day = today.getDate().toString()
+    
+    const fullDate = year + "-" + month + "-" + day
+
+    const pToday = Date.parse(fullDate) //today's date should be less than the event date
+    const pEvent = Date.parse(eDate)
+
+
     if (eName === "" || eDate === "" || eLocation === "" || eDescription === "") {
         alert("Please fill out all fields") //if any fields are blank show this alert
+
+    } else if (pToday > pEvent) { //if today's date is after the event date, alert to only enter future events
+        alert(`Please enter a date later than ${fullDate}`)
     } else {
         eventFactory(eName, eDate, eLocation, eDescription) //if all fields are filled in then pass values into the eventFactory to create the new event
 

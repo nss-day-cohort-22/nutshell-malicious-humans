@@ -31,7 +31,7 @@ const eventDash = function () {
     const eventFormEl = document.createElement("div")
     eventFormEl.id = "event_form"
 
-    
+
     eventDiv.appendChild(addEventButton) //appends add button to the event div
     eventDiv.appendChild(eventFormEl) //appends the form element to the event div
     eventDiv.appendChild(eventListEl) //appends the event list element to the event div
