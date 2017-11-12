@@ -2,7 +2,7 @@
 //this module displays event dashboard when user first clicks the event link on the main Dashboard
 
 const eventInfo = require("./eventFactory")
-const createEvent = require("./eventFormController")
+const createEventForm = require("./eventFormController")
 const displayEvents = require("./eventListDisplay")
 
 const domEl = document.getElementById("Dashboard")
@@ -25,7 +25,7 @@ const eventDash = function () {
     const addEventButton = document.createElement("button")
     addEventButton.id = "event_addButton"
     addEventButton.appendChild(document.createTextNode("Add New Event"))
-    addEventButton.addEventListener("click", createEvent)
+    addEventButton.addEventListener("click", createEventForm)
     
     //creates the div for the form to display when the user clicks add event
     const eventFormEl = document.createElement("div")

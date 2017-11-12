@@ -1,5 +1,6 @@
 //Kristen
 //this module create an event object, adds it to the DOM and to local storage
+const eventIdGen = require("./idGenerator")
 const setLocalStorage = require("./setLocalStorage")
 const getLocalStorage = require("./getLocalStorage")
 const getSessionStorage = require("./getSessionStorage")
@@ -7,15 +8,17 @@ const addEventList = require("./eventListController")
 
 const storedDb = getLocalStorage()
 
-let eventFactory = function(eventId, eventName, date, location, description) {
-
+let eventFactory = function(eventName, date, location, description) {
+    let lastEventId = storedDb.events[storedDb.events.length- 1] || {eventId: 0}
+    let eventIdFactory = eventIdGen(lastEventId.eventId)
+    
     const newEvent = Object.create(null, {
         "userId": {
             "value": getSessionStorage().user.userId,
             "enumerable": true
         },
         "eventId": {
-            "value": eventId,
+            "value": eventIdFactory.next().value,
             "enumerable": true
         },
         "eventName": {
@@ -45,5 +48,6 @@ let eventFactory = function(eventId, eventName, date, location, description) {
     setLocalStorage(storedDb) //set local storage
     
 }
+
 
 module.exports = eventFactory
