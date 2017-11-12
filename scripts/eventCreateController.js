@@ -8,7 +8,7 @@ const storedDb = getLocalStorage()
 
 
 const createEvent = () => {
-    let lastEventId = storedDb.events[storedDb.events.length- 1] ||  {eventId: 0}
+    let lastEventId = storedDb.events[storedDb.events.length- 1] || {eventId: 0}
     let eventIdFactory = eventIdGen(lastEventId.eventId)
     
     //gets values from form
