@@ -4,6 +4,7 @@
 const getLocalStorage = require("./getLocalStorage")
 const getSessionStorage = require("./getSessionStorage")
 const addEventList = require("./eventListController")
+const todayDate = require("./eventToday")
 
 const currentEvents = getLocalStorage().events //events in local storage
 
@@ -20,8 +21,12 @@ const displayEventList = function () {
             return dateA - dateB
         }).forEach( event => {
             if(event.userId === currentUserId) { //if the event userId matches the id of the current user 
-                addEventList(event) //then add the event to the DOM
-                document.getElementById("event_None").className = "hideIt" //and give the default message a class of hideIt
+                const dateToday = Date.parse(todayDate()) //today's date parsed
+                const eventDate = Date.parse(event.eventDate) //event date parsed
+                if(dateToday <= eventDate) {
+                    addEventList(event) //then add the event to the DOM
+                    document.getElementById("event_None").className = "hideIt" //and give the default message a class of hideIt
+                }
             }   
         })
     }

@@ -1,5 +1,5 @@
 //Kristen
-//calculates today's date so that only future events can be added
+//calculates today's date so that only future events can be added or displayed
 
 const todayDate = () => {
     const today = new Date()
