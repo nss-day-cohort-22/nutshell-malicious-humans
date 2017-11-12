@@ -10,10 +10,10 @@ const addEventList = function (event) {
     eventEl.id = `event_${event.eventId}`
 
     let eventContentString = `
-        <h3>${event.eventName}</h3>
-        <p>Date: ${event.eventDate}</p>
-        <p>Location: ${event.eventLocation}</p>
-        <p>Description: ${event.eventDescription}</p>
+        <h3 id="event_name${event.eventId}">${event.eventName}</h3>
+        <p id="event_date${event.eventId}">Date: ${event.eventDate}</p>
+        <p id="event_location${event.eventId}">Location: ${event.eventLocation}</p>
+        <p id="event_description${event.eventId}">Description: ${event.eventDescription}</p>
     `
 
     eventEl.innerHTML += eventContentString
