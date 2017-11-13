@@ -3,6 +3,8 @@ const storeMessage = require("./storeMessage")
 const writeMessages = require("./writeMessages")
 const messageAuthorCheck = require("./messageAuthorCheck")
 const messageBoardMaintenance = require("./messageBoardMaintenance")
+let getLocalStorage = require("./getLocalStorage")
+let setLocalStorage = require("./setLocalStorage")
 
 //Create a Function to build the MessageBoard
 const buildMessageBoard = function() {
@@ -66,7 +68,10 @@ const buildMessageBoard = function() {
     messageBoardDiv.appendChild(messageEntrySection)
 
     //ivoke a function that will load the message board with the current messages stored in the database
+    let storedDB = getLocalStorage()
+    setLocalStorage(storedDB)
     writeMessages()
+    messageAuthorCheck()
     messageBoardMaintenance()
     
 

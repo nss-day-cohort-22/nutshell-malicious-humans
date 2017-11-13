@@ -3,6 +3,7 @@ const messageAuthorCheck = require("./messageAuthorCheck")
 const deleteMessage = require("./deleteMessage")
 const makeMessageEdit = require("./makeMessageEdit")
 const autoScroll = require("./autoScroll")
+const addChatUserAsFriend = require("./addChatUserAsFriend")
 
 
 
@@ -20,14 +21,39 @@ const writeMessages = function () {
             }
         })
 
-        messageInjectionMarker.innerHTML += `
-        <div id="${message.messageId}" class="chatMessage">
-            <p id="messageTitle">${currentAuthor}</p>
-            <p id="messageText">${message.messageText}</p>
-            <button class="editMessageButton hideIt">Edit Message</button>
-            <button class="deleteMessageButton hideIt">Delete Message</button>
-        </div>
-        `
+        let messageDiv = document.createElement("div")
+        messageDiv.id = message.messageId
+        messageDiv.classList.add("chatMessage")
+        let messageTitleParagraph = document.createElement("p")
+        messageTitleParagraph.id = "messageAuthor"
+        messageTitleParagraph.appendChild(document.createTextNode(currentAuthor))
+        let messageTextParagraph = document.createElement("p")
+        messageTextParagraph.id = "messageText"
+        messageTextParagraph.appendChild(document.createTextNode(message.messageText))
+        let messageEditButton = document.createElement("button")
+        messageEditButton.classList.add("editMessageButton", "hideIt")
+        messageEditButton.appendChild(document.createTextNode("Edit Message"))
+        let messageDeleteButton = document.createElement("button")
+        messageDeleteButton.classList.add("deleteMessageButton", "hideIt")
+        messageDeleteButton.appendChild(document.createTextNode("Delete Message"))
+        messageDiv.appendChild(messageTitleParagraph)
+        messageDiv.appendChild(messageTextParagraph)
+        messageDiv.appendChild(messageEditButton)
+        messageDiv.appendChild(messageDeleteButton)
+        messageTitleParagraph.addEventListener("click", addChatUserAsFriend)
+
+        messageInjectionMarker.appendChild(messageDiv)
+
+
+
+        // messageInjectionMarker.innerHTML += `
+        // <div id="${message.messageId}" class="chatMessage">
+        //     <p id="messageTitle">${currentAuthor}</p>
+        //     <p id="messageText">${message.messageText}</p>
+        //     <button class="editMessageButton hideIt">Edit Message</button>
+        //     <button class="deleteMessageButton hideIt">Delete Message</button>
+        // </div>
+        // `
     })
     
     let editButtons = document.getElementsByClassName("editMessageButton")

@@ -5,6 +5,7 @@ let buildMessageBoard = require("./buildMessageBoard")
 const makeMessageEdit = require("./makeMessageEdit")
 const getEditObject = require("./getEditObject")
 let setEditObject = require("./setEditObject")
+const addChatUserAsFriend = require("./addChatUserAsFriend")
 
 
 const submitMessageEdit = function (event) {
@@ -36,10 +37,12 @@ const submitMessageEdit = function (event) {
 
 
 
-    storedDB.messages.forEach(function (message) {
+    storedDB.messages.forEach(function (message) { 
         let messageDivId = parseInt(messageDiv.id)
         if (messageDivId === message.messageId) {
             let updatedMessageDiv = document.createElement("div")
+            updatedMessageDiv.classList.add("chatMessage")
+            updatedMessageDiv.id = message.messageId
             let updatedMessageAuthor = document.createElement("p")
             updatedMessageAuthor.id ="messageTitle"
             updatedMessageAuthor.appendChild(document.createTextNode(currentUserObject.user.userName))
@@ -49,6 +52,7 @@ const submitMessageEdit = function (event) {
             updatedMessageDiv.appendChild(updatedMessageAuthor)
             updatedMessageDiv.appendChild(updatedMessageText)
             messageDiv.insertBefore(updatedMessageDiv, messageDiv.firstChild)
+            updatedMessageAuthor.addEventListener("click", addChatUserAsFriend)
         }
     })
     
