@@ -11,11 +11,13 @@ function userEmailInDb(email, dbObj) {
 
     let emailInDb = false
 
-    dbObj.users.forEach(userObj => {
-        if(userObj.email === email) {
-            emailInDb = true
-        }
-    })
+    if(dbObj) {
+        dbObj.users.forEach(userObj => {
+            if(userObj.email === email) {
+                emailInDb = true
+            }
+        })
+    }
 
     return emailInDb
 }

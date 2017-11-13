@@ -11,11 +11,13 @@ function userNameInDb(userName, dbObj) {
 
     let userInDb = false
 
-    dbObj.users.forEach(userObj => {
-        if(userObj.userName === userName) {
-            userInDb = true
-        }
-    })
+    if(dbObj) {
+        dbObj.users.forEach(userObj => {
+            if(userObj.userName === userName) {
+                userInDb = true
+            }
+        })
+    }
 
     return userInDb
 }
