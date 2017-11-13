@@ -1,7 +1,10 @@
 const displayActiveUser = require("./displayActiveUser")
+const newsForm = require("./newsForm")
+const writeNews = require("./newsController")
 const buildMessageBoard = require("./buildMessageBoard")
 const taskController = require("./taskController.js")
 const eventController = require("./eventController.js")
+
 
 const buildDashboard = function () {
     //hide landing page and sign up form sections
@@ -57,12 +60,17 @@ const buildDashboard = function () {
     let newsDiv = document.createElement("div")
     newsDiv.appendChild(document.createTextNode("Click to create or view News"))
     //create a button that allows users to navigate to the tasks page, give that button an id
-    let newsButton = document.createElement("button")
-    newsButton.appendChild(document.createTextNode("Click"))
-    newsButton.id = "news_Button"
-    newsButton.addEventListener("click", function(){})
+    let createNewsButton = document.createElement("button")
+    createNewsButton.appendChild(document.createTextNode("Post a News Article"))
+    createNewsButton.id = "create_news_button"
+    createNewsButton.addEventListener("click", newsForm)
     //append the button to the tasks div
-    newsDiv.appendChild(newsButton)
+    newsDiv.appendChild(createNewsButton)
+    let showNewsButton = document.createElement("button")
+    showNewsButton.appendChild(document.createTextNode("Show News Articles"))
+    showNewsButton.id = "show_news_button"
+    showNewsButton.addEventListener("click", writeNews)
+    newsDiv.appendChild(showNewsButton)
 
     // create div for friends link
     // create a div and store it in a variable. Then add text to that div
