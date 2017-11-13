@@ -10,3 +10,7 @@
     background-color: lightgreen;
     text-align: center;
 }
+
+#taskListForm ul {
+    list-style-type: none;
+}

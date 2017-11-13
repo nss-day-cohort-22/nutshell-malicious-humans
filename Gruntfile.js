@@ -12,11 +12,11 @@ module.exports = function foo(grunt) {
             },
         },
         browserify: {
-            // options: {
-            //     browserifyOptions: {
-            //         debug: true
-            //     }
-            // },
+            options: {
+                browserifyOptions: {
+                    debug: true
+                }
+            },
             dist: {
                 files: {
                     "build/bundle.js": ["scripts/main.js"],
