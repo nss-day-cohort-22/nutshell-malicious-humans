@@ -7,7 +7,7 @@ const mainDB = getLocalStorage()
 const addFriend = (event) => {
     let id
     if(event.type==="click"){
-        id = event.target.id.value
+        id = parseInt(event.target.id)
     } else {
         id = event
     }

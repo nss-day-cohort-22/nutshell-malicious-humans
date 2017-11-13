@@ -9,8 +9,10 @@ const todayDate = require("./eventToday")
 
 
 const displayEventList = function () {
+
     const storedDB = getLocalStorage()
     const currentEvents = storedDB.events //events in local storage
+
     const eventListEl = document.getElementById("event_list")
 
     //if there are events in local storage

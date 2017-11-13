@@ -28,7 +28,7 @@ let userObjectFactory = function (firstName, lastName, userName, email) {
         },
         "lastName": {
             "value": lastName,
-            "enumerbale": true,
+            "enumerable": true,
             "writable": true
         },
         "userName": {
