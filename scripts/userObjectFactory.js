@@ -48,7 +48,8 @@ let userObjectFactory = function (firstName, lastName, userName, email) {
     })
     storedMainDB.users.push(newUser)
     copyUser(newUser)
-
+    setLocalStorage(storedMainDB)
+    
 }
 
 let createUser = () => {
@@ -74,7 +75,7 @@ let createUser = () => {
         userObjectFactory(userFN, userLN, userName, userEmail)
 
         //add user to local storage
-        setLocalStorage(storedMainDB)
+        // setLocalStorage(storedMainDB)
         //launch dashboard
         buildDashboard()
     }
