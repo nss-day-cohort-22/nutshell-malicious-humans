@@ -76,6 +76,7 @@ const buildDashboard = function () {
     // create a div and store it in a variable. Then add text to that div
     let friendsDiv = document.createElement("div")
     friendsDiv.appendChild(document.createTextNode("Click to add or view Friends"))
+    friendsDiv.id = "friends"
     //create a button that allows users to navigate to the tasks page, give that button an id
     let friendsButton = document.createElement("button")
     friendsButton.appendChild(document.createTextNode("Click"))
