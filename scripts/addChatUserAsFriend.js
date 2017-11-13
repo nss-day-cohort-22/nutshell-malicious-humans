@@ -14,14 +14,40 @@ const addChatUserAsFriend = function () {
     })
 
     let userObj = {}
+
+
     storedDB.users.forEach(function (user) {
         if (user.userId === messageAuthorId) {
             userObj = user 
         }
     })
 
-    friendObjFactory(userObj)
+    let buttonKiller = function () {
+        friendObjFactory(userObj)
+        // if (document.getElementById("addUser")) {
+        addFriendFormDiv.remove(document.getElementById("addUser"))
+        // }
+    }
+
+    let addFriendFormDiv = document.createElement("div")
+    addFriendFormDiv.id = "addUser"
+    let addFriendButton = document.createElement("button")
+    addFriendButton.id = "addFriendButton"
+    let doNotAddFriendButton = document.createElement("button")
+    doNotAddFriendButton.if = "doNotAddFriendButton"
+    addFriendButton.appendChild(document.createTextNode("Add Friend"))
+    doNotAddFriendButton.appendChild(document.createTextNode("Do Not Add Friend"))
+    addFriendFormDiv.appendChild(addFriendButton)
+    addFriendFormDiv.appendChild(doNotAddFriendButton)
+    targetParent.appendChild(addFriendFormDiv)
+    addFriendButton.addEventListener("click", buttonKiller)
+    doNotAddFriendButton.addEventListener("click", function () {
+        addFriendFormDiv.remove(addFriendFormDiv)
+    })
+
 
 }
+
+
 
 module.exports = addChatUserAsFriend
