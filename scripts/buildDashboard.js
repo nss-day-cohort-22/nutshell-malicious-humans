@@ -1,8 +1,8 @@
 const displayActiveUser = require("./displayActiveUser")
 const newsForm = require("./newsForm")
 const writeNews = require("./newsController")
-
-
+const buildMessageBoard = require("./buildMessageBoard")
+const taskController = require("./taskController.js")
 
 
 const buildDashboard = function () {
@@ -24,7 +24,9 @@ const buildDashboard = function () {
     let tasksButton = document.createElement("button")
     tasksButton.appendChild(document.createTextNode("Click"))
     tasksButton.id = "tasks_Button"
-    tasksButton.addEventListener("click", function(){})
+    tasksButton.addEventListener("click", function(){
+        taskController()
+    })
     //append the button to the tasks div
     tasksDiv.appendChild(tasksButton)
 
@@ -36,7 +38,7 @@ const buildDashboard = function () {
     let messagesButton = document.createElement("button")
     messagesButton.appendChild(document.createTextNode("Click"))
     messagesButton.id = "messages_Button"
-    messagesButton.addEventListener("click", function(){})
+    messagesButton.addEventListener("click", buildMessageBoard)
     //append the button to the tasks div
     messagesDiv.appendChild(messagesButton) 
 
