@@ -10,8 +10,9 @@ const todayDate = require("./eventToday")
 
 const displayEventList = function () {
 
-    const storedDB = getLocalStorage()
-    const currentEvents = storedDB.events //events in local storage
+    const storedDb = getLocalStorage()
+    const currentEvents = storedDb.events //events in local storage
+    const activeUser = getSessionStorage() 
 
     const eventListEl = document.getElementById("event_list")
 
@@ -20,8 +21,29 @@ const displayEventList = function () {
         
         
         const currentUserId = getSessionStorage().user.userId //id of current user
-        let friendsArray = storedDB.friends.for
-        
+        let friendsArray = storedDb.userFriend.filter(friend => {return activeUser.user.userId === friend.activeUserId || activeUser.user.userId === friend.friendUserId})
+
+        console.log(friendsArray)
+        let friendEventArray = []
+
+        friendsArray.forEach(friend => {
+            
+            let array = currentEvents.filter(cEvent => {
+                const notActiveUser = (cEvent.userId !== activeUser.user.userId) //not the session active user
+                const fActiveUser = (cEvent.userId === friend.activeUserId) //event Id is equal to the active user on the friend relationship
+                const fFriendUser = (cEvent.userId === friend.friendUserId) //event Id is equal to the friend user on the friend relationship
+                
+                return notActiveUser && fActiveUser || notActiveUser && fFriendUser //return if the event id is NOT equal to the session active user but is equal to either the active or friend user on the friend relationship
+            })
+
+            let newArray = friendEventArray.concat(array) //concat events into an array
+
+            friendEventArray = newArray //friend event array contains only friends events and not the active session user
+
+        })
+
+        console.log(friendEventArray)
+
         currentEvents.sort( function(a, b) { //sort events by date, need to parse into an integer
             const dateA = Date.parse(a.eventDate) 
             const dateB = Date.parse(b.eventDate)
