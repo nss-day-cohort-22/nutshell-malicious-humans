@@ -151,11 +151,11 @@ function taskController() {
 
         // makeshift form validation
         if(!newTaskTitle && !newTaskDate) {
-            console.log("missing date and title")
+            alert("missing date and title")
         } else if(!newTaskTitle) {
-            console.log("missing title")
+            alert("missing title")
         } else if(!newTaskDate) {
-            console.log("missing date")
+            alert("missing date")
         } else {
             // if title and date are provided form is processed
             const tFactory = taskFactory()
