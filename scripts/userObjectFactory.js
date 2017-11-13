@@ -12,13 +12,6 @@ const userNameInDb = require("./userNameInDb")
 const userEmailInDb = require("./userEmailInDb")
 
 
-<<<<<<< HEAD
-const storedMainDB = getLocalStorage() 
-
-
-
-=======
->>>>>>> master
 let userObjectFactory = function (firstName, lastName, userName, email) {
     let storedMainDB = getLocalStorage()
     let lastId = storedMainDB.users[storedMainDB.users.length- 1] ||  {userId: 0}
