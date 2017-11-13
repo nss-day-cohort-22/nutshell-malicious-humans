@@ -48,7 +48,7 @@ const createEventForm = function () {
     formDiv.appendChild(closeButton)
 
     formEl.appendChild(formDiv)
-
+    
 }
 
 module.exports = createEventForm
