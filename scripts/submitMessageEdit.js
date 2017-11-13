@@ -37,20 +37,22 @@ const submitMessageEdit = function (event) {
 
 
 
-    storedDB.messages.forEach(function (message) {
+    storedDB.messages.forEach(function (message) { 
         let messageDivId = parseInt(messageDiv.id)
         if (messageDivId === message.messageId) {
             let updatedMessageDiv = document.createElement("div")
+            updatedMessageDiv.classList.add("chatMessage")
+            updatedMessageDiv.id = message.messageId
             let updatedMessageAuthor = document.createElement("p")
             updatedMessageAuthor.id ="messageTitle"
             updatedMessageAuthor.appendChild(document.createTextNode(currentUserObject.user.userName))
-            updatedMessageAuthor.addEventListener("click", addChatUserAsFriend)
             let updatedMessageText = document.createElement("p")
             updatedMessageText.id = "messageText"
             updatedMessageText.appendChild(document.createTextNode(message.messageText))
             updatedMessageDiv.appendChild(updatedMessageAuthor)
             updatedMessageDiv.appendChild(updatedMessageText)
             messageDiv.insertBefore(updatedMessageDiv, messageDiv.firstChild)
+            updatedMessageAuthor.addEventListener("click", addChatUserAsFriend)
         }
     })
     

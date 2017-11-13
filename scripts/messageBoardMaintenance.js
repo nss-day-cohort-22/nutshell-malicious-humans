@@ -1,4 +1,5 @@
 let getLocalStorage = require("./getLocalStorage")
+let messageAuthorCheck = require("./messageAuthorCheck")
 let mainDB = require("./nutshellDB")
 let makeMessageEdit = require("./makeMessageEdit")
 let deleteMessage = require("./deleteMessage")
@@ -32,13 +33,13 @@ const messageBoardMaitenance = function () {
 
                 let messageDiv = document.createElement("div")
                 messageDiv.id = newMessage[0].messageId
+                messageDiv.classList.add("chatMessage")
                 let messageTitleParagraph = document.createElement("p")
                 messageTitleParagraph.id = "messageAuthor"
                 messageTitleParagraph.appendChild(document.createTextNode(newMessageAuthor))
                 let messageTextParagraph = document.createElement("p")
                 messageTextParagraph.id = "messageText"
                 messageTextParagraph.appendChild(document.createTextNode(newMessage[0].messageText))
-                messageTextParagraph.addEventListener("click", addChatUserAsFriend)
                 let messageEditButton = document.createElement("button")
                 messageEditButton.classList.add("editMessageButton", "hideIt")
                 messageEditButton.appendChild(document.createTextNode("Edit Message"))
@@ -49,6 +50,7 @@ const messageBoardMaitenance = function () {
                 messageDiv.appendChild(messageTextParagraph)
                 messageDiv.appendChild(messageEditButton)
                 messageDiv.appendChild(messageDeleteButton)
+                messageTitleParagraph.addEventListener("click", addChatUserAsFriend)
 
                 messageMaintenanceArea.appendChild(messageDiv)
 
@@ -75,7 +77,7 @@ const messageBoardMaitenance = function () {
                     element.addEventListener("click", deleteMessage)
                 })
                 autoScroll(messageMaintenanceArea)
-                
+                messageAuthorCheck()
             }
             dbLength ++
         }
