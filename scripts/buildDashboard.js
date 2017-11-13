@@ -1,5 +1,9 @@
 const displayActiveUser = require("./displayActiveUser")
+<<<<<<< HEAD
 const buildMessageBoard = require("./buildMessageBoard")
+=======
+const taskController = require("./taskController.js")
+>>>>>>> master
 
 const buildDashboard = function () {
     //hide landing page and sign up form sections
@@ -20,7 +24,9 @@ const buildDashboard = function () {
     let tasksButton = document.createElement("button")
     tasksButton.appendChild(document.createTextNode("Click"))
     tasksButton.id = "tasks_Button"
-    tasksButton.addEventListener("click", function(){})
+    tasksButton.addEventListener("click", function(){
+        taskController()
+    })
     //append the button to the tasks div
     tasksDiv.appendChild(tasksButton)
 
