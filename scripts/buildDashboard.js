@@ -4,6 +4,7 @@ const writeNews = require("./newsController")
 const buildMessageBoard = require("./buildMessageBoard")
 const taskController = require("./taskController.js")
 const eventController = require("./eventController.js")
+const displayUsers = require("./displayUsers")
 
 
 const buildDashboard = function () {
@@ -81,7 +82,7 @@ const buildDashboard = function () {
     let friendsButton = document.createElement("button")
     friendsButton.appendChild(document.createTextNode("Click"))
     friendsButton.id = "friends_Button"
-    friendsButton.addEventListener("click", function(){})
+    friendsButton.addEventListener("click", displayUsers)
     //append the button to the tasks div
     friendsDiv.appendChild(friendsButton)
 
