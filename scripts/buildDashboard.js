@@ -1,4 +1,5 @@
 const displayActiveUser = require("./displayActiveUser")
+const buildMessageBoard = require("./buildMessageBoard")
 const taskController = require("./taskController.js")
 
 const buildDashboard = function () {
@@ -34,7 +35,7 @@ const buildDashboard = function () {
     let messagesButton = document.createElement("button")
     messagesButton.appendChild(document.createTextNode("Click"))
     messagesButton.id = "messages_Button"
-    messagesButton.addEventListener("click", function(){})
+    messagesButton.addEventListener("click", buildMessageBoard)
     //append the button to the tasks div
     messagesDiv.appendChild(messagesButton) 
 
