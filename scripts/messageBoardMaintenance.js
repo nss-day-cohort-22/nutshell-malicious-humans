@@ -29,14 +29,36 @@ const messageBoardMaitenance = function () {
             
             if (newMessageAuthor !== currentUserObject.user.userName) {
 
-                messageMaintenanceArea.innerHTML += `
-                <div id="${newMessage[0].messageId}" class="chatMessage">
-                    <p id="messageTitle">${newMessageAuthor}</p>
-                    <p id="messageText">${newMessage[0].messageText}</p>
-                    <button class="editMessageButton hideIt">Edit Message</button>
-                    <button class="deleteMessageButton hideIt">Delete Message</button>
-                </div>
-                `
+                let messageDiv = document.createElement("div")
+                messageDiv.id = newMessage[0].messageId
+                let messageTitleParagraph = document.createElement("p")
+                messageTitleParagraph.id = "messageAuthor"
+                messageTitleParagraph.appendChild(document.createTextNode(newMessageAuthor))
+                let messageTextParagraph = document.createElement("p")
+                messageTextParagraph.id = "messageText"
+                messageTextParagraph.appendChild(document.createTextNode(newMessage[0].messageText))
+                messageTextParagraph.addEventListener("click", function () {})
+                let messageEditButton = document.createElement("button")
+                messageEditButton.classList.add("editMessageButton", "hideIt")
+                messageEditButton.appendChild(document.createTextNode("Edit Message"))
+                let messageDeleteButton = document.createElement("button")
+                messageDeleteButton.classList.add("deleteMessageButton", "hideIt")
+                messageDeleteButton.appendChild(document.createTextNode("Delete Message"))
+                messageDiv.appendChild(messageTitleParagraph)
+                messageDiv.appendChild(messageTextParagraph)
+                messageDiv.appendChild(messageEditButton)
+                messageDiv.appendChild(messageDeleteButton)
+
+                messageMaintenanceArea.appendChild(messageDiv)
+
+                // messageMaintenanceArea.innerHTML += `
+                // <div id="${newMessage[0].messageId}" class="chatMessage">
+                //     <p id="messageTitle">${newMessageAuthor}</p>
+                //     <p id="messageText">${newMessage[0].messageText}</p>
+                //     <button class="editMessageButton hideIt">Edit Message</button>
+                //     <button class="deleteMessageButton hideIt">Delete Message</button>
+                // </div>
+                // `
             
             
                 let editButtons = document.getElementsByClassName("editMessageButton")

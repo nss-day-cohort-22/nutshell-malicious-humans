@@ -43,6 +43,7 @@ const submitMessageEdit = function (event) {
             let updatedMessageAuthor = document.createElement("p")
             updatedMessageAuthor.id ="messageTitle"
             updatedMessageAuthor.appendChild(document.createTextNode(currentUserObject.user.userName))
+            updatedMessageAuthor.addEventListener("click", function () {})
             let updatedMessageText = document.createElement("p")
             updatedMessageText.id = "messageText"
             updatedMessageText.appendChild(document.createTextNode(message.messageText))
