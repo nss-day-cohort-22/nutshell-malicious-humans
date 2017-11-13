@@ -17,7 +17,11 @@ const displayEventList = function () {
 
     //if there are events in local storage
     if (currentEvents.length > 0) {
+        
+        
         const currentUserId = getSessionStorage().user.userId //id of current user
+        let friendsArray = storedDB.friends.for
+        
         currentEvents.sort( function(a, b) { //sort events by date, need to parse into an integer
             const dateA = Date.parse(a.eventDate) 
             const dateB = Date.parse(b.eventDate)
