@@ -41,7 +41,6 @@ const updateEvent = function (event) {
         const indexOfEvent = storedDb.events.indexOf(updateE) //gets position of event in the array
 
         const removeE = storedDb.events.splice(indexOfEvent, 1) //removes old info from database
-        console.log(storedDb.events)
         //updates the event info 
         updateE.eventName= eNameEdit
         updateE.eventDate = eDateEdit
@@ -51,8 +50,6 @@ const updateEvent = function (event) {
         
         const addE = storedDb.events.splice(indexOfEvent, 0, updateE) //adds updated info to database
         setLocalStorage(storedDb) //saves to local storage
-        console.log(storedDb)
-        console.log(storedDb.events)
         
         //update text in section with new values
         eNameEl.innerHTML = eNameEdit

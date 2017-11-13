@@ -1,10 +1,7 @@
 const displayActiveUser = require("./displayActiveUser")
-<<<<<<< HEAD
-const eventController = require("./eventController")
-=======
 const buildMessageBoard = require("./buildMessageBoard")
 const taskController = require("./taskController.js")
->>>>>>> master
+const eventController = require("./eventController.js")
 
 const buildDashboard = function () {
     //hide landing page and sign up form sections
