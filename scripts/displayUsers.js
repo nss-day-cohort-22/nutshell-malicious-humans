@@ -11,13 +11,13 @@ const displayUsers = () => {
 
     let userString = ""
 
-    mainDB.users.forEach(user => {
-        if(user.userId !== activeUser.user.userId && activeUser.friends.contains(user)) {
+    mainDB.users.forEach(DbUser => {
+        if(DbUser.userId !== activeUser.user.userId && activeUser.user.friends.includes(DbUser)===true) {
             userString+= 
             `
-            <section class= "user" id= "${user.userId}">
-                <h2>${user.firstName} ${user.lastName}</h2>
-                <button class= "addButton" id="${user.userId}">Add Friend</button>
+            <section class= "user" id= "${DbUser.userId}">
+                <h2>${DbUser.firstName} ${DbUser.lastName}</h2>
+                <button class= "addButton" id="${DbUser.userId}">Add Friend</button>
             </section>
             `
         }

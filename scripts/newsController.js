@@ -17,7 +17,7 @@ let writeNews = () => {
     newsOutpulEl.innerHTML = ""
     let newsHTML = ""
     
-    let userNewsArray = mainDB.news.filter(article => {return article.userId === activeUser.user.userId })
+    let userNewsArray = mainDB.news.filter(article => {return article.userId === activeUser.user.userId && article.userId === activeUser.user.friends.friendUserId })
     let sorteduserNewsArray = userNewsArray.sort(function(n,p){return p.date - n.date})
     
     sorteduserNewsArray.forEach(
