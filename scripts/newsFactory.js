@@ -30,6 +30,10 @@ let NewsArticleObjFactory = (articleName, articleSum, articleURL) => {
         "url": {
             value: articleURL,
             enumerable: true
+        },
+        "date": {
+            value: Date.now(),
+            enumerable: true
         }
     }))
 }

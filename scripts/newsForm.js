@@ -20,9 +20,10 @@ let newsForm = () => {
     let newsFormHTML = 
     `
     <section id = "newsForm">
-        <input id= "newsForm__title" type="text" placeholder= "Article Title">
-        <textarea id = "newsForm__summary" placeholder = "Article Summary"></textarea>
-        <input id = "newsForm__url" type="text" placeholder = "Article URL">
+        <h1 id="newForm__formTitle">Add News Article</h1> <br>
+        <input id= "newsForm__title" type="text" placeholder= "Article Title"> <br>
+        <textarea id = "newsForm__summary" placeholder = "Article Summary"></textarea> <br>
+        <input id = "newsForm__url" type="text" placeholder = "Article URL"> <br>
         <button id = "createArticle">Post Article</button>
     </section>
     `
