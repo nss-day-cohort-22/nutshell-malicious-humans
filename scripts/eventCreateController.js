@@ -28,7 +28,7 @@ const createEvent = () => {
         alert(`Please enter a date later than ${todayDate()}`)
     } else {
         eventFactory(eName, eDate, eLocation, eDescription) //if all fields are filled in then pass values into the eventFactory to create the new event
-
+        
         document.getElementById("event_None").className = "hideIt" //give default message a class of hide it
         document.getElementById("event_form").removeChild(document.getElementById("event_formContent")) //remove form
     }
