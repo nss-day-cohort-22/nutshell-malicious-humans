@@ -28,3 +28,5 @@ let friendObjFactory = (friendObj) => {
         }
     }))
 }
+
+module.exports = friendObjFactory
