@@ -1,10 +1,10 @@
 //Kristen
 //this module creates a new event when a user fills out the New Event form
-const setLocalStorage = require("./setLocalStorage")
-const getLocalStorage = require("./getLocalStorage")
+// const setLocalStorage = require("./setLocalStorage")
+// const getLocalStorage = require("./getLocalStorage")
 const eventFactory = require("./eventFactory")
 const todayDate = require("./eventToday")
-const storedDb = getLocalStorage()
+// const storedDb = getLocalStorage()
 
 
 const createEvent = () => {
