@@ -20,3 +20,7 @@
     font-size: 1.1em;
     font-weight: bold
 }
+
+#taskListForm ul {
+    list-style-type: none;
+}

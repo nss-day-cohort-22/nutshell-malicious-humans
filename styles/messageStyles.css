@@ -1,0 +1,5 @@
+#messageDisplaySection {
+    overflow-x: hidden;
+    overflow-y: visible;
+    height: 500px;
+}
