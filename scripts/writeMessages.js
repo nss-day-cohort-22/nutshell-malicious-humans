@@ -3,6 +3,7 @@ const messageAuthorCheck = require("./messageAuthorCheck")
 const deleteMessage = require("./deleteMessage")
 const makeMessageEdit = require("./makeMessageEdit")
 const autoScroll = require("./autoScroll")
+const addChatUserAsFriend = require("./addChatUserAsFriend")
 
 
 
@@ -28,7 +29,7 @@ const writeMessages = function () {
         let messageTextParagraph = document.createElement("p")
         messageTextParagraph.id = "messageText"
         messageTextParagraph.appendChild(document.createTextNode(message.messageText))
-        messageTextParagraph.addEventListener("click", function () {})
+        messageTextParagraph.addEventListener("click", addChatUserAsFriend)
         let messageEditButton = document.createElement("button")
         messageEditButton.classList.add("editMessageButton", "hideIt")
         messageEditButton.appendChild(document.createTextNode("Edit Message"))

@@ -7,6 +7,7 @@ let getSessionStorage = require("./getSessionStorage")
 let retreiveEditObject = require("./retreiveEditObject")
 let getEditObject = require("./getEditObject")
 let setEditObject = require("./setEditObject")
+const addChatUserAsFriend = require("./addChatUserAsFriend")
 
 const messageBoardMaitenance = function () {
     
@@ -37,7 +38,7 @@ const messageBoardMaitenance = function () {
                 let messageTextParagraph = document.createElement("p")
                 messageTextParagraph.id = "messageText"
                 messageTextParagraph.appendChild(document.createTextNode(newMessage[0].messageText))
-                messageTextParagraph.addEventListener("click", function () {})
+                messageTextParagraph.addEventListener("click", addChatUserAsFriend)
                 let messageEditButton = document.createElement("button")
                 messageEditButton.classList.add("editMessageButton", "hideIt")
                 messageEditButton.appendChild(document.createTextNode("Edit Message"))
