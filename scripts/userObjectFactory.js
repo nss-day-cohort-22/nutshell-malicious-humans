@@ -12,11 +12,8 @@ const userNameInDb = require("./userNameInDb")
 const userEmailInDb = require("./userEmailInDb")
 
 
-const storedMainDB = getLocalStorage()
-
-
-
 let userObjectFactory = function (firstName, lastName, userName, email) {
+    let storedMainDB = getLocalStorage()
     let lastId = storedMainDB.users[storedMainDB.users.length- 1] ||  {userId: 0}
     let userIdFactory = idGenerator(lastId.userId)
     let newUser = Object.create(null, {
@@ -31,7 +28,7 @@ let userObjectFactory = function (firstName, lastName, userName, email) {
         },
         "lastName": {
             "value": lastName,
-            "enumerbale": true,
+            "enumerable": true,
             "writable": true
         },
         "userName": {
@@ -51,10 +48,12 @@ let userObjectFactory = function (firstName, lastName, userName, email) {
     })
     storedMainDB.users.push(newUser)
     copyUser(newUser)
+    setLocalStorage(storedMainDB)
     
 }
 
 let createUser = () => {
+    let storedMainDB = getLocalStorage()
     let userFN = document.getElementById("user_firstName").value
     let userLN = document.getElementById("user_lastName").value
     let userName = document.getElementById("user_userName").value
@@ -76,7 +75,7 @@ let createUser = () => {
         userObjectFactory(userFN, userLN, userName, userEmail)
 
         //add user to local storage
-        setLocalStorage(storedMainDB)
+        // setLocalStorage(storedMainDB)
         //launch dashboard
         buildDashboard()
     }
