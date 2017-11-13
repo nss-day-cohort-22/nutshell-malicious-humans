@@ -6,10 +6,10 @@ const getSessionStorage = require("./getSessionStorage")
 const addEventList = require("./eventListController")
 const todayDate = require("./eventToday")
 
-const currentEvents = getLocalStorage().events //events in local storage
 
 
 const displayEventList = function () {
+    const currentEvents = getLocalStorage().events //events in local storage
     const eventListEl = document.getElementById("event_list")
 
     //if there are events in local storage

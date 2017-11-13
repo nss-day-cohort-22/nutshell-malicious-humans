@@ -3,16 +3,16 @@ const getSessinStorage = require("./getSessionStorage")
 const addFriend = require("./addFriend")
 
 const mainDB = getLocalStorage()
-const activeUser = getSessinStorage()
 
 const displayUsers = () => {
+    const activeUser = getSessinStorage()
     let usersOutputEl = document.getElementById("Dashboard")
     usersOutputEl.innerHTML = ""
 
     let userString = ""
 
     mainDB.users.forEach(user => {
-        if(user.userId !== activeUser.user.userId) {
+        if(user.userId !== activeUser.user.userId && activeUser.friends.contains(user)) {
             userString+= 
             `
             <section class= "user" id= "${user.userId}">
