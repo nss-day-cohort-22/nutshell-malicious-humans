@@ -3,7 +3,7 @@ const getSessionStorage = require("./getSessionStorage")
 const setLocalStorage = require("./setLocalStorage")
 const idGenerator = require("./idGenerator")
 const userNewsDB = require("./userNews")
-const mainDB = getLocalStorage()
+let mainDB = getLocalStorage()
 
 
 let NewsArticleObjFactory = (articleName, articleSum, articleURL) => {
@@ -17,6 +17,10 @@ let NewsArticleObjFactory = (articleName, articleSum, articleURL) => {
         },
         "userId": {
             value: activeUserObj.user.userId,
+            enumerable: true
+        },
+        "userFirst": {
+            value: activeUserObj.user.firstName,
             enumerable: true
         },
         "title": {
@@ -36,6 +40,7 @@ let NewsArticleObjFactory = (articleName, articleSum, articleURL) => {
             enumerable: true
         }
     }))
+
 }
 
 
