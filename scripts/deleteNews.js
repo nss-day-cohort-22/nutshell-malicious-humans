@@ -10,7 +10,13 @@ let deleteObj = (event) => {
     let id = parseInt(event.target.id.split("_")[1])
     let newsArray = mainDB.news
     let articleIndex = newsArray.findIndex(object => {return object.newsId === id})
-    newsArray.splice((articleIndex-1), 1)
+    if((articleIndex-1) === -1){
+        newsArray.shift()
+    } 
+    else {
+        newsArray.splice((articleIndex), 1)
+    }
+    
     mainDB.news = newsArray
     setLocalStorage(mainDB)
 }
