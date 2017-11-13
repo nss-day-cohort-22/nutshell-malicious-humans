@@ -1,12 +1,14 @@
+// Module Author: Jason Figueroa
+// Module Purpose: The purpose of this module is to render all user task related 
+// html to the user, capture any input from the user and hand the data off to the 
+// taskFactory module for processing
 const taskFactory = require("./taskFactory")
 const idGenerator = require("./idGenerator")
+const newButton = require("./newButton")
+const removeElement = require("./removeElement")
 function taskController() {
     
     const dashboardSection = document.getElementById("Dashboard")
-    
-    function removeElement(parentId, childId) {
-        document.getElementById(parentId).removeChild(document.getElementById(childId))
-    }
     
     function init() {
         
@@ -18,13 +20,6 @@ function taskController() {
         const taskSection = document.createElement("section")
         taskSection.id = "taskListForm"
         
-        /* Temp Off */
-        // let html = `<form>
-        // <h1>Current Task(s)</h1>`
-        // <ul>`
-        /* End Temp Off */
-
-        /* Test Area */
         const form = document.createElement("form")
         const ul = document.createElement("ul")
         ul.id = "unorderedTaskList"
@@ -34,18 +29,13 @@ function taskController() {
             const task = tasksForUser[i]
             if(!task.taskComplete) {
                 const elementId = task.taskId
-                // html += `<li>
-                // <input type="checkbox" id="task_${elementId}">
-                // <label for="task_${elementId}">${task.taskCompletionDate} ${task.taskTitle}</label>
-                // </li>`
                 const li = document.createElement("li")
+                li.id = `task_${elementId}`
                 const input = document.createElement("input")
-                input.id = `task_${elementId}`
                 input.type = "checkbox"
                 input.addEventListener("change", markTaskAsComplete)
                 li.appendChild(input)
                 const label = document.createElement("label")
-                // label.setAttribute("for", `task_${elementId}`)
                 label.innerHTML = `${task.taskCompletionDate} ${task.taskTitle}`
                 label.addEventListener("click", editTaskTitle)
                 li.appendChild(label)
@@ -54,107 +44,127 @@ function taskController() {
         }
         form.appendChild(ul)
         taskSection.appendChild(form)
-        /* End Test Area */
-        /* Temp Off */
-        // html
-        // html += `</ul>
-        // </form>`
-        /* End Temp Off */
-
-
-        // taskSection.innerHTML = html
         dashboardSection.appendChild(taskSection)
-        taskSection.appendChild(createInput("submit", "New Task", "newTaskBtn", displayNewTaskForm))
+        taskSection.appendChild(newButton("New Task", "newTaskBtn", displayNewTaskForm))
     }
 
     function editTaskTitle(e) {
-        // e.cancelBubble = true
-        // e.stopPropagation()
-        // console.log(e)
-        const parentLi = e.target.parentNode
-        const editForm = document.createElement("form")
-        editForm.addEventListener("submit", function(e){e.preventDefault()}, false) // add this magical line to all forms to avoid a page refresh on enter
-        const newTaskTitleInput = document.createElement("input")
-        newTaskTitleInput.type = "text"
-        newTaskTitleInput.addEventListener("keyup", saveNewTitle)
-        const newTaskTitleLabel = document.createElement("label")
-        newTaskTitleLabel.innerHTML = "Press Enter to Save"
-        parentLi.appendChild(editForm)
-        editForm.appendChild(newTaskTitleInput)
-        editForm.appendChild(newTaskTitleLabel)
+        if(!document.getElementById("editTaskForm")) {
+            const parentLi = e.target.parentNode
+            const editForm = document.createElement("form")
+            editForm.id = "editTaskForm"
+            editForm.addEventListener("submit", function(e){e.preventDefault()}, false) // add this magical line to all forms to avoid a page refresh on enter
+            const newTaskTitleInput = document.createElement("input")
+            newTaskTitleInput.type = "text"
+            newTaskTitleInput.addEventListener("keyup", saveNewTitle)
+            const newTaskTitleLabel = document.createElement("label")
+            newTaskTitleLabel.innerHTML = "Press Enter to Save"
+            parentLi.appendChild(editForm)
+            editForm.appendChild(newTaskTitleInput)
+            editForm.appendChild(newTaskTitleLabel)
+            newTaskTitleInput.focus()
+        }
     }
 
     function saveNewTitle(e) {
-        const tFactory = taskFactory()
-        const taskId = e.target.id.slice(e.target.id.length - 1)
-        e.preventDefault()
-        // e.cancelBubble = true
-        // e.stopPropagation()
         if(e.keyCode === 13) {
-            console.log(e.target.value)
+            const tFactory = taskFactory()
+            const input = e.target
+            const form = input.parentNode
+            const li = form.parentNode
+            const taskId = li.id.slice(li.id.length - 1) 
+            
             // save edit to database
-            tFactory.editTask(taskId, "taskTitle", e.target.value) // TODO 11/10/2017 issue here
-            // update dom
+            tFactory.editTask(taskId, "taskTitle", input.value)
+            
+            // get rid of form
+            li.removeChild(form)
+
+            // update label
+            const label = li.querySelector("label")
+            const taskDate = label.innerHTML.split(" ")[0] 
+            label.innerHTML = `${taskDate} ${input.value}`
         }
     }
 
     function markTaskAsComplete(e) {
-        const taskId = e.target.id.slice(e.target.id.length - 1)
+        const taskId = e.target.parentNode.id
+        
+        const ul = document.getElementById("unorderedTaskList")
+        const li = document.getElementById(taskId)
+        
         const tFactory = taskFactory()
-        tFactory.editTask(taskId, "taskComplete", true)
-        // console.log(this.id)
-        document.getElementById("unorderedTaskList").removeChild(document.getElementById(taskId).parentNode) // TODO 11/10/2017 verify this works
-        // removeElement("unorderedTaskList", taskId)
+        
+        tFactory.editTask(taskId.slice(taskId.length - 1), "taskComplete", true)
+
+        ul.removeChild(li)
     }
 
-    function createInput(type, value, id, fn) {
-        const newInput = document.createElement("input")
-        newInput.type = type
-        newInput.value = value
-        newInput.id = id
-        newInput.addEventListener("click", fn)
-        return newInput
-    }
-
-    // TODO 11/10/2017
+    // TODO 11/10/2017 (this may not be needed)
     // need to convert this html string to created dom elements to add eventlistener to form to avoid refresh
     function displayNewTaskForm() {
         removeElement("taskListForm", "newTaskBtn")
         const newTaskForm = document.createElement("section")
         newTaskForm.id = "newTaskForm"
 
-        let html = `<h2>New Task</h2>
-        <form>`
+        const h2 = document.createElement("h2")
+        h2.innerHTML = "New Task"
+        const form = document.createElement("form")
+        const inputLabel = document.createElement("label")
+        inputLabel.htmlFor = "newTaskTitle"
+        inputLabel.innerHTML = "New Task:"
+        const input = document.createElement("input")
+        input.type = "text"
+        input.id = "newTaskTitle"
+        input.required = true
+        const dateLabel = document.createElement("label")
+        dateLabel.htmlFor = "estCompletionDate"
+        dateLabel.innerHTML = "Estimated Completion Date:"
+        const datePicker = document.createElement("input")
+        datePicker.type = "date"
+        datePicker.id = "estCompletionDate"
+        datePicker.required = true
 
-        html += `<label for="newTaskTitle">New Task:</label>
-        <input type="text" id="newTaskTitle">
-        <label for="estCompletionDate">Estimated Completion Date:</label>
-        <input type="date" id="estCompletionDate">`
+        // assembling form
+        form.appendChild(inputLabel)
+        form.appendChild(input)
+        form.appendChild(dateLabel)
+        form.appendChild(datePicker)
 
-        html += "</form>"
+        // appending form to section
+        newTaskForm.appendChild(form)
 
-        newTaskForm.innerHTML = html
+        newTaskForm.appendChild(newButton("Submit", "newTaskSubmit", submitNewTask))
+        newTaskForm.appendChild(newButton("Cancel", "newTaskCancel", cancelNewTask))
         dashboardSection.appendChild(newTaskForm)
-        newTaskForm.appendChild(createInput("submit", "Submit", "newTaskSubmit", submitNewTask))
-        newTaskForm.appendChild(createInput("submit", "Cancel", "newTaskCancel", cancelNewTask))
     }
 
     function cancelNewTask() {
         removeElement("Dashboard", "newTaskForm")
         const taskListForm = document.getElementById("taskListForm")
-        taskListForm.appendChild(createInput("submit", "New Task", "newTaskBtn", displayNewTaskForm))
+        taskListForm.appendChild(newButton("New Task", "newTaskBtn", displayNewTaskForm))
     }
 
     function submitNewTask() {
         const newTaskTitle = document.getElementById("newTaskTitle").value
         const newTaskDate = document.getElementById("estCompletionDate").value
-        
-        const tFactory = taskFactory()
-        const sessionUserId = tFactory.getSessionUserId()
-        tFactory.addTaskToLocalStorage(sessionUserId, newTaskTitle, newTaskDate)
-        
-        removeElement("Dashboard", "newTaskForm")
-        init()
+
+        // makeshift form validation
+        if(!newTaskTitle && !newTaskDate) {
+            console.log("missing date and title")
+        } else if(!newTaskTitle) {
+            console.log("missing title")
+        } else if(!newTaskDate) {
+            console.log("missing date")
+        } else {
+            // if title and date are provided form is processed
+            const tFactory = taskFactory()
+            const sessionUserId = tFactory.getSessionUserId()
+            tFactory.addTaskToLocalStorage(sessionUserId, newTaskTitle, newTaskDate)
+            
+            removeElement("Dashboard", "newTaskForm")
+            init()
+        }
     }
 
     init()

@@ -1,18 +1,14 @@
+// Module Author: Jason Figueroa
+// Module Purpose: The purpose of this module is to handle data extraction and 
+// manipulation for user tasks in the main database.
 const getLocalStorage = require("./getLocalStorage")
 const setLocalStorage = require("./setLocalStorage")
 const getSessionStorage = require("./getSessionStorage")
 const idGenerator = require("./idGenerator")
 
+// this function returns an object made up of methods allowing the developer to 
+// interact with the database
 function taskFactory() {
-    // function getTaskWithId(obj, taskId) {
-    //     const taskObj = obj.getTasksForUserId(obj.getSessionUserId).filter(task => task.taskId === taskId)
-    //     console.log(taskObj)
-    // }
-    // function markTaskAsComplete(e) {
-    //     const taskId = this.id
-    //     // console.log(taskId)
-    //     getTaskWithId(taskId)
-    // }
     return Object.create(null, {
         getSessionUserId: {
             value: function () {
@@ -42,35 +38,6 @@ function taskFactory() {
                 setLocalStorage(db)
             },
         },
-        // getTaskWithId: {
-        //     value: function(taskId, tasks) {
-        //         const taskObj = getTasksForUserId(getSessionUserId).filter(task => task.taskId === taskId)
-        //         console.log(taskObj)
-        //     }
-        // },
-        // markTaskAsComplete: {
-        //     value: function(taskId) {
-        //         // let taskId = this.id.toString()
-        //         // console.log(typeof taskId)
-        //         // taskId = taskId.slice(this.id.length - 1)
-        //         // console.log(taskId)
-        //         // getTaskWithId(this, taskId)
-        //         const db = getLocalStorage()
-                
-        //         db.tasks.forEach(task => { // slice the end of taskId 
-        //             if(task.taskId == taskId.slice(taskId.length - 1)) {
-        //                 task.taskComplete = true
-        //             }
-        //         })
-
-        //         setLocalStorage(db)
-        //     }
-        // },
-        // updateTitle: {
-        //     value: function(taskId) {
-
-        //     } 
-        // },
         editTask: {
             value: function(taskId, key, value) {
                 const db = getLocalStorage()
