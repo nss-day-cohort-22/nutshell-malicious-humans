@@ -12,7 +12,7 @@ const displayUsers = () => {
     let userString = ""
 
     mainDB.users.forEach(DbUser => {
-        if(DbUser.userId !== activeUser.user.userId && activeUser.user.friends.includes(DbUser)===true) {
+        if(DbUser.userId !== activeUser.user.userId && activeUser.user.friends.includes(DbUser)===false) {
             userString+= 
             `
             <section class= "user" id= "${DbUser.userId}">
