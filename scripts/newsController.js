@@ -16,8 +16,11 @@ let writeNews = () => {
     let newsOutpulEl = document.getElementById("Dashboard")
     newsOutpulEl.innerHTML = ""
     let newsHTML = ""
-    
-    let userNewsArray = mainDB.news.filter(article => {return article.userId === activeUser.user.userId })
+    let friendsArray = mainDB.userFriend.filter(friend => {return activeUser.user.userId === friend.activeUserId })
+    let userNewsArray = []
+    friendsArray.forEach(friend => {
+        userNewsArray.concat(mainDB.news.filter(article => {return article.userId === friend.activeUserId || article.userId === friend.friendUserId}))
+    })
     let sorteduserNewsArray = userNewsArray.sort(function(n,p){return p.date - n.date})
     
     sorteduserNewsArray.forEach(

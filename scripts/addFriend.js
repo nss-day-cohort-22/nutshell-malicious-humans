@@ -14,6 +14,7 @@ const addFriend = (event) => {
 
     let friendObj = mainDB.users.filter(user => user.userId === id)
     friendObjFactory(friendObj[0])
+
 }
 
 module.exports = addFriend
