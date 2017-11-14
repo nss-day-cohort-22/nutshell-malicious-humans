@@ -24,6 +24,7 @@
 
 .newsArticle {
     border: 3px solid #0275d8;
+    border-top: 15px solid #0275d8;
     box-shadow: 3px 3px 15px darkslategray;
     margin-top: 15px;
     padding: 15px;
@@ -35,9 +36,11 @@
 
 .newsArticle h2 {
     font-size: 20px;
+
 }
 .newsArticle__title {
-    font-size: 40px;;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .friendArticle {
