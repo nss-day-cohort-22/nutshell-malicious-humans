@@ -1,5 +1,6 @@
 //Kristen
 //this module deletes event from local storage when a user clicks the delete event button
+//not working
 
 const getLocalStorage = require("./getLocalStorage")
 const setLocalStorage = require("./setLocalStorage")
