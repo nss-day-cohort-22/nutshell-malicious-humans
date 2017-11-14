@@ -1,13 +1,15 @@
 let getLocalStorage = require("./getLocalStorage")
 const autoScroll = require("./autoScroll")
 const addChatUserAsFriend = require("./addChatUserAsFriend")
+const updateMessageBoardOnEdit = require("./updateMessageBoardOnEdit")
 
 const messageBoardMaitenance = function () {
 
 
 
     window.addEventListener("storage", function (event) {
-         
+        updateMessageBoardOnEdit(event) 
+        
         let oldValueStr = event.oldValue
         let referenceMessageArray = JSON.parse(oldValueStr).messages
 
