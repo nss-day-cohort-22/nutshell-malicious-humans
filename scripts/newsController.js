@@ -3,6 +3,7 @@ const getSessionStorage = require("./getSessionStorage")
 const createNewArticle = require("./newsFactory")
 const setLocalStorage = require("./setLocalStorage")
 const deleteNews = require("./deleteNews")
+const revealDashLink = require("./revealDashLink")
 
 
 
@@ -83,6 +84,7 @@ let writeNews = () => {
         button => {button.addEventListener("click", deleteNews)})
 
     setLocalStorage(mainDB)
+    revealDashLink()
 }
     
     

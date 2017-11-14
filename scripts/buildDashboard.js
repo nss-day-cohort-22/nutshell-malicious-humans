@@ -7,6 +7,7 @@ const eventController = require("./eventController.js")
 const displayUsers = require("./displayUsers")
 
 
+
 const buildDashboard = function () {
     //hide landing page and sign up form sections
     let landingSection = document.getElementById("landingPage")
@@ -85,6 +86,19 @@ const buildDashboard = function () {
     friendsButton.addEventListener("click", displayUsers)
     //append the button to the tasks div
     friendsDiv.appendChild(friendsButton)
+
+
+    let dashButtonMarker = document.getElementById("headerId")
+    let returnToDashButton = document.createElement("button")
+    returnToDashButton.id = "returnToDashButton"
+    returnToDashButton.classList.add("hideIt")
+    returnToDashButton.appendChild(document.createTextNode("Return To Dashboard"))
+    dashButtonMarker.appendChild(returnToDashButton)
+    returnToDashButton.addEventListener("click", function () {
+        location.reload()
+    })
+
+
 
     //append all divs to Dashboard section element
     dashBoardMarker.appendChild(friendsDiv)

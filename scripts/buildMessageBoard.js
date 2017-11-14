@@ -6,6 +6,9 @@ const messageBoardMaintenance = require("./messageBoardMaintenance")
 let getLocalStorage = require("./getLocalStorage")
 let setLocalStorage = require("./setLocalStorage")
 
+const messageBoardDeleteCheck = require("./messageBoardDeleteCheck")
+const revealDashLink = require("./revealDashLink")
+
 //Create a Function to build the MessageBoard
 const buildMessageBoard = function() {
     //Use get element by id methos to establish the location the mesage board will be built
@@ -71,8 +74,13 @@ const buildMessageBoard = function() {
     let storedDB = getLocalStorage()
     setLocalStorage(storedDB)
     writeMessages()
+<<<<<<< HEAD
+=======
+    revealDashLink()
+>>>>>>> master
     messageAuthorCheck()
     messageBoardMaintenance()
+    messageBoardDeleteCheck()
     
 
 }

@@ -1,7 +1,11 @@
 const getLocalStorage = require("./getLocalStorage")
 const getSessinStorage = require("./getSessionStorage")
 const addFriend = require("./addFriend")
+
 const addPrompt = require("./friendPrompt")
+
+const revealDashLink = require("./revealDashLink")
+
 
 const mainDB = getLocalStorage()
 
@@ -29,6 +33,8 @@ const displayUsers = () => {
     let buttonArray = document.getElementsByClassName("addButton")
     let addButtonArray = Array.from(buttonArray)
     addButtonArray.forEach(button => button.addEventListener("click", addPrompt))
+
+    revealDashLink()
 
 }
 
