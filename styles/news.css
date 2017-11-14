@@ -28,3 +28,22 @@
     width: 60%;
 
 }
+
+.friendArticle {
+    font-style: italic;
+    background-color: cornsilk
+}
+
+.modal {
+    width: 500px;
+    position:absolute;
+    z-index: 1;
+    top: 30%;
+    left: 35%;
+    right: 35%;
+    background-color: white;
+    margin: 0, auto;
+    border: 3px solid lightgreen;
+    padding: 10px;
+    box-shadow: 3px 3px 15px darkslategray;
+}

@@ -56,7 +56,8 @@ const updateEvent = function (event) {
         eLocationEl.innerHTML = eLocationEdit
         eDescriptionEl.innerHTML = eDescriptionEdit
 
-        document.getElementById("event_" + `${eId}`).removeChild(document.getElementById("event_editContent")) //removes edit form 
+
+        document.getElementById("event_" + `${eId}`).removeChild(document.getElementById("event_editContent")) //removes edit form
     }
 
 }
