@@ -9,6 +9,11 @@ const removeElement = require("./removeElement")
 function taskController() {
     
     const dashboardSection = document.getElementById("Dashboard")
+    const dashboardDivs = dashboardSection.querySelectorAll("div")
+
+    for(let i = 0; i < dashboardDivs.length; i++) {
+        dashboardDivs[i].classList.add("hideIt")
+    }
     
     function init() {
         
@@ -46,6 +51,7 @@ function taskController() {
         taskSection.appendChild(form)
         dashboardSection.appendChild(taskSection)
         taskSection.appendChild(newButton("New Task", "newTaskBtn", displayNewTaskForm))
+        document.getElementById("newTaskBtn").classList.add("btn", "btn-primary")
     }
 
     function editTaskTitle(e) {
@@ -57,6 +63,7 @@ function taskController() {
             const newTaskTitleInput = document.createElement("input")
             newTaskTitleInput.type = "text"
             newTaskTitleInput.addEventListener("keyup", saveNewTitle)
+            newTaskTitleInput.classList.add("form-control") // added this 11/13/2017
             const newTaskTitleLabel = document.createElement("label")
             newTaskTitleLabel.innerHTML = "Press Enter to Save"
             parentLi.appendChild(editForm)
@@ -117,6 +124,7 @@ function taskController() {
         input.type = "text"
         input.id = "newTaskTitle"
         input.required = true
+        input.classList.add("form-control")
         const dateLabel = document.createElement("label")
         dateLabel.htmlFor = "estCompletionDate"
         dateLabel.innerHTML = "Estimated Completion Date:"
@@ -137,12 +145,15 @@ function taskController() {
         newTaskForm.appendChild(newButton("Submit", "newTaskSubmit", submitNewTask))
         newTaskForm.appendChild(newButton("Cancel", "newTaskCancel", cancelNewTask))
         dashboardSection.appendChild(newTaskForm)
+        document.getElementById("newTaskSubmit").classList.add("btn", "btn-secondary")
+        document.getElementById("newTaskCancel").classList.add("btn", "btn-secondary")
     }
 
     function cancelNewTask() {
         removeElement("Dashboard", "newTaskForm")
         const taskListForm = document.getElementById("taskListForm")
         taskListForm.appendChild(newButton("New Task", "newTaskBtn", displayNewTaskForm))
+        document.getElementById("newTaskBtn").classList.add("btn", "btn-primary")
     }
 
     function submitNewTask() {
