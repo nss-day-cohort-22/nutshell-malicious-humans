@@ -5,6 +5,7 @@ const messageAuthorCheck = require("./messageAuthorCheck")
 const messageBoardMaintenance = require("./messageBoardMaintenance")
 let getLocalStorage = require("./getLocalStorage")
 let setLocalStorage = require("./setLocalStorage")
+
 const messageBoardDeleteCheck = require("./messageBoardDeleteCheck")
 const revealDashLink = require("./revealDashLink")
 
@@ -73,7 +74,10 @@ const buildMessageBoard = function() {
     let storedDB = getLocalStorage()
     setLocalStorage(storedDB)
     writeMessages()
+<<<<<<< HEAD
+=======
     revealDashLink()
+>>>>>>> master
     messageAuthorCheck()
     messageBoardMaintenance()
     messageBoardDeleteCheck()
