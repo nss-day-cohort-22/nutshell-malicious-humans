@@ -51,6 +51,11 @@ const buildMessageBoard = function() {
     textInstructions.id = "textInstructions"
     //add the text to the h3
     textInstructions.appendChild(document.createTextNode("Enter your message below"))
+
+    let addFriendInstructions = document.createElement("h5")
+    addFriendInstructions.id = "addFriendInstructions"
+    addFriendInstructions.appendChild(document.createTextNode("Tip: If you like what someone has to say, click on their username to add them as a friend."))
+    
     //append the instructions to the message entry div
     //create a text area for the user to enter their text in
     let messageTextArea = document.createElement("textarea")
@@ -60,12 +65,14 @@ const buildMessageBoard = function() {
     let messageSubmitButton = document.createElement("button")
     //give it an id
     messageSubmitButton.id = "messageSubmitButton"
+    messageSubmitButton.classList.add("btn", "btn-secondary")
     //add text to the button
     messageSubmitButton.appendChild(document.createTextNode("submit"))
     //add an event listener that contains a function that will add the users message the messages DB
     messageSubmitButton.addEventListener("click", storeMessage)
     //append the elements to the message entry div
     messageEntryDiv.appendChild(textInstructions)
+    messageEntryDiv.appendChild(addFriendInstructions)
     messageEntryDiv.appendChild(messageTextArea)
     messageEntryDiv.appendChild(messageSubmitButton)
     //append the message entry div to the message entry section
@@ -73,7 +80,7 @@ const buildMessageBoard = function() {
     //append the message entry section to the message board div
     messageBoardDiv.appendChild(messageEntrySection)
 
-    //ivoke a function that will load the message board with the current messages stored in the database
+    //invoke a function that will load the message board with the current messages stored in the database
     let storedDB = getLocalStorage()
     setLocalStorage(storedDB)
     writeMessages()

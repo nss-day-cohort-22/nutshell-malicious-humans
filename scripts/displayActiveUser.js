@@ -6,6 +6,9 @@ const displayActiveUser = function () {
     let userDisplayHeading = document.createElement("h1")
     userDisplayHeading.appendChild(document.createTextNode("Welcome " + currentUserObject.user.firstName + "!"))
     userDisplayMarker.appendChild(userDisplayHeading)
+    let userDisplaySubHeading = document.createElement("h2")
+    userDisplaySubHeading.appendChild(document.createTextNode("What would you like to do today?"))
+    userDisplayMarker.appendChild(userDisplaySubHeading)
     userDisplayMarker.classList.add("partyTime")
     
 

@@ -1,7 +1,9 @@
-.user {
-    border: 3px solid lightgreen;
+.user,
+.friendList__friend {
+    border: 3px solid #0275d8;
     box-shadow: 3px 3px 15px darkslategray;
     width: 40%;
-    margin-bottom: 15px;
+    margin-top: 15px;
     padding: 10px;
+    margin-left: 15px;
 }
