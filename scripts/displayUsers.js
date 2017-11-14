@@ -11,24 +11,29 @@ const displayUsers = () => {
 
     let userString = ""
 
-    let userNot = []
-
     let friendsArray = mainDB.userFriend.filter(friend => {return activeUser.user.userId === friend.activeUserId || activeUser.user.userId === friend.friendUserId}) //array of current user's friends
 
-        
-    console.log(friendsArray)
-    console.log(mainDB.users)
+    // if user is a current friend of the active user, do not add them to the notFriends array
+    const notFriends = mainDB.users.filter(user =>{
+        let noFriend = true
+        friendsArray.forEach( friend => {
+            if(user.userId === friend.friendUserId || user.userId === friend.activeUserId) {
+                noFriend = false
+            }
+        })
+        return noFriend
+    })
 
-    mainDB.users.forEach(DbUser => {
-        // const notActiveUser = (DbUser.userId !== activeUser.user.userId) //userId is not equal to the session active user
+    //only display users who are not friends with the current active user 
+    notFriends.forEach( user => {
+
         userString+=
-            `
-            <section class= "user" id= "${DbUser.userId}">
-                <h2>${DbUser.firstName} ${DbUser.lastName}</h2>
-                <button class= "addButton" id="${DbUser.userId}">Add Friend</button>
-            </section>
-            `
-    
+                `
+                <section class= "user" id= "${user.userId}">
+                    <h2>${user.firstName} ${user.lastName}</h2>
+                    <button class= "addButton" id="${user.userId}">Add Friend</button>
+                </section>
+                `
     })
 
     usersOutputEl.innerHTML = userString
