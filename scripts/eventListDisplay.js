@@ -1,5 +1,5 @@
 //Kristen
-//this module displays events in DOM if they already exist in the database for that user
+//this module displays events in DOM if they already exist in the database for that user and their friends
 
 const getLocalStorage = require("./getLocalStorage")
 const getSessionStorage = require("./getSessionStorage")
