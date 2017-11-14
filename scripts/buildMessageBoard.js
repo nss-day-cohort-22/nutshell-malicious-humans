@@ -8,9 +8,12 @@ let setLocalStorage = require("./setLocalStorage")
 
 const messageBoardDeleteCheck = require("./messageBoardDeleteCheck")
 const revealDashLink = require("./revealDashLink")
+// const updateMessageBoardOnEdit = require("./updateMessageBoardOnEdit")
 
 //Create a Function to build the MessageBoard
 const buildMessageBoard = function() {
+    // updateMessageBoardOnEdit()
+
     //Use get element by id methos to establish the location the mesage board will be built
     let messageBoardMarker = document.getElementById("messageBoard")
     //Establish the location of the dashboard that will be hidden
@@ -81,6 +84,7 @@ const buildMessageBoard = function() {
     messageAuthorCheck()
     messageBoardMaintenance()
     messageBoardDeleteCheck()
+    // updateMessageBoardOnEdit()
     
 
 }
