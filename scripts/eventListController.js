@@ -22,6 +22,7 @@ const addEventList = function (event) {
     
     //only allow user to edit the event that they created
     if(event.userId === activeUser.userId) {
+        eventEl.className = "myEvent" //added class to identify events that are the active users
         
         const editEventButton = document.createElement("button")
         editEventButton.className = `edit_${event.eventId}`
