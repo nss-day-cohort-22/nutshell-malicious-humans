@@ -17,7 +17,9 @@ let displayFriends = () => {
     myFriendRel.forEach(friendObj => {
         if(friendObj.friendUserId !== activeUserId){
             friendsToDisplayId.push(friendObj.friendUserId)
-        }})
+        } else {if(friendObj.activeUserId !== activeUserId){
+            friendsToDisplayId.push(friendObj.activeUserId)
+        }}})
     
 
     let friendObjToDisplay = []
