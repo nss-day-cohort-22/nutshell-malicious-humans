@@ -34,6 +34,7 @@
 
 }
 
+
 .newsArticle h2 {
     font-size: 20px;
 
@@ -43,7 +44,9 @@
     font-weight: bold;
 }
 
-.friendArticle {
+
+.friendArticle, .friendEvent {
+
     font-style: italic;
     background-color: cornsilk
 }
