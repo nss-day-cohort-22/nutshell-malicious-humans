@@ -104,6 +104,15 @@ const buildDashboard = function () {
         location.reload()
     })
 
+    let logOutButton = document.createElement("button")
+    logOutButton.id = "logOutButton"
+    logOutButton.appendChild(document.createTextNode("Log Out"))
+    dashButtonMarker.appendChild(logOutButton)
+    logOutButton.addEventListener("click", function () {
+        sessionStorage.clear()
+        location.reload()
+    })
+
 
 
     //append all divs to Dashboard section element
