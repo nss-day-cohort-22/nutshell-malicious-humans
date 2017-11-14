@@ -10,6 +10,7 @@ const addEventList = function (event) {
 
     const eventEl = document.createElement("section")
     eventEl.id = `event_${event.eventId}`
+    eventEl.className = "userEvents"
     
     let eventContentString = `
     <h3 id="event_name${event.eventId}">${event.eventName}</h3>
@@ -23,7 +24,7 @@ const addEventList = function (event) {
     
     //only allow user to edit the event that they created
     if(event.userId === activeUser.userId) {
-        eventEl.className = "myEvent" //added class to identify events that are the active users
+        eventEl.classList.add("myEvent") //added class to identify events that are the active users
         
         const editEventButton = document.createElement("button")
         editEventButton.className = `edit_${event.eventId}`
@@ -32,7 +33,7 @@ const addEventList = function (event) {
 
         eventEl.appendChild(editEventButton)
     } else {
-        eventEl.className = "friendEvent" //added class to identify events that are for the user's friends
+        eventEl.classList.add("friendEvent") //added class to identify events that are for the user's friends
     }
 
     eventListEl.appendChild(eventEl)

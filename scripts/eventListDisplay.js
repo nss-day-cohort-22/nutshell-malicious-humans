@@ -58,7 +58,7 @@ const displayEventList = function () {
             }
         })
 
-        document.querySelector(".myEvent").className = "firstEvent" //changes class of the active user's first event so that it is formatted differently
+        document.querySelector(".myEvent").classList.add("firstEvent") //changes class of the active user's first event so that it is formatted differently
     }
 }
 

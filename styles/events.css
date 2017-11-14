@@ -1,9 +1,10 @@
 #event_list {
-    border: 2px solid black;
+    margin-top: 1em
 }
 
+
 .firstEvent {
-    background-color: lightgreen;
+    background-color: paleturquoise;
     font-size: 1.1em;
     font-weight: bold
 }
@@ -12,14 +13,19 @@
     margin: .25em
 }
 
-#event_list section {
-    margin: 0;
-    padding: .5em;
-    border-bottom: .5px solid black
-}
-
 .editForm label {
     font-size: 16px;
     font-weight: normal;
     font-style: italic
+}
+
+.userEvents {
+    border: 3px solid lightgreen;
+    box-shadow: 3px 3px 15px darkslategray;
+    margin-bottom: 15px;
+    padding: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 80%;
+
 }
