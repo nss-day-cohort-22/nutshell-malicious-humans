@@ -11,7 +11,6 @@ let friendObjFactory = (friendObj) => {
     let activeUser = getSessionStorage()
     let lastId = mainDB.userFriend[mainDB.userFriend.length-1] || {"friendId":0}
     let friendIdGenerator = idGenerator(lastId.friendId)
-    debugger
     mainDB.userFriend.push(Object.create(null, {
         "friendId": {
             "value": friendIdGenerator.next().value,
