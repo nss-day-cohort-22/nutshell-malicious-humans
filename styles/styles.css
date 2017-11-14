@@ -1,3 +1,7 @@
+body {
+    background-color: rgb(252, 252, 252)
+
+}
 #userFormSection input, #event_formContent label, .editForm label {
     display: block;
 }
@@ -49,14 +53,24 @@
 
 }
 
+#landingPage {
+    position: relative;
+    text-align: center;
+    
+}
+
 
 #landingPage > div {
     text-align: center;
-    margin-top: 100px;
+    margin-top: 200px;
 }
 
 #landingPage img {
-    width: 300px
+    height: 70%;
+    position: fixed;
+    z-index: -1;
+    left: 20px;
+    bottom: 150px;
 }
 
 #userFormSection {
