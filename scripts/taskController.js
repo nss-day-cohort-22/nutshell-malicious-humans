@@ -6,6 +6,8 @@ const taskFactory = require("./taskFactory")
 const idGenerator = require("./idGenerator")
 const newButton = require("./newButton")
 const removeElement = require("./removeElement")
+const revealDashLink = require("./revealDashLink")
+
 function taskController() {
     
     const dashboardSection = document.getElementById("Dashboard")
@@ -168,6 +170,7 @@ function taskController() {
     }
 
     init()
+    revealDashLink()
 } 
 
 module.exports = taskController

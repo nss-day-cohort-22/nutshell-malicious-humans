@@ -4,6 +4,7 @@
 const eventInfo = require("./eventFactory")
 const createEventForm = require("./eventFormController")
 const displayEvents = require("./eventListDisplay")
+const revealDashLink = require("./revealDashLink")
 
 const domEl = document.getElementById("Dashboard")
 
@@ -37,6 +38,8 @@ const eventDash = function () {
     eventDiv.appendChild(eventListEl) //appends the event list element to the event div
     domEl.appendChild(eventDiv) //appends the event div to the Dashboard
     displayEvents() //if there are any existing events they are displayed
+
+    revealDashLink()
 }
 
 module.exports = eventDash
