@@ -23,7 +23,6 @@ const buildDashboard = function () {
     // create div for tasks link
     // create a div and store it in a variable. Then add text to that div
     let tasksDiv = document.createElement("div")
-    tasksDiv.id = "tasksDiv"
     tasksDiv.appendChild(document.createTextNode("Manage your tasks"))
     //create a button that allows users to navigate to the tasks page, give that button an id
     let tasksButton = document.createElement("button")
@@ -38,7 +37,6 @@ const buildDashboard = function () {
     // create div for messages link
     // create a div and store it in a variable. Then add text to that div
     let messagesDiv = document.createElement("div")
-    messagesDiv.id = "messageDiv"
     messagesDiv.appendChild(document.createTextNode("Use the chatroom"))
     //create a button that allows users to navigate to the tasks page, give that button an id
     let messagesButton = document.createElement("button")
@@ -51,7 +49,6 @@ const buildDashboard = function () {
     // create div for events link
     // create a div and store it in a variable. Then add text to that div
     let eventsDiv = document.createElement("div")
-    eventsDiv.id = "eventsDiv"
     eventsDiv.appendChild(document.createTextNode("View or create upcoming events"))
     //create a button that allows users to navigate to the tasks page, give that button an id
     let eventsButton = document.createElement("button")
@@ -64,7 +61,6 @@ const buildDashboard = function () {
     // create div for news
     // create a div and store it in a variable. Then add text to that div
     let newsDiv = document.createElement("div")
-    newsDiv.id = "newsDiv"
     newsDiv.appendChild(document.createTextNode("View or contribute to the latest breaking news"))
     //create a button that allows users to navigate to the tasks page, give that button an id
     let createNewsButton = document.createElement("button")
@@ -83,7 +79,6 @@ const buildDashboard = function () {
     // create a div and store it in a variable. Then add text to that div
     let friendsDiv = document.createElement("div")
     friendsDiv.appendChild(document.createTextNode("Your friends"))
-    friendsDiv.id = "friends"
     //create a button that allows users to navigate to the tasks page, give that button an id
     let friendsButton = document.createElement("button")
     friendsButton.appendChild(document.createTextNode("Add Friends"))

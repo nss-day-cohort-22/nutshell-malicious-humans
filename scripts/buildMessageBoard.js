@@ -79,7 +79,7 @@ const buildMessageBoard = function() {
     //append the message entry section to the message board div
     messageBoardDiv.appendChild(messageEntrySection)
 
-    //ivoke a function that will load the message board with the current messages stored in the database
+    //invoke a function that will load the message board with the current messages stored in the database
     let storedDB = getLocalStorage()
     setLocalStorage(storedDB)
     writeMessages()
