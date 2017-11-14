@@ -17,12 +17,20 @@ let writeNews = () => {
     let newsOutpulEl = document.getElementById("Dashboard")
     newsOutpulEl.innerHTML = ""
     let newsHTML = ""
-    let friendsArray = mainDB.userFriend.filter(friend => {return activeUserId === friend.activeUserId })
+    let friendsArray = mainDB.userFriend.filter(friend => {return activeUserId === friend.activeUserId || activeUserId === friend.friendUserId})
     let friendId = []
     friendsArray.forEach(friend => {
-        let id = friend.friendUserId
-        if(friendId.includes(id)===false){
-            friendId.push(id)
+        if(friend.friendUserId !== activeUserId){
+            let id = friend.friendUserId
+            if(friendId.includes(id)===false){
+                friendId.push(id)
+            }} else {
+            if(friend.activeUserId !== activeUserId){
+                let id = friend.activeUserId
+                if(friendId.includes(id)===false){
+                    friendId.push(id)
+                }
+            }
         }
     })
     let friendNews =[]
@@ -90,3 +98,4 @@ let writeNews = () => {
     
 
 module.exports = writeNews
+
