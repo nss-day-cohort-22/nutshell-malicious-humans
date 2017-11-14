@@ -1,13 +1,15 @@
 #newsForm {
     display: block;
-    border: 3px solid lightgreen;
+    border: 3px solid #0275d8;
     box-shadow: 3px 3px 15px darkslategray;
-    width: 50%;
+    width: 40%;
     padding: 15px;
     margin-right: auto;
     margin-left: auto;
     text-align: center;
+    margin-top: 15px;
 }
+
 
 #newsForm__title,
 #newsForm__summary,
@@ -21,9 +23,10 @@
 }
 
 .newsArticle {
-    border: 3px solid lightgreen;
+    border: 3px solid #0275d8;
+    border-top: 15px solid #0275d8;
     box-shadow: 3px 3px 15px darkslategray;
-    margin-bottom: 15px;
+    margin-top: 15px;
     padding: 15px;
     margin-right: auto;
     margin-left: auto;
@@ -31,12 +34,24 @@
 
 }
 
-.friendArticle {
+
+.newsArticle h2 {
+    font-size: 20px;
+
+}
+.newsArticle__title {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+
+.friendArticle, .friendEvent {
+
     font-style: italic;
     background-color: cornsilk
 }
 
-.modal {
+.friendModal {
     width: 500px;
     position:absolute;
     z-index: 1;
@@ -45,7 +60,7 @@
     right: 35%;
     background-color: white;
     margin: 0, auto;
-    border: 3px solid lightgreen;
+    border: 3px solid #0275d8;
     padding: 10px;
     box-shadow: 3px 3px 15px darkslategray;
 }

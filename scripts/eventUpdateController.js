@@ -16,6 +16,8 @@ const updateEvent = function (event) {
             .split("_")[1]
     ) //gets the class of button clicked and identifies the eventId
 
+    const editFormEl = document.getElementById("event_editContent" + `${eId}`)
+
     //values of fields in edit form
     let eNameEdit = document.getElementById("event_nameEdit").value
     let eDateEdit = document.getElementById("event_dateEdit").value
@@ -57,7 +59,7 @@ const updateEvent = function (event) {
         eDescriptionEl.innerHTML = eDescriptionEdit
 
 
-        document.getElementById("event_" + `${eId}`).removeChild(document.getElementById("event_editContent")) //removes edit form
+        editFormEl.innerHTML = " "//removes edit form
     }
 
 }

@@ -57,6 +57,8 @@ const displayEventList = function () {
                 document.getElementById("event_None").className = "hideIt" //and give the default message a class of hideIt
             }
         })
+
+        document.querySelector(".myEvent").classList.add("firstEvent") //changes class of the active user's first event so that it is formatted differently
     }
 }
 

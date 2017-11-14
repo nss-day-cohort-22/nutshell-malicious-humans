@@ -60,6 +60,7 @@ const writeMessages = function () {
     })
     messageAuthorCheck()
     autoScroll(messageInjectionMarker)
+    
 }
 
 module.exports = writeMessages

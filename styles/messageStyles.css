@@ -40,4 +40,20 @@
 
 #messageEntrySection {
     background-color: #0275d8;
+    color: white;
+    border: 1.2px solid rgba(53, 52, 52, 0.87);
+}
+
+#messageTextArea {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    height:100px;
+}
+
+#messageSubmitButton {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
