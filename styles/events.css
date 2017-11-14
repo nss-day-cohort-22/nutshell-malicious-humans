@@ -17,3 +17,9 @@
     padding: .5em;
     border-bottom: .5px solid black
 }
+
+.editForm label {
+    font-size: 16px;
+    font-weight: normal;
+    font-style: italic
+}
