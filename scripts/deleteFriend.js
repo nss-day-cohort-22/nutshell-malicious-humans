@@ -16,6 +16,9 @@ let deleteFriend = (event) => {
 
     mainDB.userFriend.splice(friendIndex, 1)
 
+    let friendDomEl = document.getElementById(`friend_${friendId}`)
+    friendDomEl.classList.add("hideIt")
+
     setLocalStorage(mainDB)
 
 }
