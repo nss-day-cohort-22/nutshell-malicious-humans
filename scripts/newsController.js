@@ -63,7 +63,7 @@ let writeNews = () => {
             <h2>${article.userFirst} posted a news article: </h2>
             <h1 class = "newsArticle__title"> ${article.title}</h1>
             <h3 class = "newsArticle__summary">Article Synopsis: ${article.summary}</h3>
-            <h3 class = "newsArticle__url">${article.url}</h3>
+            <h3 class = "newsArticle__url"><a href="https://${article.url}" target= "_blank">${article.url}</a></h3>
             `
 
             if(article.userId === activeUserId) {
