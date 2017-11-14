@@ -12,8 +12,10 @@ const messageAuthorCheck = function () {
 
     messagesArray.forEach(function (messageDiv) {
         
+
         let messageAuthor = messageDiv.children[0]
 
+        
         if (messageAuthor.innerHTML === currentUserName) {
             let buttons = messageDiv.getElementsByTagName("button")
             let buttonsArray = Array.from(buttons)

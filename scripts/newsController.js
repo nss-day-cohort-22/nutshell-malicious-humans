@@ -11,33 +11,61 @@ const deleteNews = require("./deleteNews")
 let writeNews = () => {
     
     let mainDB = getLocalStorage()
-    const activeUser = getSessionStorage()
+    const activeUserId = getSessionStorage().user.userId
     
     let newsOutpulEl = document.getElementById("Dashboard")
     newsOutpulEl.innerHTML = ""
     let newsHTML = ""
-    let friendsArray = mainDB.userFriend.filter(friend => {return activeUser.user.userId === friend.activeUserId })
-    let userNewsArray =[]
+    let friendsArray = mainDB.userFriend.filter(friend => {return activeUserId === friend.activeUserId })
+    let friendId = []
     friendsArray.forEach(friend => {
-        let array = mainDB.news.filter(article => {return article.userId === friend.activeUserId || article.userId === friend.friendUserId})
-        let newArray = userNewsArray.concat(array)
-        userNewsArray = newArray
+        let id = friend.friendUserId
+        if(friendId.includes(id)===false){
+            friendId.push(id)
+        }
     })
+    let friendNews =[]
+    friendId.forEach(friendId => {
+        friendNews.push(mainDB.news.filter(article => {return article.userId === friendId}))
+    })
+    friendNews = [].concat.apply([], friendNews)
+    
+    let currentUserNews =[]
+    currentUserNews.push(mainDB.news.filter(article => {
+        return article.userId === activeUserId
+    }))
+    currentUserNews = [].concat.apply([], currentUserNews)
+
+    
+    let userNewsArray = currentUserNews.concat(friendNews)
     let sorteduserNewsArray = userNewsArray.sort(function(n,p){return p.date - n.date})
     
     sorteduserNewsArray.forEach(
         article => {
+
+            if(article.userId !== activeUserId){
+                newsHTML += `<section class = "newsArticle friendArticle" id = "newsArticle__${article.newsId}">`
+            } else {
+                newsHTML += `<section class = "newsArticle activeUserArticle" id = "newsArticle__${article.newsId}">`
+            }
+
             newsHTML += 
             `
-            <section class = "newsArticle" id = "newsArticle__${article.newsId}">
             <h2>${article.userFirst} posted a news article: </h2>
             <h1 class = "newsArticle__title"> ${article.title}</h1>
             <h3 class = "newsArticle__summary">Article Synopsis: ${article.summary}</h3>
             <h3 class = "newsArticle__url">${article.url}</h3>
-            <button type="button" class = "delete" id="delete_${article.newsId}">Delete</button>
-            </section>
-            
             `
+
+            if(article.userId === activeUserId) {
+                newsHTML +=
+                `
+                <button type="button" class = "delete" id="delete_${article.newsId}">Delete</button>
+                </section>
+                `
+            } else {
+                newsHTML += "</section>"
+            }
             // let deleteButton = document.createElement("button")
             // deleteButton.appendChild(document.createTextNode("Delete"))
             // deleteButton.id = `delete_${article.newsId}`
@@ -47,8 +75,8 @@ let writeNews = () => {
         }
     )
     
-    
     newsOutpulEl.innerHTML = newsHTML
+
     let deleteButtons = document.getElementsByClassName("delete")
     let deleteArray = Array.from(deleteButtons)
     deleteArray.forEach(
