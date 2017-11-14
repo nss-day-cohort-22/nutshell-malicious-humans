@@ -20,7 +20,7 @@
 }
 
 .userEvents {
-    border: 3px solid lightgreen;
+    border: 3px solid #0275d8;
     box-shadow: 3px 3px 15px darkslategray;
     margin-bottom: 15px;
     padding: 15px;
@@ -28,4 +28,18 @@
     margin-left: auto;
     width: 80%;
 
+}
+
+.modalEvent {
+    width: 400px;
+    height: 350px;
+    position:absolute;
+    z-index: 1;
+    top: 26%;
+    left: 5%;
+    background-color: #0275d8;
+    margin: 0, auto;
+    border: 3px solid cornsilk;
+    padding: 10px;
+    box-shadow: 3px 3px 15px darkslategray;
 }

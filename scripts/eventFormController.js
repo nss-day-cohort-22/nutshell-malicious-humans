@@ -11,6 +11,7 @@ const createEventForm = function () {
     
     const formDiv = document.createElement("div")
     formDiv.id = "event_formContent"
+    formDiv.className = "modalEvent"
 
 
     //content for form
