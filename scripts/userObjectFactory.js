@@ -12,7 +12,7 @@ const userNameInDb = require("./userNameInDb")
 const userEmailInDb = require("./userEmailInDb")
 
 
-let userObjectFactory = function (firstName, lastName, userName, email) {
+let userObjectFactory = function (firstName, lastName, userName, email, password) {
     let storedMainDB = getLocalStorage()
     let lastId = storedMainDB.users[storedMainDB.users.length- 1] ||  {userId: 0}
     let userIdFactory = idGenerator(lastId.userId)
@@ -39,6 +39,16 @@ let userObjectFactory = function (firstName, lastName, userName, email) {
             "value": email,
             "enumerable": true,
             "writable": true
+        },
+        "password": {
+            "value": password,
+            "enumerable": true,
+            "writable": true
+        },
+        "friends": {
+            "value": [],
+            "enumerable": true,
+            "writable": true
         }
     })
     storedMainDB.users.push(newUser)
@@ -54,8 +64,9 @@ let createUser = () => {
     let userLN = document.getElementById("user_lastName").value
     let userName = document.getElementById("user_userName").value
     let userEmail = document.getElementById("user_email").value
+    let userPassword = document.getElementById("user_password").value
 
-    if(userFN === "" || userLN === "" || userName === "" || userEmail === "") {
+    if(userFN === "" || userLN === "" || userName === "" || userEmail === "" || userPassword === "") {
         alert("Please complete all fields")
     } else if(userNameInDb(userName, storedMainDB) === true && userEmailInDb(userEmail, storedMainDB) === true)  {
         //get user from local storage
@@ -68,7 +79,7 @@ let createUser = () => {
         buildDashboard()
     } else {
         //create new user and set user as active in session storage 
-        userObjectFactory(userFN, userLN, userName, userEmail)
+        userObjectFactory(userFN, userLN, userName, userEmail, userPassword)
 
         //add user to local storage
         // setLocalStorage(storedMainDB)

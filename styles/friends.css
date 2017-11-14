@@ -1,0 +1,7 @@
+.user {
+    border: 3px solid lightgreen;
+    box-shadow: 3px 3px 15px darkslategray;
+    width: 40%;
+    margin-bottom: 15px;
+    padding: 10px;
+}

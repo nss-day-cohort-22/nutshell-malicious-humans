@@ -7,6 +7,7 @@ const userFormEl = document.getElementById("userFormSection")
 const addUserForm = function() {
     
     document.getElementById("showUserForm").classList.add("hideIt") //hides sign-up button
+    document.getElementById("showUserSignIn").classList.add("hideIt") 
 
     const formDiv = document.createElement("div") //creates a div to hold the form
     formDiv.id = "user_form"
@@ -21,6 +22,8 @@ const addUserForm = function() {
                 <input type="text" id="user_userName" name="user_userName" required="required">
             <label for="user_email">Email Address</label>    
                 <input type="email" id="user_email" name="user_email" required="required">
+            <label for="user_password">Password</label>    
+                <input type="password" id="user_password" name="user_password" required="required">
     
     ` 
     formDiv.innerHTML = userFormString //adds the form content to the div
