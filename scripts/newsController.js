@@ -90,4 +90,3 @@ let writeNews = () => {
     
 
 module.exports = writeNews
-

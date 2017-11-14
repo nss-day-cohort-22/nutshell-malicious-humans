@@ -5,6 +5,7 @@ const buildMessageBoard = require("./buildMessageBoard")
 const taskController = require("./taskController.js")
 const eventController = require("./eventController.js")
 const displayUsers = require("./displayUsers")
+const displayFriends = require("./displayFriends")
 
 
 
@@ -81,11 +82,16 @@ const buildDashboard = function () {
     friendsDiv.id = "friends"
     //create a button that allows users to navigate to the tasks page, give that button an id
     let friendsButton = document.createElement("button")
-    friendsButton.appendChild(document.createTextNode("Click"))
+    friendsButton.appendChild(document.createTextNode("Add Friends"))
     friendsButton.id = "friends_Button"
     friendsButton.addEventListener("click", displayUsers)
     //append the button to the tasks div
     friendsDiv.appendChild(friendsButton)
+    let showFriendsButton = document.createElement("button")
+    showFriendsButton.appendChild(document.createTextNode("Show Friends List"))
+    showFriendsButton.id = "show_Friends_button"
+    showFriendsButton.addEventListener("click", displayFriends)
+    friendsDiv.appendChild(showFriendsButton)
 
 
     let dashButtonMarker = document.getElementById("headerId")

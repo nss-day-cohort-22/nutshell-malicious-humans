@@ -74,10 +74,7 @@ const buildMessageBoard = function() {
     let storedDB = getLocalStorage()
     setLocalStorage(storedDB)
     writeMessages()
-<<<<<<< HEAD
-=======
     revealDashLink()
->>>>>>> master
     messageAuthorCheck()
     messageBoardMaintenance()
     messageBoardDeleteCheck()
