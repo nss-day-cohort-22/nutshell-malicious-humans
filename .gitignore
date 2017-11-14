@@ -9,3 +9,4 @@ obj
 *.sqlite3
 .vscode
 package-lock.json
+.DS_Store
