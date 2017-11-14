@@ -31,7 +31,7 @@ const editEventForm = function (event) {
 
     //gets the section of the event clicked
     const eventEditEl = document.getElementById("event_" + idEventEdit)
-    const editFormEl = document.getElementById("event_editContent_" + idEventEdit)
+    const editFormEl = document.getElementById("event_editContent" + idEventEdit)
 
     editFormEl.innerHTML = " " //prevents user from adding multiple edit forms if they click the button multipl times
 

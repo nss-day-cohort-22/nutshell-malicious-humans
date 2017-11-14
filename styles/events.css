@@ -1,0 +1,19 @@
+#event_list {
+    border: 2px solid black;
+}
+
+.firstEvent {
+    background-color: lightgreen;
+    font-size: 1.1em;
+    font-weight: bold
+}
+
+#event_list p, #event_list h3 {
+    margin: .25em
+}
+
+#event_list section {
+    margin: 0;
+    padding: .5em;
+    border-bottom: .5px solid black
+}

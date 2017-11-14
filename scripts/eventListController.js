@@ -16,6 +16,7 @@ const addEventList = function (event) {
     <p id="event_date${event.eventId}">Date: ${event.eventDate}</p>
     <p id="event_location${event.eventId}">Location: ${event.eventLocation}</p>
     <p id="event_description${event.eventId}">Description: ${event.eventDescription}</p>
+    <div id="event_editContent${event.eventId}"></div>
     `
     
     eventEl.innerHTML += eventContentString
