@@ -8,6 +8,10 @@
     margin-top: 1em
 }
 
+#event_addButton {
+    margin-left: 10px
+}
+
 
 .firstEvent {
     background-color: rgb(121, 197, 255);
@@ -38,11 +42,11 @@
 
 .modalEvent {
     color: #0275d8;
-    width: 374px;
-    height: 324px;
+    width: 484px;
+    height: 434px;
     position:absolute;
     z-index: 1;
-    top: 26%;
+    top: 24%;
     left: 5%;
     background-color: cornsilk;
     margin: 0, auto;

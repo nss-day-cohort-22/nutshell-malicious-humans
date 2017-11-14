@@ -7,8 +7,9 @@ let buildLandingPage = function () {
     let landingPageMarker = document.getElementById("landingPage")
     landingPageMarker.innerHTML += `
     <div>
+    <img src="../img/nutshell.jpg" alt="black and white image of a nutshell">
     <h1>
-    Welcome to Get a life!
+    Welcome to Malicious Nutshell!
     </h1>
     <button class="btn btn-primary" id="showUserForm"> Sign Up!</button>
     <button class="btn btn-primary" id="showUserSignIn">Sign In!</button>
