@@ -51,22 +51,19 @@ const displayEventList = function () {
         eventsToDisplay = eventsToDisplay.concat(currentUserEvents)
 
 
-        storedEvents.sort( function(a, b) { //sort events by date, need to parse into an integer
+        eventsToDisplay.sort( function(a, b) { //sort events by date, need to parse into an integer
             const dateA = Date.parse(a.eventDate) 
             const dateB = Date.parse(b.eventDate)
             return dateA - dateB
         }).forEach( event => {
-            if(event.userId === currentUserId) { //if the event userId matches the id of the current user 
-                const dateToday = Date.parse(todayDate()) //today's date parsed
-                const eventDate = Date.parse(event.eventDate) //event date parsed
-                if(dateToday <= eventDate) {
-                    addEventList(event) //then add the event to the DOM
-                    document.getElementById("event_None").className = "hideIt" //and give the default message a class of hideIt
-                }
-            }   
+            const dateToday = Date.parse(todayDate()) //today's date parsed
+            const eventDate = Date.parse(event.eventDate) //event date parsed
+            if(dateToday <= eventDate) {
+                addEventList(event) //then add the event to the DOM
+                document.getElementById("event_None").className = "hideIt" //and give the default message a class of hideIt
+            }
         })
     }
-
 }
 
 module.exports = displayEventList
