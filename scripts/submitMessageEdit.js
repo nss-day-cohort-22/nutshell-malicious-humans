@@ -3,8 +3,6 @@ let setLocalStorage = require("./setLocalStorage")
 let getSessionStorage = require("./getSessionStorage")
 let buildMessageBoard = require("./buildMessageBoard")
 const makeMessageEdit = require("./makeMessageEdit")
-const getEditObject = require("./getEditObject")
-let setEditObject = require("./setEditObject")
 const addChatUserAsFriend = require("./addChatUserAsFriend")
 
 
@@ -22,8 +20,6 @@ const submitMessageEdit = function (event) {
         if (messageDivId === message.messageId) {
             message.messageText = textSubmission
             setLocalStorage(storedDB)
-            let editObject = getEditObject(messageDivId, textSubmission, currentUserObject.user.userName)
-            setEditObject(editObject)
         }
     })
 
