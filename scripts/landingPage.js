@@ -6,8 +6,8 @@ let signInForm = require("./signInForm")
 let buildLandingPage = function () {
     let landingPageMarker = document.getElementById("landingPage")
     landingPageMarker.innerHTML += `
-    <div>
     <img src="../img/nutshell.jpg" alt="black and white image of a nutshell">
+    <div>
     <h1>
     Welcome to Malicious Nutshell!
     </h1>
