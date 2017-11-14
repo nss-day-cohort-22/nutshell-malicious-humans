@@ -5,6 +5,7 @@ const messageAuthorCheck = require("./messageAuthorCheck")
 const messageBoardMaintenance = require("./messageBoardMaintenance")
 let getLocalStorage = require("./getLocalStorage")
 let setLocalStorage = require("./setLocalStorage")
+
 const messageBoardDeleteCheck = require("./messageBoardDeleteCheck")
 const revealDashLink = require("./revealDashLink")
 

@@ -1,6 +1,9 @@
 const getLocalStorage = require("./getLocalStorage")
 const getSessinStorage = require("./getSessionStorage")
 const addFriend = require("./addFriend")
+
+const addPrompt = require("./friendPrompt")
+
 const revealDashLink = require("./revealDashLink")
 
 
@@ -14,14 +17,18 @@ const displayUsers = () => {
 
     let friendsArray = mainDB.userFriend.filter(friend => {return activeUser.user.userId === friend.activeUserId || activeUser.user.userId === friend.friendUserId}) //array of current user's friends
 
-    // if user is a current friend of the active user, do not add them to the notFriends array
+    
     const notFriends = mainDB.users.filter(user =>{
         let noFriend = true
-        friendsArray.forEach( friend => {
-            if(user.userId === friend.friendUserId || user.userId === friend.activeUserId) {
-                noFriend = false
-            }
-        })
+        if (user.userId === activeUser.user.userId) { //do not add active user to notFriends array
+            noFriend = false
+        } else { // if user is a current friend of the active user, do not add them to the notFriends array
+            friendsArray.forEach( friend => {
+                if(user.userId === friend.friendUserId || user.userId === friend.activeUserId) {
+                    noFriend = false
+                } 
+            })
+        }
         return noFriend
     })
 
@@ -41,7 +48,7 @@ const displayUsers = () => {
 
     let buttonArray = document.getElementsByClassName("addButton")
     let addButtonArray = Array.from(buttonArray)
-    addButtonArray.forEach(button => button.addEventListener("click", addFriend))
+    addButtonArray.forEach(button => button.addEventListener("click", addPrompt))
 
     revealDashLink()
 
