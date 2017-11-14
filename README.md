@@ -46,3 +46,26 @@ const NutshellDatabase = {
 1. All teammates must be using Grunt to run ESLint and Browserify during development
 1. Each module should have a comment at the top with the following info: author(s) and purpose of module
 1. The README for your project should include instructions on how another person can download and run the application
+
+## Run Nutshell Locally
+Prerequisites:
+ - npm
+ - grunt
+ - http-server (node package)
+
+To run this project locally on your own computer execute the following:
+
+ 1. Make sure you have some version of npm installed to your machine, the latest stable version of node comes bundled with npm
+ 2. Open a terminal window 
+ 3. Within you terminal navigate to the desired location you wish to clone this repository into
+ 4. Clone the repository
+ 5. Now navigate to the root directory of the cloned repository
+ 6. From the command line run `npm install`
+ 7. Open a separate terminal window or tab
+ 8. Navigate to the root directory of the cloned repository
+ 9. From the command line run `grunt`
+ 10. Open another terminal window or tab
+ 11. Navigate to the root directory of the cloned repository
+ 12. From the command line run `http-server`
+ 13. Open the project in your favority text editor
+ 14. Save any one of the javascript files in the project, this will trigger browserify to "compile" the javascript file to be used by index.html in the local development server

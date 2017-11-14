@@ -50,3 +50,44 @@
 #taskListForm ul {
     list-style-type: none;
 }
+
+#landingPage > div {
+    text-align: center;
+}
+#userFormSection {
+    width: 40%;
+    margin: 0 auto;
+}
+
+#user_password {
+    margin-bottom: 15px;
+}
+
+#unorderedTaskList li {
+    font-size: 1.4rem;
+}
+
+#unorderedTaskList label {
+    margin-left: 10px;
+}
+
+#taskListForm,
+#newTaskForm {
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+#newTaskForm {
+    margin-top: 2%;
+}
+
+#newTaskForm form label,
+#newTaskForm form input {
+    display: block;
+}
+
+#newTaskCancel {
+    margin-left: 5px;
+}
