@@ -1,6 +1,6 @@
 #newsForm {
     display: block;
-    border: 3px solid lightgreen;
+    border: 3px solid #0275d8;
     box-shadow: 3px 3px 15px darkslategray;
     width: 50%;
     padding: 15px;
@@ -21,9 +21,9 @@
 }
 
 .newsArticle {
-    border: 3px solid lightgreen;
+    border: 3px solid #0275d8;
     box-shadow: 3px 3px 15px darkslategray;
-    margin-bottom: 15px;
+    margin-top: 15px;
     padding: 15px;
     margin-right: auto;
     margin-left: auto;
@@ -45,7 +45,7 @@
     right: 35%;
     background-color: white;
     margin: 0, auto;
-    border: 3px solid lightgreen;
+    border: 3px solid #0275d8;
     padding: 10px;
     box-shadow: 3px 3px 15px darkslategray;
 }
