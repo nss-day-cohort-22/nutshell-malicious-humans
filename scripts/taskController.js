@@ -11,6 +11,11 @@ const revealDashLink = require("./revealDashLink")
 function taskController() {
     
     const dashboardSection = document.getElementById("Dashboard")
+    const dashboardDivs = dashboardSection.querySelectorAll("div")
+    
+    for(let i = 0; i < dashboardDivs.length; i++) {
+        dashboardDivs[i].classList.add("hideIt")
+    }
     
     function init() {
         
