@@ -1,4 +1,4 @@
-#userFormSection input, #event_formContent label {
+#userFormSection input, #event_formContent label, .editForm label {
     display: block;
 }
 
@@ -11,23 +11,20 @@
     text-align: center;
 }
 
-#event_list {
-    border: 2px solid black;
-}
-
-#event_list section:nth-child(2) {
-    background-color: lightblue;
-    font-size: 1.1em;
-    font-weight: bold
-}
-
 #taskListForm ul {
     list-style-type: none;
 }
 
+
 #landingPage > div {
     text-align: center;
+    margin-top: 100px;
 }
+
+#landingPage img {
+    width: 300px
+}
+
 #userFormSection {
     width: 40%;
     margin: 0 auto;

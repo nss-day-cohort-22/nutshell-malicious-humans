@@ -31,24 +31,24 @@ const editEventForm = function (event) {
 
     //gets the section of the event clicked
     const eventEditEl = document.getElementById("event_" + idEventEdit)
-    const editFormEl = document.getElementById("event_editContent_" + idEventEdit)
+    const editFormEl = document.getElementById("event_editContent" + idEventEdit)
 
     editFormEl.innerHTML = " " //prevents user from adding multiple edit forms if they click the button multipl times
 
-
     //content for edit form
     let editFormString = `
-        <h3>Edit ${editEName}</h3>
-        <p>
-            <label for="event_nameEdit">Edit Event Name</label>    
-                <input type="text" id="event_nameEdit" name="event_nameEdit" value="${editEName}">
-            <label for="event_dateEdit">Edit Date</label>    
-                <input type="date" id="event_dateEdit" name="event_dateEdit" value="${editEDate}">
-            <label for="event_locationEdit">Edit Location</label>    
-                <input type="text" id="event_locationEdit" name="event_locationEdit" value="${editELocation}">
-            <label for="event_descriptionEdit">Edit Description</label>    
-                <textarea id="event_descriptionEdit" rows="4" cols="50">${editEDescription}</textarea>
-        </p>
+        <div class="editForm">
+            <p>
+                <label for="event_nameEdit">Edit Event Name</label>    
+                    <input type="text" id="event_nameEdit" name="event_nameEdit" value="${editEName}">
+                <label for="event_dateEdit">Edit Date</label>    
+                    <input type="date" id="event_dateEdit" name="event_dateEdit" value="${editEDate}">
+                <label for="event_locationEdit">Edit Location</label>    
+                    <input type="text" id="event_locationEdit" name="event_locationEdit" value="${editELocation}">
+                <label for="event_descriptionEdit">Edit Description</label>    
+                    <textarea id="event_descriptionEdit" rows="4" cols="50">${editEDescription}</textarea>
+            </p>
+        </div>
     `
     
     editFormEl.innerHTML += editFormString

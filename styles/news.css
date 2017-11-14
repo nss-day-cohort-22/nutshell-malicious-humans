@@ -31,7 +31,7 @@
 
 }
 
-.friendArticle {
+.friendArticle, .friendEvent {
     font-style: italic;
     background-color: cornsilk
 }
