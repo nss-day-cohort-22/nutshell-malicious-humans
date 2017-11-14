@@ -31,10 +31,10 @@ const writeMessages = function () {
         messageTextParagraph.id = "messageText"
         messageTextParagraph.appendChild(document.createTextNode(message.messageText))
         let messageEditButton = document.createElement("button")
-        messageEditButton.classList.add("editMessageButton", "hideIt")
+        messageEditButton.classList.add("editMessageButton", "hideIt", "btn", "btn-secondary")
         messageEditButton.appendChild(document.createTextNode("Edit Message"))
         let messageDeleteButton = document.createElement("button")
-        messageDeleteButton.classList.add("deleteMessageButton", "hideIt")
+        messageDeleteButton.classList.add("deleteMessageButton", "hideIt", "btn", "btn-secondary")
         messageDeleteButton.appendChild(document.createTextNode("Delete Message"))
         messageDiv.appendChild(messageTitleParagraph)
         messageDiv.appendChild(messageTextParagraph)

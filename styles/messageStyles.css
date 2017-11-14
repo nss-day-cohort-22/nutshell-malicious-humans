@@ -18,5 +18,26 @@
 }
 
 #messageText {
-    color: #0e0e0eeb;
+    color: #0e0e0edc;
+}
+
+
+#deleteMessageButton {
+    opacity: 0.5
+}
+
+#editMessageButton {
+    opacity: 0.5
+}
+
+#deleteMessageButton:hover {
+    box-shadow: 10px 10px 5px #888888;
+}
+
+#editMessageButton:hover {
+    box-shadow: 10px 10px 5px #888888;
+}
+
+#messageEntrySection {
+    background-color: #0275d8;
 }

@@ -65,6 +65,7 @@ const buildMessageBoard = function() {
     let messageSubmitButton = document.createElement("button")
     //give it an id
     messageSubmitButton.id = "messageSubmitButton"
+    messageSubmitButton.classList.add("btn", "btn-secondary")
     //add text to the button
     messageSubmitButton.appendChild(document.createTextNode("submit"))
     //add an event listener that contains a function that will add the users message the messages DB
