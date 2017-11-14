@@ -13,15 +13,16 @@ const signInForm = function () {
     //creates content for the form
     let userFormString = `
                 <label for="user_userName">Username</label>    
-                    <input type="text" id="user_userName" name="user_userName" required="required">
+                    <input type="text" id="user_userName" name="user_userName" required="required" class="form-control">
                 <label for="user_password">Password</label>    
-                    <input type="password" id="user_password" name="user_password" required="required">
+                    <input type="password" id="user_password" name="user_password" required="required" class="form-control">
         
         ` 
     formDiv.innerHTML = userFormString //adds the form content to the div
         
     // creates register button for the form
     const formSubmitButton = document.createElement("input")
+    formSubmitButton.classList.add("btn", "btn-primary")
     formSubmitButton.type = "submit"
     formSubmitButton.value = "Sign in"
     formSubmitButton.id = "user_submitForm"
