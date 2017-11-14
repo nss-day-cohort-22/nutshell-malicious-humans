@@ -2,9 +2,11 @@
 // this module adds the new event to the DOM after a user fills out the New Event form
 
 const editEvent = require("./eventEditController")
+const getSessionStorage = require("./getSessionStorage")
 
 const addEventList = function (event) {
     const eventListEl = document.getElementById("event_list")
+    const activeUser = getSessionStorage().user
 
     const eventEl = document.createElement("section")
     eventEl.id = `event_${event.eventId}`
@@ -18,12 +20,15 @@ const addEventList = function (event) {
 
     eventEl.innerHTML += eventContentString
 
-    const editEventButton = document.createElement("button")
-    editEventButton.className = `edit_${event.eventId}`
-    editEventButton.appendChild(document.createTextNode("Edit Event"))
-    editEventButton.addEventListener("click", editEvent)
+    //only allow user to edit the event that they created
+    if(event.userId === activeUser.userId) {
+        const editEventButton = document.createElement("button")
+        editEventButton.className = `edit_${event.eventId}`
+        editEventButton.appendChild(document.createTextNode("Edit Event"))
+        editEventButton.addEventListener("click", editEvent)
 
-    eventEl.appendChild(editEventButton)
+        eventEl.appendChild(editEventButton)
+    }
 
     eventListEl.appendChild(eventEl)
 

@@ -7,25 +7,41 @@ const addPrompt = require("./friendPrompt")
 const revealDashLink = require("./revealDashLink")
 
 
-const mainDB = getLocalStorage()
-
 const displayUsers = () => {
+    const mainDB = getLocalStorage()
     const activeUser = getSessinStorage()
     let usersOutputEl = document.getElementById("Dashboard")
     usersOutputEl.innerHTML = ""
 
     let userString = ""
 
-    mainDB.users.forEach(DbUser => {
-        if(DbUser.userId !== activeUser.user.userId && activeUser.user.friends.includes(DbUser)===false) {
-            userString+= 
-            `
-            <section class= "user" id= "${DbUser.userId}">
-                <h2>${DbUser.firstName} ${DbUser.lastName}</h2>
-                <button class= "addButton" id="${DbUser.userId}">Add Friend</button>
-            </section>
-            `
+    let friendsArray = mainDB.userFriend.filter(friend => {return activeUser.user.userId === friend.activeUserId || activeUser.user.userId === friend.friendUserId}) //array of current user's friends
+
+    
+    const notFriends = mainDB.users.filter(user =>{
+        let noFriend = true
+        if (user.userId === activeUser.user.userId) { //do not add active user to notFriends array
+            noFriend = false
+        } else { // if user is a current friend of the active user, do not add them to the notFriends array
+            friendsArray.forEach( friend => {
+                if(user.userId === friend.friendUserId || user.userId === friend.activeUserId) {
+                    noFriend = false
+                } 
+            })
         }
+        return noFriend
+    })
+
+    //only display users who are not friends with the current active user 
+    notFriends.forEach( user => {
+
+        userString+=
+                `
+                <section class= "user" id= "${user.userId}">
+                    <h2>${user.firstName} ${user.lastName}</h2>
+                    <button class= "addButton" id="${user.userId}">Add Friend</button>
+                </section>
+                `
     })
 
     usersOutputEl.innerHTML = userString

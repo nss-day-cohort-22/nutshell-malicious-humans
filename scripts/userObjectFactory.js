@@ -39,11 +39,6 @@ let userObjectFactory = function (firstName, lastName, userName, email) {
             "value": email,
             "enumerable": true,
             "writable": true
-        },
-        "friends": {
-            "value": [],
-            "enumerable": true,
-            "writable": true
         }
     })
     storedMainDB.users.push(newUser)
