@@ -43,11 +43,6 @@ body {
 }
 
 
-
-#event_list {
-    border: 2px solid black;
-}
-
 #taskListForm ul {
     list-style-type: none;
 
