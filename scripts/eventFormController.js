@@ -16,17 +16,19 @@ const createEventForm = function () {
 
     //content for form
     let formContentString = `
-        <h3>Create New Event</h3>
-        <p>
-            <label for="event_name">Event Name</label>    
-                <input type="text" id="event_name" name="event_name" required="required">
-            <label for="event_date">Date</label>    
-                <input type="date" id="event_date" name="event_date" required="required">
-            <label for="event_location">Location</label>    
-                <input type="text" id="event_location" name="event_location" required="required">
-            <label for="event_description">Description</label>    
-                <textarea id="event_description" rows="4" cols="50"></textarea>
-        </p>
+        <div class="eventForm">
+            <h3>Create New Event</h3>
+            <p>
+                <label for="event_name">Event Name</label>    
+                    <input type="text" id="event_name" name="event_name" required="required">
+                <label for="event_date">Date</label>    
+                    <input type="date" id="event_date" name="event_date" required="required">
+                <label for="event_location">Location</label>    
+                    <input type="text" id="event_location" name="event_location" required="required">
+                <label for="event_description">Description</label>    
+                    <textarea id="event_description" rows="4" cols="50"></textarea>
+            </p>
+        </div>
     `
     
     formDiv.innerHTML += formContentString

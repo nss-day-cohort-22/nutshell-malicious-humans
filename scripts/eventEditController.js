@@ -35,7 +35,6 @@ const editEventForm = function (event) {
 
     editFormEl.innerHTML = " " //prevents user from adding multiple edit forms if they click the button multipl times
 
-
     //content for edit form
     let editFormString = `
         <div class="editForm">

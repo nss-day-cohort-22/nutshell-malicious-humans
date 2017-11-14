@@ -1,10 +1,16 @@
+#event_div h1 {
+    text-align: center;
+    color: #0275d8;
+    font-size: 2em
+}
+
 #event_list {
     margin-top: 1em
 }
 
 
 .firstEvent {
-    background-color: paleturquoise;
+    background-color: rgb(121, 197, 255);
     font-size: 1.1em;
     font-weight: bold
 }
@@ -31,15 +37,16 @@
 }
 
 .modalEvent {
-    width: 400px;
-    height: 350px;
+    color: #0275d8;
+    width: 374px;
+    height: 324px;
     position:absolute;
     z-index: 1;
     top: 26%;
     left: 5%;
-    background-color: #0275d8;
+    background-color: cornsilk;
     margin: 0, auto;
-    border: 3px solid cornsilk;
+    border: 3px solid #0275d8;
     padding: 10px;
     box-shadow: 3px 3px 15px darkslategray;
 }
