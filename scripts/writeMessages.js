@@ -44,16 +44,6 @@ const writeMessages = function () {
 
         messageInjectionMarker.appendChild(messageDiv)
 
-
-
-        // messageInjectionMarker.innerHTML += `
-        // <div id="${message.messageId}" class="chatMessage">
-        //     <p id="messageTitle">${currentAuthor}</p>
-        //     <p id="messageText">${message.messageText}</p>
-        //     <button class="editMessageButton hideIt">Edit Message</button>
-        //     <button class="deleteMessageButton hideIt">Delete Message</button>
-        // </div>
-        // `
     })
     
     let editButtons = document.getElementsByClassName("editMessageButton")

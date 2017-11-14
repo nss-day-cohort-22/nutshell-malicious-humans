@@ -3,3 +3,20 @@
     overflow-y: visible;
     height: 500px;
 }
+
+.chatMessage {
+    background-color: rgba(211, 211, 211, 0.698);
+    border: 1.2px solid rgba(53, 52, 52, 0.87);
+    padding:  .2em;
+    margin: .6em;
+}
+
+#messageAuthor {
+    color: rgba(54, 54, 54, 0.856);
+    font-size: 1.18em;
+    text-decoration: underline;
+}
+
+#messageText {
+    color: #0e0e0eeb;
+}

@@ -51,6 +51,11 @@ const buildMessageBoard = function() {
     textInstructions.id = "textInstructions"
     //add the text to the h3
     textInstructions.appendChild(document.createTextNode("Enter your message below"))
+
+    let addFriendInstructions = document.createElement("h5")
+    addFriendInstructions.id = "addFriendInstructions"
+    addFriendInstructions.appendChild(document.createTextNode("Tip: If you like what someone has to say, click on their username to add them as a friend."))
+    
     //append the instructions to the message entry div
     //create a text area for the user to enter their text in
     let messageTextArea = document.createElement("textarea")
@@ -66,6 +71,7 @@ const buildMessageBoard = function() {
     messageSubmitButton.addEventListener("click", storeMessage)
     //append the elements to the message entry div
     messageEntryDiv.appendChild(textInstructions)
+    messageEntryDiv.appendChild(addFriendInstructions)
     messageEntryDiv.appendChild(messageTextArea)
     messageEntryDiv.appendChild(messageSubmitButton)
     //append the message entry div to the message entry section
