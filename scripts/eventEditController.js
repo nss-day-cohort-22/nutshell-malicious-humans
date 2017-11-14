@@ -31,15 +31,14 @@ const editEventForm = function (event) {
 
     //gets the section of the event clicked
     const eventEditEl = document.getElementById("event_" + idEventEdit)
-    
-    //creates a div for the edit form
-    const editFormDiv = document.createElement("div")
-    editFormDiv.id = "event_editContent"
+    const editFormEl = document.getElementById("event_editContent_" + idEventEdit)
+
+    editFormEl.innerHTML = " " //prevents user from adding multiple edit forms if they click the button multipl times
 
 
     //content for edit form
     let editFormString = `
-        <h3>Edit Event</h3>
+        <h3>Edit ${editEName}</h3>
         <p>
             <label for="event_nameEdit">Edit Event Name</label>    
                 <input type="text" id="event_nameEdit" name="event_nameEdit" value="${editEName}">
@@ -52,7 +51,7 @@ const editEventForm = function (event) {
         </p>
     `
     
-    editFormDiv.innerHTML += editFormString
+    editFormEl.innerHTML += editFormString
     
     //create button will add the event to local storage and add it to the DOM
     const updateEventButton = document.createElement("button")
@@ -65,13 +64,13 @@ const editEventForm = function (event) {
     closeButton.id = "close_event_form"
     closeButton.appendChild(document.createTextNode("Close"))
     closeButton.addEventListener("click", () => {
-        eventEditEl.removeChild(editFormDiv)
+        editFormEl.innerHTML = " "
     })
     
-    editFormDiv.appendChild(updateEventButton)
-    editFormDiv.appendChild(closeButton)
+    editFormEl.appendChild(updateEventButton)
+    editFormEl.appendChild(closeButton)
 
-    eventEditEl.appendChild(editFormDiv)
+    eventEditEl.appendChild(editFormEl)
 
 }
 

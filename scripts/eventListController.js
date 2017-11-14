@@ -23,7 +23,12 @@ const addEventList = function (event) {
     editEventButton.appendChild(document.createTextNode("Edit Event"))
     editEventButton.addEventListener("click", editEvent)
 
+    //creates a div for the edit form
+    const editFormDiv = document.createElement("div")
+    editFormDiv.id = `event_editContent_${event.eventId}`
+
     eventEl.appendChild(editEventButton)
+    eventEl.appendChild(editFormDiv)
 
     eventListEl.appendChild(eventEl)
 
