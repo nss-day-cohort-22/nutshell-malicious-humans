@@ -10,8 +10,8 @@ let buildLandingPage = function () {
     <h1>
     Welcome to Get a life!
     </h1>
-    <button id="showUserForm"> Sign Up!</button>
-    <button id="showUserSignIn">Sign In!</button>
+    <button class="btn btn-primary" id="showUserForm"> Sign Up!</button>
+    <button class="btn btn-primary" id="showUserSignIn">Sign In!</button>
     </div>
     `
     let showFormButton = document.getElementById("showUserForm")
