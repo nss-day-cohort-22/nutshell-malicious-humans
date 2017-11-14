@@ -11,40 +11,47 @@ const todayDate = require("./eventToday")
 const displayEventList = function () {
 
     const storedDb = getLocalStorage()
-    const currentEvents = storedDb.events //events in local storage
-    const activeUser = getSessionStorage() 
-
+    const storedEvents = storedDb.events //events in local storage
+    
     const eventListEl = document.getElementById("event_list")
-
+    
     //if there are events in local storage
-    if (currentEvents.length > 0) {
-        
+    if (storedEvents.length > 0) {
         
         const currentUserId = getSessionStorage().user.userId //id of current user
-        let friendsArray = storedDb.userFriend.filter(friend => {return activeUser.user.userId === friend.activeUserId || activeUser.user.userId === friend.friendUserId})
+        
+        let friendsArray = storedDb.userFriend.filter(friend => {return currentUserId === friend.activeUserId || currentUserId === friend.friendUserId}) //array of current user's friends
 
-        console.log(friendsArray)
-        let friendEventArray = []
+        let eventsToDisplay = [] //array that holds events that the current user's friends have created
 
+        //filters through friendsArray and adds their events to the eventsToDisplay
         friendsArray.forEach(friend => {
             
-            let array = currentEvents.filter(cEvent => {
-                const notActiveUser = (cEvent.userId !== activeUser.user.userId) //not the session active user
-                const fActiveUser = (cEvent.userId === friend.activeUserId) //event Id is equal to the active user on the friend relationship
-                const fFriendUser = (cEvent.userId === friend.friendUserId) //event Id is equal to the friend user on the friend relationship
-                
-                return notActiveUser && fActiveUser || notActiveUser && fFriendUser //return if the event id is NOT equal to the session active user but is equal to either the active or friend user on the friend relationship
+            let array = storedEvents.filter(cEvent => {
+                const notActiveUser = (cEvent.userId !== currentUserId) //event userId is not equal to the session active user
+                const activeId = (cEvent.userId === friend.activeUserId) //event userId is equal to the active user on the friend relationship
+                const friendId = (cEvent.userId === friend.friendUserId) //event userId is equal to the friend user on the friend relationship
+            
+                return (notActiveUser && (activeId || friendId))//id is NOT equal to the session active user but is equal to either the active or friend user on the friend relationship
             })
 
-            let newArray = friendEventArray.concat(array) //concat events into an array
+            let friendsEvents = eventsToDisplay.concat(array) //concat events into an array
 
-            friendEventArray = newArray //friend event array contains only friends events and not the active session user
+            eventsToDisplay = friendsEvents //adds friendEvents into eventsToDisplay
 
+            // console.log(friendsEvents)
         })
 
-        console.log(friendEventArray)
+        //returns the events that have the current active user as the event userId
+        const currentUserEvents = storedEvents.filter(event => {
+            return event.userId === currentUserId
+        })
 
-        currentEvents.sort( function(a, b) { //sort events by date, need to parse into an integer
+        //adds the current active user's events to the eventsToDisplay array
+        eventsToDisplay = eventsToDisplay.concat(currentUserEvents)
+
+
+        storedEvents.sort( function(a, b) { //sort events by date, need to parse into an integer
             const dateA = Date.parse(a.eventDate) 
             const dateB = Date.parse(b.eventDate)
             return dateA - dateB
@@ -70,3 +77,18 @@ module.exports = displayEventList
 // if(eventDate > dateToday) { //doesn't display events that happened before today's date
 //     addEventList(event)
 // }
+
+// storedEvents.sort( function(a, b) { //sort events by date, need to parse into an integer
+//     const dateA = Date.parse(a.eventDate) 
+//     const dateB = Date.parse(b.eventDate)
+//     return dateA - dateB
+// }).forEach( event => {
+//     if(event.userId === currentUserId) { //if the event userId matches the id of the current user 
+//         const dateToday = Date.parse(todayDate()) //today's date parsed
+//         const eventDate = Date.parse(event.eventDate) //event date parsed
+//         if(dateToday <= eventDate) {
+//             addEventList(event) //then add the event to the DOM
+//             document.getElementById("event_None").className = "hideIt" //and give the default message a class of hideIt
+//         }
+//     }   
+// })
