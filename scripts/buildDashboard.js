@@ -23,10 +23,11 @@ const buildDashboard = function () {
     // create div for tasks link
     // create a div and store it in a variable. Then add text to that div
     let tasksDiv = document.createElement("div")
-    tasksDiv.appendChild(document.createTextNode("Click to create or view Tasks"))
+    tasksDiv.id = "tasksDiv"
+    tasksDiv.appendChild(document.createTextNode("Manage your tasks"))
     //create a button that allows users to navigate to the tasks page, give that button an id
     let tasksButton = document.createElement("button")
-    tasksButton.appendChild(document.createTextNode("Click"))
+    tasksButton.appendChild(document.createTextNode("Go"))
     tasksButton.id = "tasks_Button"
     tasksButton.addEventListener("click", function(){
         taskController()
@@ -37,10 +38,11 @@ const buildDashboard = function () {
     // create div for messages link
     // create a div and store it in a variable. Then add text to that div
     let messagesDiv = document.createElement("div")
-    messagesDiv.appendChild(document.createTextNode("Click to create or view messages"))
+    messagesDiv.id = "messageDiv"
+    messagesDiv.appendChild(document.createTextNode("Use the chatroom"))
     //create a button that allows users to navigate to the tasks page, give that button an id
     let messagesButton = document.createElement("button")
-    messagesButton.appendChild(document.createTextNode("Click"))
+    messagesButton.appendChild(document.createTextNode("Enter"))
     messagesButton.id = "messages_Button"
     messagesButton.addEventListener("click", buildMessageBoard)
     //append the button to the tasks div
@@ -49,10 +51,11 @@ const buildDashboard = function () {
     // create div for events link
     // create a div and store it in a variable. Then add text to that div
     let eventsDiv = document.createElement("div")
-    eventsDiv.appendChild(document.createTextNode("Click to create or view events"))
+    eventsDiv.id = "eventsDiv"
+    eventsDiv.appendChild(document.createTextNode("View or create upcoming events"))
     //create a button that allows users to navigate to the tasks page, give that button an id
     let eventsButton = document.createElement("button")
-    eventsButton.appendChild(document.createTextNode("Click"))
+    eventsButton.appendChild(document.createTextNode("Check it Out"))
     eventsButton.id = "events_Button"
     eventsButton.addEventListener("click", eventController)
     //append the button to the tasks div
@@ -61,16 +64,17 @@ const buildDashboard = function () {
     // create div for news
     // create a div and store it in a variable. Then add text to that div
     let newsDiv = document.createElement("div")
-    newsDiv.appendChild(document.createTextNode("Click to create or view News"))
+    newsDiv.id = "newsDiv"
+    newsDiv.appendChild(document.createTextNode("View or contribute to the latest breaking news"))
     //create a button that allows users to navigate to the tasks page, give that button an id
     let createNewsButton = document.createElement("button")
-    createNewsButton.appendChild(document.createTextNode("Post a News Article"))
+    createNewsButton.appendChild(document.createTextNode("Post News"))
     createNewsButton.id = "create_news_button"
     createNewsButton.addEventListener("click", newsForm)
     //append the button to the tasks div
     newsDiv.appendChild(createNewsButton)
     let showNewsButton = document.createElement("button")
-    showNewsButton.appendChild(document.createTextNode("Show News Articles"))
+    showNewsButton.appendChild(document.createTextNode("Show News"))
     showNewsButton.id = "show_news_button"
     showNewsButton.addEventListener("click", writeNews)
     newsDiv.appendChild(showNewsButton)
@@ -78,7 +82,7 @@ const buildDashboard = function () {
     // create div for friends link
     // create a div and store it in a variable. Then add text to that div
     let friendsDiv = document.createElement("div")
-    friendsDiv.appendChild(document.createTextNode("Click to add or view Friends"))
+    friendsDiv.appendChild(document.createTextNode("Your friends"))
     friendsDiv.id = "friends"
     //create a button that allows users to navigate to the tasks page, give that button an id
     let friendsButton = document.createElement("button")
@@ -88,7 +92,7 @@ const buildDashboard = function () {
     //append the button to the tasks div
     friendsDiv.appendChild(friendsButton)
     let showFriendsButton = document.createElement("button")
-    showFriendsButton.appendChild(document.createTextNode("Show Friends List"))
+    showFriendsButton.appendChild(document.createTextNode("Show Current Friends"))
     showFriendsButton.id = "show_Friends_button"
     showFriendsButton.addEventListener("click", displayFriends)
     friendsDiv.appendChild(showFriendsButton)
