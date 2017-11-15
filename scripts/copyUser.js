@@ -1,3 +1,5 @@
+//Tyler: This module takes a userObject and sets them as the activeUser and puts them in Session storage.
+
 let getLocalStorage = require("./getLocalStorage")
 let setSessionStorage = require("./setSessionStorage")
 

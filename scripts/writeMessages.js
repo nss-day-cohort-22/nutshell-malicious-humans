@@ -56,8 +56,10 @@ const writeMessages = function () {
         messageDiv.appendChild(messageDeleteButton)
         //append entire message to message div
         messageInjectionMarker.appendChild(messageDiv)
+
         //add event listener to invoke function to add chat user as a friend.
         messageTitleParagraph.addEventListener("click", addChatUserAsFriend)
+
     })
     //get a list of each type of button
     let editButtons = document.getElementsByClassName("editMessageButton")

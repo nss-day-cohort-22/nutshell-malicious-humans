@@ -1,3 +1,5 @@
+//Tyler: This module exports a function that allows the user to delete a userFriend relationship object from the database.
+
 const getLocalStorage = require("./getLocalStorage")
 const getSessionStorage = require("./getSessionStorage")
 const setLocalStorage = require("./setLocalStorage")

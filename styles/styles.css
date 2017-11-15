@@ -19,7 +19,8 @@ body {
     justify-content: space-around;
     flex-direction: column;
     font-family: 'Cardo', serif;
-    
+    box-shadow: 3px 3px 10px darkslategray;   
+    margin-bottom: 15px; 
 }
 
 
