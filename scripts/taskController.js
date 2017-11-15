@@ -26,6 +26,10 @@ function taskController() {
         const tFactory = taskFactory()    
         const taskSection = document.createElement("section")
         taskSection.id = "taskListForm"
+
+        const header = document.createElement("h2")
+        header.innerHTML = "Tasks"
+        taskSection.appendChild(header)
         
         const form = document.createElement("form")
         const ul = document.createElement("ul")
