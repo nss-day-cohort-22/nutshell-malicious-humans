@@ -5,7 +5,7 @@ const getLocalStorage = require("./getLocalStorage")
 const getSessionStorage = require("./getSessionStorage")
 const addEventList = require("./eventListController")
 const todayDate = require("./eventToday")
-
+const revealDashLink =  require("./revealDashLink")
 
 
 const displayEventList = function () {
@@ -58,6 +58,7 @@ const displayEventList = function () {
             }
         })
 
+        revealDashLink()
         document.querySelector(".myEvent").classList.add("firstEvent") //changes class of the active user's first event so that it is formatted differently
     }
 }
