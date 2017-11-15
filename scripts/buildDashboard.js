@@ -118,7 +118,7 @@ const buildDashboard = function () {
     let returnToDashButton = document.createElement("button")
     returnToDashButton.classList.add("btn", "btn-primary")
     returnToDashButton.id = "returnToDashButton"
-    returnToDashButton.classList.add("hideIt")
+    returnToDashButton.classList.add("btn", "btn-secondary", "hideIt")
     returnToDashButton.appendChild(document.createTextNode("Return To Dashboard"))
     dashButtonMarker.appendChild(returnToDashButton)
     returnToDashButton.addEventListener("click", function () {
@@ -127,6 +127,7 @@ const buildDashboard = function () {
 
     let logOutButton = document.createElement("button")
     logOutButton.id = "logOutButton"
+    logOutButton.classList.add("btn", "btn-secondary")
     logOutButton.appendChild(document.createTextNode("Log Out"))
     dashButtonMarker.appendChild(logOutButton)
     logOutButton.addEventListener("click", function () {

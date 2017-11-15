@@ -3,3 +3,57 @@
     overflow-y: visible;
     height: 500px;
 }
+
+.chatMessage {
+    background-color: rgba(211, 211, 211, 0.698);
+    border: 1.2px solid rgba(53, 52, 52, 0.87);
+    padding:  .2em;
+    margin: .6em;
+}
+
+#messageAuthor {
+    color: rgba(54, 54, 54, 0.856);
+    font-size: 1.18em;
+    text-decoration: underline;
+}
+
+#messageText {
+    color: #0e0e0edc;
+}
+
+
+#deleteMessageButton {
+    opacity: 0.5
+}
+
+#editMessageButton {
+    opacity: 0.5
+}
+
+#deleteMessageButton:hover {
+    box-shadow: 10px 10px 5px #888888;
+}
+
+#editMessageButton:hover {
+    box-shadow: 10px 10px 5px #888888;
+}
+
+#messageEntrySection {
+    background-color: #0275d8;
+    color: white;
+    border: 1.2px solid rgba(53, 52, 52, 0.87);
+}
+
+#messageTextArea {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    height:100px;
+}
+
+#messageSubmitButton {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

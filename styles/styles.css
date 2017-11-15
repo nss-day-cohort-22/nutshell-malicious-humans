@@ -1,4 +1,8 @@
-#userFormSection input, #event_formContent label {
+body {
+    background-color: rgb(252, 252, 252)
+
+}
+#userFormSection input, #event_formContent label, .editForm label {
     display: block;
 }
 
@@ -7,23 +11,80 @@
 }
 
 .partyTime {
-    background-color: lightgreen;
+    background-color: #0275d8;
     text-align: center;
+    padding: 15px;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    font-family: 'Cardo', serif;
+    
 }
 
-#event_list {
-    border: 2px solid black;
+
+.partyTime h1 {
+    font-size: 40px;
+    margin-bottom: 0px;
 }
 
-#event_list section:nth-child(2) {
-    background-color: lightblue;
-    font-size: 1.1em;
-    font-weight: bold
+.partyTime h2 {
+    font-size: 30px;
+    margin-top: 15px;
 }
+
+#logOutButton,
+#returnToDashButton {
+    width: 400px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
 
 #taskListForm ul {
     list-style-type: none;
+
 }
+
+#landingPage {
+    position: relative;
+    text-align: center;
+    
+}
+
+
+#landingPage > div {
+    text-align: center;
+    margin-top: 200px;
+}
+
+#landingPage img {
+    height: 70%;
+    position: fixed;
+    z-index: -1;
+    left: 20px;
+    bottom: 150px;
+}
+
+#userFormSection {
+    width: 40%;
+    margin: 0 auto;
+}
+
+#user_password {
+    margin-bottom: 15px;
+}
+
+#unorderedTaskList li {
+    font-size: 1.4rem;
+}
+
+#unorderedTaskList label {
+    margin-left: 10px;
+}
+
 
 #landingPage > div {
     text-align: center;
@@ -44,6 +105,7 @@
 #unorderedTaskList label {
     margin-left: 10px;
 }
+
 
 #taskListForm,
 #newTaskForm {

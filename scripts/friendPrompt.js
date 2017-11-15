@@ -14,7 +14,7 @@ let addPrompt = (event) => {
 
     let modalHTML = 
     `
-    <div class = "modal" id= "addFriendModal">
+    <div class = "friendModal" id= "addFriendModal">
         <h3> Are you sure you want to add ${friend.firstName} ${friend.lastName} as a friend? </h3>
         <button id = "button_${id}">Add Friend</button> 
         <button id = "cancel"> Cancel </button>

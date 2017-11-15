@@ -1,0 +1,56 @@
+#event_div h1 {
+    text-align: center;
+    color: #0275d8;
+    font-size: 2em
+}
+
+#event_list {
+    margin-top: 1em
+}
+
+#event_addButton {
+    margin-left: 10px
+}
+
+
+.firstEvent {
+    background-color: rgb(121, 197, 255);
+    font-size: 1.1em;
+    font-weight: bold
+}
+
+#event_list p, #event_list h3 {
+    margin: .25em
+}
+
+.editForm label {
+    font-size: 16px;
+    font-weight: normal;
+    font-style: italic
+}
+
+.userEvents {
+    border: 3px solid #0275d8;
+    box-shadow: 3px 3px 15px darkslategray;
+    margin-bottom: 15px;
+    padding: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 80%;
+
+}
+
+.modalEvent {
+    color: #0275d8;
+    width: 484px;
+    height: 434px;
+    position:absolute;
+    z-index: 1;
+    top: 24%;
+    left: 5%;
+    background-color: cornsilk;
+    margin: 0, auto;
+    border: 3px solid #0275d8;
+    padding: 10px;
+    box-shadow: 3px 3px 15px darkslategray;
+}
