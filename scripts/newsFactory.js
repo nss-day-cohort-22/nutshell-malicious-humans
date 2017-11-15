@@ -1,3 +1,5 @@
+//Tyler: this module takes form data from the news article form and creates a news article object and stores it into the news article database in local Storage.
+
 const getLocalStorage = require("./getLocalStorage")
 const getSessionStorage = require("./getSessionStorage")
 const setLocalStorage = require("./setLocalStorage")
@@ -49,9 +51,13 @@ let createNewArticle = () => {
     let articleTitle = document.getElementById("newsForm__title").value
     let articleSummary = document.getElementById("newsForm__summary").value
     let articleURL = document.getElementById("newsForm__url").value
-
-    NewsArticleObjFactory(articleTitle, articleSummary, articleURL)
-    setLocalStorage(mainDB)
+    
+    if(articleTitle === null || articleSummary === null || articleURL === null){
+        alert("Please fill out each form field!")
+    } else {
+        NewsArticleObjFactory(articleTitle, articleSummary, articleURL)
+        setLocalStorage(mainDB)
+    }
 
 }
 

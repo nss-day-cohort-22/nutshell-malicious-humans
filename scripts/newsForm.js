@@ -1,3 +1,5 @@
+//Tyler: This module creates a form that the user can complete to create a news article.
+
 const writeNews = require("./newsController")
 const createNewArticle = require("./newsFactory")
 const getLocalStorage = require("./getLocalStorage")

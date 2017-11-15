@@ -1,3 +1,5 @@
+//Tyler: This module exports a function that takes a news article and deletes it from the database.
+
 const writeNews = require("./newsController")
 const getLocalStorage = require("./getLocalStorage")
 const setLocalStorage = require("./setLocalStorage")

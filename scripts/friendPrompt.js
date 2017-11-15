@@ -1,3 +1,5 @@
+//Tyler: This module will display a modal that has the user verify that they want to add the person as a friend.
+
 const getLocalStorage = require("./getLocalStorage")
 const addFriend = require("./addFriend")
 const displayUsers = require("./displayUsers")
@@ -7,11 +9,11 @@ const mainDB = getLocalStorage()
 let addPrompt = (event) => {
     let id = parseInt(event.target.id)
     let friend = mainDB.users.filter(user => {return user.userId === id})[0]
-
+    //Get the DOM element that will display the modal
     let modalOutput = document.getElementById("modal")
     modalOutput.style.display = "block"
 
-
+    //Modal HTML
     let modalHTML = 
     `
     <div class = "friendModal" id= "addFriendModal">
@@ -21,7 +23,7 @@ let addPrompt = (event) => {
     </div>
     `
     modalOutput.innerHTML = modalHTML
-
+    //create an add user button and a cancel button and adds an event listener to each.
     let addButton = document.getElementById(`button_${id}`)
     let cancelButton = document.getElementById("cancel")
     addButton.addEventListener("click", function(){

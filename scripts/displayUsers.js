@@ -1,3 +1,5 @@
+//Tyler & Kristen: This module displays all current users in the database that aren't currently friends with the activeUser.  It gives the activeUser the ability to add them as a friend.
+
 const getLocalStorage = require("./getLocalStorage")
 const getSessinStorage = require("./getSessionStorage")
 const addFriend = require("./addFriend")

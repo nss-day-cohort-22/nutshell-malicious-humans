@@ -1,3 +1,5 @@
+//Tyler: This module exports a function that adds a friend based on the target Id of what is clicked.
+
 const getLocalStorage = require("./getLocalStorage")
 const getSessionStorage = require("./getSessionStorage")
 const friendObjFactory = require("./friendObjFactory")

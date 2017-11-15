@@ -1,3 +1,5 @@
+//Tyler: This module takes a userObject and uses that and the activeUser to create a userFriend relationship object and stores it into the database in local storage.
+
 const getLocalStorage = require("./getLocalStorage")
 const idGenerator = require("./idGenerator")
 const getSessionStorage = require("./getSessionStorage")

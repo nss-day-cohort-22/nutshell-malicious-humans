@@ -1,3 +1,5 @@
+//Tyler: This module displays the activeUser's current friend list and gives them the ability to delete friends.
+
 let getLocalStorage = require("./getLocalStorage")
 let getSessionStorage = require("./getSessionStorage")
 let deleteFriend = require("./deleteFriend")
