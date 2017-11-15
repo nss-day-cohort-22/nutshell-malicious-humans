@@ -1,3 +1,10 @@
+//Author : Garrett Ward
+//Functionality : Injects form for pre-existing user to sign into the website onto the dom
+//This is a copy/alteration of Kristen/Tyler's user sign up form
+
+//changed form to ask only for username and password
+//changed event listener and button to invoke function for sign in
+
 const userSignIn = require("./userSignIn")
 
 const userFormEl = document.getElementById("userFormSection")
@@ -20,13 +27,13 @@ const signInForm = function () {
         ` 
     formDiv.innerHTML = userFormString //adds the form content to the div
         
-    // creates register button for the form
+    // creates sign in button
     const formSubmitButton = document.createElement("input")
     formSubmitButton.classList.add("btn", "btn-primary")
     formSubmitButton.type = "submit"
     formSubmitButton.value = "Sign in"
     formSubmitButton.id = "user_submitForm"
-    formDiv.appendChild(formSubmitButton) //appends register button to the div
+    formDiv.appendChild(formSubmitButton) //appends sign in button to the div
 
     const refreshButton = document.createElement
     

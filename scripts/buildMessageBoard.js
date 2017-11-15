@@ -1,4 +1,7 @@
-//Messageboard Builder - Garrett Ward. 
+//Author : Garrett Ward
+//Functionality: Creates virtual elements and appends them to the DOM to create
+//a message display section as well as a submit message section
+
 const storeMessage = require("./storeMessage")
 const writeMessages = require("./writeMessages")
 const messageAuthorCheck = require("./messageAuthorCheck")

@@ -3,6 +3,7 @@
 
 const editEvent = require("./eventEditController")
 const getSessionStorage = require("./getSessionStorage")
+const deleteEvent = require("./eventDeleteController")
 
 const addEventList = function (event) {
     const eventListEl = document.getElementById("event_list")
@@ -26,12 +27,21 @@ const addEventList = function (event) {
     if(event.userId === activeUser.userId) {
         eventEl.classList.add("myEvent") //added class to identify events that are the active users
         
+        //adds edit button
         const editEventButton = document.createElement("button")
         editEventButton.className = `edit_${event.eventId}`
         editEventButton.appendChild(document.createTextNode("Edit Event"))
         editEventButton.addEventListener("click", editEvent)
 
         eventEl.appendChild(editEventButton)
+        
+        //adds delete button
+        const deleteEventButton = document.createElement("button")
+        deleteEventButton.className = `delete_${event.eventId}`
+        deleteEventButton.appendChild(document.createTextNode("Delete Event"))
+        deleteEventButton.addEventListener("click", deleteEvent)
+
+        eventEl.appendChild(deleteEventButton)
     } else {
         eventEl.classList.add("friendEvent") //added class to identify events that are for the user's friends
     }

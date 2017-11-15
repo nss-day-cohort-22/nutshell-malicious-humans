@@ -1,6 +1,11 @@
+//Author : Garrett Ward
+//Functionality : Display the current active user in the header of the website
+
 let getSessionStorage = require("./getSessionStorage")
 
 const displayActiveUser = function () {
+
+    //create virtual elements and append them to the DOM.
     let currentUserObject = getSessionStorage()
     let userDisplayMarker = document.getElementById("headerId")
     let userDisplayHeading = document.createElement("h1")
@@ -13,6 +18,5 @@ const displayActiveUser = function () {
     
 
 }
-
 module.exports = displayActiveUser
 
