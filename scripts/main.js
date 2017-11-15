@@ -1,3 +1,5 @@
+//behold the magic of browserify
+
 let buildLandingPage = require("./landingPage")
 let mainDB = require("./nutshellDB")
 let setLocalStorage = require("./setLocalStorage")
