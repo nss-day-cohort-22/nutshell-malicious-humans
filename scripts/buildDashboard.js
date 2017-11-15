@@ -1,3 +1,10 @@
+//Author : Garrett Ward
+//Functionality : Creates virtual elements and appends them to the DOM to 
+//construct our website's dashboard. Uses event listeners to invoke functions
+//that manipulate the DOM so the user may create, store, and interact with data
+//from the browser
+
+
 const displayActiveUser = require("./displayActiveUser")
 const newsForm = require("./newsForm")
 const writeNews = require("./newsController")
@@ -42,6 +49,7 @@ const buildDashboard = function () {
     let messagesButton = document.createElement("button")
     messagesButton.appendChild(document.createTextNode("Enter"))
     messagesButton.id = "messages_Button"
+    //add event listener to invoke Message features
     messagesButton.addEventListener("click", buildMessageBoard)
     //append the button to the tasks div
     messagesDiv.appendChild(messagesButton) 
@@ -54,6 +62,7 @@ const buildDashboard = function () {
     let eventsButton = document.createElement("button")
     eventsButton.appendChild(document.createTextNode("Check it Out"))
     eventsButton.id = "events_Button"
+    //add event listener to invoke events features
     eventsButton.addEventListener("click", eventController)
     //append the button to the tasks div
     eventsDiv.appendChild(eventsButton)
@@ -66,12 +75,14 @@ const buildDashboard = function () {
     let createNewsButton = document.createElement("button")
     createNewsButton.appendChild(document.createTextNode("Post News"))
     createNewsButton.id = "create_news_button"
+    //add an event listener that will invoke the create news features
     createNewsButton.addEventListener("click", newsForm)
     //append the button to the tasks div
     newsDiv.appendChild(createNewsButton)
     let showNewsButton = document.createElement("button")
     showNewsButton.appendChild(document.createTextNode("Show News"))
     showNewsButton.id = "show_news_button"
+    //add event listener that will invoke the show news features
     showNewsButton.addEventListener("click", writeNews)
     newsDiv.appendChild(showNewsButton)
 
@@ -83,31 +94,39 @@ const buildDashboard = function () {
     let friendsButton = document.createElement("button")
     friendsButton.appendChild(document.createTextNode("Add Friends"))
     friendsButton.id = "friends_Button"
+    //add an event listener that invokes the add friends feautures
     friendsButton.addEventListener("click", displayUsers)
     //append the button to the tasks div
     friendsDiv.appendChild(friendsButton)
     let showFriendsButton = document.createElement("button")
     showFriendsButton.appendChild(document.createTextNode("Show Current Friends"))
     showFriendsButton.id = "show_Friends_button"
+    //add an event listener that invokes the display friends features
     showFriendsButton.addEventListener("click", displayFriends)
     friendsDiv.appendChild(showFriendsButton)
 
-
+    //create a button that will return the user to the dashboard
     let dashButtonMarker = document.getElementById("headerId")
     let returnToDashButton = document.createElement("button")
     returnToDashButton.id = "returnToDashButton"
     returnToDashButton.classList.add("btn", "btn-secondary", "hideIt")
     returnToDashButton.appendChild(document.createTextNode("Return To Dashboard"))
     dashButtonMarker.appendChild(returnToDashButton)
+    //add event listener that will reload page, resulting in a dashboard load
+    //for the current user in session storage
     returnToDashButton.addEventListener("click", function () {
         location.reload()
     })
 
+
+    //create a button that will log the user out
     let logOutButton = document.createElement("button")
     logOutButton.id = "logOutButton"
     logOutButton.classList.add("btn", "btn-secondary")
     logOutButton.appendChild(document.createTextNode("Log Out"))
     dashButtonMarker.appendChild(logOutButton)
+    //add an event listener that invokes a function that clears out session storage
+    // and the reloads the page, resulting in a landing page load.
     logOutButton.addEventListener("click", function () {
         sessionStorage.clear()
         location.reload()

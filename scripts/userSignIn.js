@@ -1,7 +1,8 @@
-
+let addUserForm = require("./userFormController")
 let getLocalStorage = require("./getLocalStorage")
 let buildDashboard = require("./buildDashboard")
 let copyUser = require("./copyUser")
+let getSessionStorage = require("./getSessionStorage")
 
 const userSignIn = function () {
 
@@ -9,7 +10,6 @@ const userSignIn = function () {
     
     let userName = document.getElementById("user_userName").value
     let userPassword = document.getElementById("user_password").value
-    console.log("hello")
 
     storedDB.users.forEach(function (user) {
         if (user.userName === userName) {
@@ -19,10 +19,14 @@ const userSignIn = function () {
             } else {
                 alert("password does not match, try again. Careful: password check is case sensitive")
             }
-        } else {
-            alert("user not found! please register!")
         }
     })
+
+    let sessionObj = getSessionStorage()
+    if (sessionObj === null) {
+        alert("user not found! please register!")
+        location.reload()
+    }
     
 }
 module.exports = userSignIn
