@@ -1,3 +1,7 @@
+// Author: Jason Figueroa
+// Module purpose: this module determines whether or not it is appropriate to 
+// search for changes in the messages db. It compares the old messages to the 
+// new ones and if It finds a change it updates the dom to reflect the changes. 
 // const writeMessages = require("")
 
 const updateMessageBoardOnEdit = (e) => {
